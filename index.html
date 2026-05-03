@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeAI — AI Training & Compliance | Cork, Ireland</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="safeai-components.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <style>
+    html, body { margin: 0; padding: 0; }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "heroHeadline": "Using AI in your business?",
+  "heroSub": "You may already have legal obligations.",
+  "primaryCTA": "Take the 2-minute check",
+  "secondaryCTA": "Book a call with Marcela",
+  "showTimeline": true,
+  "showBlog": true,
+  "showGuides": true,
+  "accentColor": "#1B9AAA"
+}/*EDITMODE-END*/;
+
+function App() {
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  // Override teal color if changed
+  React.useEffect(() => {
+    if (tweaks && tweaks.accentColor) {
+      document.documentElement.style.setProperty('--teal-override', tweaks.accentColor);
+    }
+  }, [tweaks && tweaks.accentColor]);
+
+  return (
+    <>
+      <Navbar />
+      <HeroSection />
+      <ProblemSection />
+      {tweaks.showTimeline && <TimelineSection />}
+      <QuizSection />
+      <ServicesSection />
+      <FreeToolsSection />
+      {tweaks.showGuides && <GuidesSection />}
+      {tweaks.showBlog && <BlogSection />}
+      <AboutSection />
+      <FAQSection />
+      <CTAStrip />
+      <Footer />
+
+      <TweaksPanel>
+        <TweakSection title="Content">
+          <TweakText id="heroHeadline" label="Hero headline" value={tweaks.heroHeadline} onChange={v => setTweak('heroHeadline', v)} />
+          <TweakText id="heroSub" label="Hero sub-headline" value={tweaks.heroSub} onChange={v => setTweak('heroSub', v)} />
+          <TweakText id="primaryCTA" label="Primary CTA" value={tweaks.primaryCTA} onChange={v => setTweak('primaryCTA', v)} />
+          <TweakText id="secondaryCTA" label="Secondary CTA" value={tweaks.secondaryCTA} onChange={v => setTweak('secondaryCTA', v)} />
+        </TweakSection>
+        <TweakSection title="Sections">
+          <TweakToggle id="showTimeline" label="Show EU AI Act timeline" value={tweaks.showTimeline} onChange={v => setTweak('showTimeline', v)} />
+          <TweakToggle id="showGuides" label="Show Guides section" value={tweaks.showGuides} onChange={v => setTweak('showGuides', v)} />
+          <TweakToggle id="showBlog" label="Show Blog section" value={tweaks.showBlog} onChange={v => setTweak('showBlog', v)} />
+        </TweakSection>
+        <TweakSection title="Brand">
+          <TweakColor id="accentColor" label="Accent colour" value={tweaks.accentColor} onChange={v => setTweak('accentColor', v)} />
+        </TweakSection>
+      </TweaksPanel>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

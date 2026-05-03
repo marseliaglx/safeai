@@ -220,49 +220,49 @@ function Navbar({ tweaks }) {
 /* ── Hero Section ── */
 function HeroSection() {
   return (
-    <section id="hero" style={{ background: T.navy, minHeight: '92vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 80 }}>
+    <section id="hero" style={{ background: T.cream, minHeight: '92vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 80 }}>
       {/* Subtle dot-grid background */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 0,
-        backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)`,
+        backgroundImage: `radial-gradient(circle, rgba(27,58,107,0.06) 1px, transparent 1px)`,
         backgroundSize: '28px 28px',
         pointerEvents: 'none',
       }}></div>
       {/* Teal arc shape bottom-right */}
       <div style={{
         position: 'absolute', bottom: -80, right: -80, width: 420, height: 420,
-        borderRadius: '50%', background: T.teal, opacity: 0.07, zIndex: 0,
+        borderRadius: '50%', background: T.teal, opacity: 0.08, zIndex: 0,
         pointerEvents: 'none',
       }}></div>
 
       <div style={{ maxWidth: 1120, margin: '0 auto', padding: '64px 24px 80px', position: 'relative', zIndex: 1 }}>
-        <span className="sa-tag sa-tag-white" style={{ marginBottom: 20, display: 'inline-block' }}>
+        <span className="sa-tag sa-tag-teal" style={{ marginBottom: 20, display: 'inline-block' }}>
           For Irish small businesses, schools &amp; community organisations
         </span>
 
-        <h1 style={{ fontSize: 'clamp(36px, 5.5vw, 68px)', fontWeight: 700, color: T.white, lineHeight: 1.1, marginBottom: 20, maxWidth: 780, textWrap: 'balance' }}>
+        <h1 style={{ fontSize: 'clamp(36px, 5.5vw, 68px)', fontWeight: 700, color: T.charcoal, lineHeight: 1.1, marginBottom: 20, maxWidth: 780, textWrap: 'balance' }}>
           Using AI in your business?
         </h1>
         <p style={{ fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 600, color: T.teal, lineHeight: 1.3, marginBottom: 20, maxWidth: 620 }}>
           You may already have legal obligations.
         </p>
-        <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.72)', lineHeight: 1.8, maxWidth: 520, marginBottom: 36 }}>
-          The EU AI Act is here. Even everyday use of ChatGPT, Canva, or Midjourney can create legal obligations. SafeAI helps Irish organisations use AI confidently — and sleep at night.
+        <p style={{ fontSize: 16, color: T.charcoal, lineHeight: 1.8, maxWidth: 700, marginBottom: 36 }}>
+          Even everyday use of AI tools like writing emails, creating content, or summarising documents can create legal obligations under the EU AI Act for Irish businesses, schools, and organisations. Most organisations are already using AI. Very few realise they’re responsible for how it’s used.
         </p>
 
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
           <a href="#quiz" className="sa-btn-primary" style={{ fontSize: 16, padding: '16px 32px' }}>
             Take the 2-minute check
           </a>
-          <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-outline" style={{ fontSize: 16, padding: '14px 32px' }}>
+          <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-outline" style={{ fontSize: 16, padding: '14px 32px', color: T.navy, borderColor: 'rgba(27,58,107,0.35)' }}>
             Book a call with Marcela
           </a>
         </div>
 
         {/* Footer strip */}
-        <div style={{ display: 'flex', gap: 24, marginTop: 52, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.1)', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 24, marginTop: 52, paddingTop: 24, borderTop: '1px solid rgba(27,58,107,0.15)', flexWrap: 'wrap' }}>
           {['Cork, Ireland', 'English & Polish', 'safeai.ie'].map(item => (
-            <span key={item} style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)' }}>{item}</span>
+            <span key={item} style={{ fontSize: 13, color: T.muted }}>{item}</span>
           ))}
         </div>
       </div>
@@ -848,9 +848,8 @@ function Footer() {
             </div>
             <div style={{ display: 'flex', gap: 10, marginTop: 16 }}>
               {[
-                { icon: <Icon.LinkedIn size={16} color="rgba(255,255,255,0.6)" />, href: 'https://linkedin.com/company/safeai-ie', label: 'LinkedIn' },
-                { icon: <Icon.Facebook size={16} color="rgba(255,255,255,0.6)" />, href: 'https://facebook.com/safeai.ie', label: 'Facebook' },
-                { icon: <Icon.Instagram size={16} color="rgba(255,255,255,0.6)" />, href: 'https://instagram.com/safeai.ie', label: 'Instagram' },
+                { icon: <Icon.Facebook size={16} color="rgba(255,255,255,0.6)" />, href: 'https://www.facebook.com/SafeAI.Ireland/', label: 'Facebook' },
+                { icon: <Icon.Instagram size={16} color="rgba(255,255,255,0.6)" />, href: 'https://www.instagram.com/safeai.ireland', label: 'Instagram' },
               ].map(s => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
                   style={{ width: 34, height: 34, borderRadius: 7, background: 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.15s', textDecoration: 'none' }}

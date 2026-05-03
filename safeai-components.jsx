@@ -186,9 +186,9 @@ function Navbar({ tweaks }) {
         {/* Logo */}
         <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
           <img
-            src="safeai-logo.png"
+            src="safeai-logo.svg"
             alt="SafeAI logo"
-            style={{ height: 40, width: 'auto', display: 'block' }}
+            style={{ height: 36, width: 'auto', display: 'block' }}
           />
         </a>
 

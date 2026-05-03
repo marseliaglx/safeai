@@ -1,0 +1,18 @@
+<svg width="220" height="70" viewBox="0 0 220 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(0 6)">
+    <g transform="translate(54 0)">
+      <line x1="18" y1="0" x2="18" y2="5" stroke="#5D6A75" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="18" cy="-1" r="3" fill="#2B9AB0" stroke="#5D6A75" stroke-width="1.5"/>
+      <rect x="0" y="8" width="36" height="28" rx="12" fill="#F4F7F9" stroke="#5D6A75" stroke-width="2"/>
+      <rect x="-5" y="16" width="6" height="12" rx="3" fill="#2B9AB0" stroke="#5D6A75" stroke-width="1.5"/>
+      <rect x="35" y="16" width="6" height="12" rx="3" fill="#2B9AB0" stroke="#5D6A75" stroke-width="1.5"/>
+      <circle cx="12" cy="22" r="3" fill="#5D6A75"/>
+      <circle cx="24" cy="22" r="3" fill="#5D6A75"/>
+      <path d="M12 30C14 32 16 33 18 33C20 33 22 32 24 30" stroke="#5D6A75" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <text x="0" y="56" font-family="Poppins, Arial, sans-serif" font-size="56" font-weight="700" letter-spacing="-1.2">
+      <tspan fill="#4A5560">Safe</tspan><tspan fill="#2B9AB0">AI</tspan>
+    </text>
+    <text x="28" y="68" font-family="Poppins, Arial, sans-serif" font-size="13" fill="#7A8590">AI Training &amp; Compliance</text>
+  </g>
+</svg>

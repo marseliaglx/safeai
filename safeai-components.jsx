@@ -184,28 +184,21 @@ function Navbar({ tweaks }) {
     }}>
       <div style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none' }}>
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <circle cx="14" cy="14" r="14" fill={T.tealLight}/>
-            <rect x="8" y="10" width="12" height="10" rx="3" fill="none" stroke={T.teal} strokeWidth="1.6"/>
-            <circle cx="11" cy="14" r="1.2" fill={T.teal}/>
-            <circle cx="17" cy="14" r="1.2" fill={T.teal}/>
-            <path d="M11 17.5c.8.8 2 1 3 .8s2-.8 3-1.8" stroke={T.teal} strokeWidth="1.2" strokeLinecap="round"/>
-            <line x1="14" y1="7" x2="14" y2="10" stroke={T.teal} strokeWidth="1.4" strokeLinecap="round"/>
-            <circle cx="14" cy="6.5" r="1" fill={T.teal}/>
-          </svg>
-          <span style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: 20, color: scrolled ? T.charcoal : T.white, letterSpacing: '-0.01em' }}>
-            Safe<span style={{ color: T.teal }}>AI</span>
-          </span>
+        <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <img
+            src="safeai-logo.png"
+            alt="SafeAI logo"
+            style={{ height: 40, width: 'auto', display: 'block' }}
+          />
         </a>
 
         {/* Desktop links */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
           {links.map(l => (
             <a key={l} href={`#${l.toLowerCase().replace(' ','-')}`}
-              style={{ fontSize: 14, fontWeight: 500, color: scrolled ? T.charcoal : T.white, textDecoration: 'none', transition: 'color 0.15s' }}
+              style={{ fontSize: 14, fontWeight: 500, color: T.charcoal, textDecoration: 'none', transition: 'color 0.15s' }}
               onMouseEnter={e => e.target.style.color = T.teal}
-              onMouseLeave={e => e.target.style.color = scrolled ? T.charcoal : T.white}
+              onMouseLeave={e => e.target.style.color = T.charcoal}
             >{l}</a>
           ))}
           <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-primary" style={{ fontSize: 14, padding: '10px 20px' }}>

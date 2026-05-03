@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeAI — Homepage Wireframes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background: #1a1a1a; }
+
+    /* ── Brand tokens ── */
+    :root {
+      --teal: #1B9AAA;
+      --teal-light: #E6F4F6;
+      --navy: #1B3A6B;
+      --charcoal: #3F4B56;
+      --ink: #2D3640;
+      --muted: #7A8590;
+      --cream: #F4F7F9;
+      --white: #FFFFFF;
+    }
+
+    /* ── Sketch / wireframe aesthetic ── */
+    .wf { font-family: 'Poppins', sans-serif; background: #fff; }
+
+    /* annotation labels */
+    .ann {
+      font-family: 'Caveat', cursive;
+      font-size: 13px;
+      color: var(--teal);
+      opacity: 0.85;
+    }
+
+    /* hatched placeholder box */
+    .ph {
+      background: repeating-linear-gradient(
+        45deg,
+        #e8edf2 0px, #e8edf2 3px,
+        #f4f7f9 3px, #f4f7f9 12px
+      );
+      border: 1.5px dashed #b0bec5;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #90a4ae;
+      font-size: 11px;
+      font-family: 'Caveat', cursive;
+      line-height: 1.4;
+    }
+
+    /* sketch button */
+    .btn-sketch {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: default;
+      letter-spacing: 0.02em;
+    }
+    .btn-primary { background: var(--teal); color: #fff; }
+    .btn-outline { background: transparent; border: 2px solid var(--teal); color: var(--teal); }
+    .btn-navy { background: var(--navy); color: #fff; }
+    .btn-ghost { background: transparent; color: var(--teal); text-decoration: underline; font-size: 12px; }
+
+    /* section labels */
+    .sec-label {
+      font-family: 'Caveat', cursive;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+
+    /* thin dividers */
+    .div-h { height: 1px; background: #e0e8ed; margin: 0; }
+
+    /* nav bar */
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+      border-bottom: 1.5px solid #e0e8ed;
+      background: #fff;
+    }
+    .nav-logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--charcoal);
+    }
+    .nav-logo span { color: var(--teal); }
+    .nav-links { display: flex; gap: 16px; align-items: center; }
+    .nav-link { font-size: 11px; color: var(--charcoal); }
+
+    /* card */
+    .card {
+      background: #fff;
+      border: 1.5px solid #e0e8ed;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .card-teal { border-left: 3px solid var(--teal); }
+    .card-navy { background: var(--navy); border: none; border-radius: 8px; padding: 16px; }
+
+    /* tag */
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .tag-teal { background: var(--teal-light); color: var(--teal); }
+    .tag-navy { background: rgba(27,58,107,0.12); color: var(--navy); }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState } = React;
+
+/* ─────────────── SHARED COMPONENTS ─────────────── */
+
+function Nav({ variant = "A" }) {
+  return (
+    <div className="nav-bar">
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div style={{ width: 24, height: 24, borderRadius: '50%', background: 'var(--teal)', opacity: 0.3 }}></div>
+        <div className="nav-logo">Safe<span>AI</span></div>
+      </div>
+      <div className="nav-links">
+        {["Problem","Quiz","Free tools","Guides","Blog","About"].map(l =>
+          <span key={l} className="nav-link">{l}</span>
+        )}
+        <span className="btn-sketch btn-primary" style={{ fontSize: 11, padding: '5px 12px' }}>Book a call</span>
+      </div>
+    </div>
+  );
+}
+
+function Placeholder({ w, h, label }) {
+  return (
+    <div className="ph" style={{ width: w || '100%', height: h || 80 }}>
+      {label}
+    </div>
+  );
+}
+
+function SectionDivider({ label }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 0' }}>
+      <div style={{ flex: 1, height: 1, background: '#e0e8ed' }}></div>
+      <span style={{ fontFamily: 'Caveat', fontSize: 10, color: '#b0bec5', whiteSpace: 'nowrap' }}>§ {label}</span>
+      <div style={{ flex: 1, height: 1, background: '#e0e8ed' }}></div>
+    </div>
+  );
+}
+
+/* ─────────────── DIRECTION A — "Calm Authority" ─────────────── */
+/* 
+  Visual logic:
+  - Two-column layouts throughout, ample whitespace
+  - Hero: left = headline + CTA, right = Marcela credibility snippet
+  - Sections alternate white / cream
+  - EU AI Act timeline as a horizontal strip
+  - FAQ in accordion style, navy footer CTA strip
+*/
+
+function DirA_Hero() {
+  return (
+    <div style={{ background: '#fff', padding: '28px 24px 24px', display: 'grid', gridTemplateColumns: '3fr 2fr', gap: 24 }}>
+      {/* Left */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <span className="tag tag-teal" style={{ width: 'fit-content' }}>For Irish small businesses, schools &amp; community orgs</span>
+        <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--charcoal)', lineHeight: 1.25 }}>
+          Using AI like ChatGPT<br />in your business?
+          <span style={{ color: 'var(--teal)', display: 'block', fontSize: 18, fontWeight: 400, fontStyle: 'italic', marginTop: 4 }}>You may already have legal obligations.</span>
+        </div>
+        <div style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1.6, maxWidth: 280 }}>
+          EU AI Act + GDPR. SafeAI helps Irish SMEs use AI confidently, meet obligations, and stop worrying about it on a Tuesday evening.
+        </div>
+        <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginTop: 4 }}>
+          <span className="btn-sketch btn-primary">Book a call with Marcela</span>
+          <span className="btn-ghost">Or take the 2-min check →</span>
+        </div>
+      </div>
+      {/* Right — Marcela credibility card */}
+      <div style={{ background: 'var(--cream)', borderRadius: 10, padding: 16, display: 'flex', flexDirection: 'column', gap: 10 }}>
+        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+          <Placeholder w={52} h={52} label="Photo" />
+          <div>
+            <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--charcoal)' }}>Marcela Gleixner</div>
+            <div style={{ fontSize: 11, color: 'var(--muted)' }}>Cork, Ireland · EN / PL</div>
+          </div>
+        </div>
+        <div style={{ fontSize: 11, color: 'var(--ink)', fontStyle: 'italic', lineHeight: 1.5 }}>
+          "15 years in Microsoft & VMware. Former EU Parliament assistant. Now I help small orgs use AI without the legal headaches."
+        </div>
+        {["EU Parliament 5 yrs","Microsoft + VMware 15 yrs","Master's EU Legal System"].map(c => (
+          <div key={c} style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--teal)', flexShrink: 0 }}></div>
+            <span style={{ fontSize: 11, color: 'var(--charcoal)' }}>{c}</span>
+          </div>
+        ))}
+        <span className="btn-sketch btn-primary" style={{ textAlign: 'center', fontSize: 11 }}>Book a free 30-min call</span>
+      </div>
+    </div>
+  );
+}
+
+function DirA_Problem() {
+  const items = [
+    "Asked ChatGPT to write a customer email",
+    "Pasted client info into an AI tool",
+    "Generated images with Midjourney / Canva",
+    "Asked AI to summarise documents",
+    "Generated social captions with AI",
+  ];
+  return (
+    <div style={{ background: 'var(--cream)', padding: '20px 24px' }}>
+      <p className="sec-label">The Problem</p>
+      <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 4 }}>If you've ever done any of this, you're already using AI</div>
+      <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 14 }}>That feels normal. Sometimes it is. Sometimes it is not.</div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+        {items.map((t, i) => (
+          <div key={i} className="card" style={{ padding: '10px 12px' }}>
+            <div style={{ width: 18, height: 18, borderRadius: 4, background: 'var(--teal-light)', border: '1px solid var(--teal)', marginBottom: 6 }}></div>
+            <div style={{ fontSize: 11, color: 'var(--ink)' }}>{t}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ marginTop: 12, background: 'var(--teal-light)', borderLeft: '3px solid var(--teal)', borderRadius: '0 6px 6px 0', padding: '10px 12px' }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--charcoal)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>The Quiet Bit</div>
+        <div style={{ fontSize: 11, color: 'var(--ink)', lineHeight: 1.6 }}>You might be sharing customer data without realising. Under the EU AI Act, you are legally responsible for what AI produces on your behalf.</div>
+      </div>
+    </div>
+  );
+}
+
+function DirA_Timeline() {
+  const items = [
+    { date: "Aug 2024", label: "EU AI Act in force", note: "Prohibited practices banned" },
+    { date: "Feb 2025", label: "GPAI obligations", note: "General purpose AI rules apply" },
+    { date: "Aug 2025", label: "High-risk rules", note: "Most SME obligations kick in" },
+    { date: "Aug 2026", label: "Full enforcement", note: "All articles enforceable" },
+  ];
+  return (
+    <div style={{ background: '#fff', padding: '20px 24px' }}>
+      <p className="sec-label">EU AI Act Timeline</p>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 14 }}>The law is already in motion. Where does your business stand?</div>
+      <div style={{ display: 'flex', gap: 0, position: 'relative' }}>
+        {/* connecting line */}
+        <div style={{ position: 'absolute', top: 16, left: 20, right: 20, height: 2, background: 'var(--teal)', opacity: 0.25, zIndex: 0 }}></div>
+        {items.map((it, i) => (
+          <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, position: 'relative', zIndex: 1 }}>
+            <div style={{ width: 32, height: 32, borderRadius: '50%', background: i <= 1 ? 'var(--teal)' : 'var(--cream)', border: '2px solid var(--teal)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: i <= 1 ? '#fff' : 'var(--teal)' }}></div>
+            </div>
+            <div style={{ fontSize: 10, fontWeight: 700, color: i <= 1 ? 'var(--teal)' : 'var(--muted)' }}>{it.date}</div>
+            <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--charcoal)', textAlign: 'center' }}>{it.label}</div>
+            <div style={{ fontSize: 9, color: 'var(--muted)', textAlign: 'center' }}>{it.note}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ textAlign: 'center', marginTop: 14 }}>
+        <span style={{ fontSize: 11, color: 'var(--ink)', fontStyle: 'italic' }}>Not sure where you stand? </span>
+        <span style={{ fontSize: 11, color: 'var(--teal)', fontWeight: 600 }}>Take the 2-minute check →</span>
+      </div>
+    </div>
+  );
+}
+
+function DirA_Quiz() {
+  return (
+    <div style={{ background: 'var(--cream)', padding: '20px 24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      <div>
+        <p className="sec-label">Self-Assessment</p>
+        <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 6 }}>Find out your AI exposure in 2 minutes</div>
+        <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 12, lineHeight: 1.6 }}>4 questions. Instant result. Free checklist to your inbox.</div>
+        {/* Progress strip */}
+        <div style={{ height: 4, background: '#d0dce4', borderRadius: 2, marginBottom: 12, overflow: 'hidden' }}>
+          <div style={{ width: '25%', height: '100%', background: 'var(--teal)', borderRadius: 2 }}></div>
+        </div>
+        <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--charcoal)', marginBottom: 8 }}>Are you generating AI images for marketing?</div>
+        {["Yes, regularly","Sometimes","Not sure"].map(o => (
+          <div key={o} className="card" style={{ marginBottom: 6, padding: '8px 12px', fontSize: 11, color: 'var(--ink)', cursor: 'default', display: 'flex', gap: 8, alignItems: 'center' }}>
+            <div style={{ width: 14, height: 14, borderRadius: '50%', border: '1.5px solid var(--teal)', flexShrink: 0 }}></div>
+            {o}
+          </div>
+        ))}
+      </div>
+      {/* Result preview */}
+      <div style={{ background: '#fff', borderRadius: 10, border: '1.5px solid var(--teal)', padding: 16, display: 'flex', flexDirection: 'column', gap: 10 }}>
+        <div style={{ fontSize: 11, color: 'var(--muted)', fontStyle: 'italic' }}>Result preview</div>
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <Placeholder w={40} h={40} label="" />
+          <div>
+            <span className="tag" style={{ background: '#FFF3CD', color: '#856404', fontSize: 11 }}>Medium exposure</span>
+            <div style={{ fontSize: 11, color: 'var(--ink)', marginTop: 4, lineHeight: 1.5 }}>Your org is using AI in ways that create some legal risk. The good news: most gaps are straightforward to close.</div>
+          </div>
+        </div>
+        <div style={{ height: 1, background: '#e0e8ed' }}></div>
+        <div style={{ fontSize: 11, color: 'var(--charcoal)' }}>Send me the full report + free checklist</div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <div style={{ flex: 1, height: 32, background: 'var(--cream)', borderRadius: 4, border: '1px solid #d0dce4' }}></div>
+          <span className="btn-sketch btn-primary" style={{ fontSize: 11, padding: '6px 14px' }}>Send it</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DirA_Services() {
+  return (
+    <div style={{ background: 'var(--navy)', padding: '20px 24px' }}>
+      <p className="sec-label" style={{ color: 'var(--teal)' }}>Work With Marcela</p>
+      <div style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginBottom: 4 }}>Two ways to get this done in a single afternoon</div>
+      <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', marginBottom: 14 }}>For organisations that want a real human in the room, not another PDF.</div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+        {[
+          { title: "Practical AI Safety Workshop", price: "From €800", desc: "2.5hr, on-site or remote, ≤20 staff. Leaves you with AI Use Inventory, Acceptable Use Policy, Article 4 one-pager." },
+          { title: "AI Readiness Assessment", price: "From €1,500", desc: "1–2 day engagement. Written report, prioritised risks, clear remediation plan. The thing to do before a regulator turns up." },
+        ].map((s, i) => (
+          <div key={i} style={{ background: '#fff', borderRadius: 8, padding: 16 }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 6 }}>{s.title}</div>
+            <div style={{ fontSize: 11, color: 'var(--ink)', lineHeight: 1.6, marginBottom: 10 }}>{s.desc}</div>
+            <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--charcoal)', marginBottom: 10 }}>{s.price}</div>
+            <span className="btn-sketch btn-primary" style={{ fontSize: 11 }}>Book a call</span>
+          </div>
+        ))}
+      </div>
+      {/* Monthly option */}
+      <div style={{ marginTop: 12, background: 'rgba(255,255,255,0.08)', borderRadius: 8, padding: '10px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div>
+          <div style={{ fontSize: 12, fontWeight: 600, color: '#fff' }}>Monthly AI Literacy Maintenance</div>
+          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)' }}>Monthly call, quarterly updates, annual policy review. From €200/month</div>
+        </div>
+        <span className="btn-sketch btn-outline" style={{ fontSize: 11, borderColor: 'rgba(255,255,255,0.4)', color: '#fff' }}>Learn more</span>
+      </div>
+    </div>
+  );
+}
+
+function DirA_FreeTools() {
+  return (
+    <div style={{ background: '#fff', padding: '20px 24px' }}>
+      <p className="sec-label">Free Tools</p>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 4 }}>Designed for your desk, not your lawyer</div>
+      <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 14 }}>Each download is sent to your inbox. We email twice, then leave you alone.</div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
+        {[
+          { title: "Irish SME AI Risk Checklist", type: "PDF · fillable", desc: "10-point local guide to identifying hidden risks in daily AI use." },
+          { title: "AI Image Safety Guide", type: "PDF", desc: "Safe to publish? Know your rights under Irish copyright + EU AI Act." },
+          { title: "SafeAI Team Policy Template", type: "Editable .docx", desc: "One-page Acceptable Use Policy you can give your team today." },
+        ].map((t, i) => (
+          <div key={i} className="card card-teal">
+            <div className="tag tag-teal" style={{ marginBottom: 8 }}>{t.type}</div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 4 }}>{t.title}</div>
+            <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 10 }}>{t.desc}</div>
+            <span style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 600 }}>Get it →</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DirA_Guides() {
+  return (
+    <div style={{ background: 'var(--cream)', padding: '20px 24px' }}>
+      <p className="sec-label">Companion Guides</p>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 14 }}>When you want to go deeper</div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
+        {[
+          { badge: "Free", title: "EU AI Act for Irish Small Orgs", price: "Free with email" },
+          { badge: "€19", title: "AI for Sole Traders", price: "€19" },
+          { badge: "€39", title: "Educational AI Governance", price: "€39" },
+        ].map((g, i) => (
+          <div key={i} style={{ background: '#fff', borderRadius: 8, border: '1.5px solid #e0e8ed', padding: 14 }}>
+            <span className="tag tag-teal" style={{ marginBottom: 8, display: 'block', width: 'fit-content' }}>{g.badge}</span>
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 4 }}>{g.title}</div>
+            <Placeholder w="100%" h={50} label="cover image" />
+            <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--charcoal)', marginTop: 8, marginBottom: 8 }}>{g.price}</div>
+            <span className="btn-sketch btn-outline" style={{ fontSize: 11, padding: '5px 12px' }}>Order</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DirA_Blog() {
+  return (
+    <div style={{ background: '#fff', padding: '20px 24px' }}>
+      <p className="sec-label">From the Blog</p>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 14 }}>Practical AI compliance insights</div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10 }}>
+        {[
+          { cat: "EU AI Act", title: "EU AI Act: What Irish SMEs Need to Know", date: "15 Dec 2024", time: "5 min" },
+          { cat: "Policies", title: "Creating a ChatGPT Workplace Policy", date: "8 Dec 2024", time: "7 min" },
+          { cat: "GDPR", title: "GDPR and AI Tools: Your Compliance Checklist", date: "28 Nov 2024", time: "6 min" },
+          { cat: "Risk", title: "How to Run an AI Risk Assessment", date: "20 Nov 2024", time: "8 min" },
+        ].map((p, i) => (
+          <div key={i} style={{ background: 'var(--cream)', borderRadius: 8, padding: '12px 14px' }}>
+            <span className="tag tag-teal" style={{ marginBottom: 6, display: 'block', width: 'fit-content' }}>{p.cat}</span>
+            <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--charcoal)', marginBottom: 6 }}>{p.title}</div>
+            <div style={{ fontSize: 10, color: 'var(--muted)' }}>{p.date} · {p.time} read</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DirA_About() {
+  return (
+    <div style={{ background: 'var(--cream)', padding: '20px 24px', display: 'grid', gridTemplateColumns: '1fr 3fr', gap: 20 }}>
+      <div>
+        <Placeholder w="100%" h={140} label="Marcela photo" />
+        <div style={{ marginTop: 8, fontSize: 13, fontWeight: 700, color: 'var(--charcoal)' }}>Marcela Gleixner</div>
+        <div style={{ fontSize: 11, color: 'var(--muted)' }}>Cork · EN / PL</div>
+      </div>
+      <div>
+        <p className="sec-label">About</p>
+        <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 8 }}>I make complex things make sense to ordinary people.</div>
+        <div style={{ fontSize: 11, color: 'var(--ink)', lineHeight: 1.7, marginBottom: 10 }}>
+          I started in the European Parliament, where I learned that the difference between a regulation working and a regulation failing is whether someone bothered to write it in plain English. Then I spent fifteen years in big tech, at Microsoft and VMware, mostly translating engineer-speak into something the rest of the company could act on.
+        </div>
+        <blockquote style={{ borderLeft: '3px solid var(--teal)', paddingLeft: 12, fontStyle: 'italic', fontSize: 12, color: 'var(--charcoal)', lineHeight: 1.6, marginBottom: 10 }}>
+          "AI is a powerful tool. Used with humans in mind, it can genuinely empower a small business. Used carelessly, it can quietly risk everything you've built."
+        </blockquote>
+        <span className="btn-sketch btn-primary" style={{ fontSize: 11 }}>Book a call with Marcela</span>
+      </div>
+    </div>
+  );
+}
+
+function DirA_FAQ() {
+  const items = [
+    "Do I actually have EU AI Act obligations as a small business?",
+    "Is SafeAI a law firm?",
+    "How long does a workshop take?",
+    "What if I only use ChatGPT occasionally?",
+    "Do you work with schools and community organisations?",
+  ];
+  return (
+    <div style={{ background: '#fff', padding: '20px 24px' }}>
+      <p className="sec-label">FAQ</p>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 14 }}>Common questions</div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+        {items.map((q, i) => (
+          <div key={i} style={{ border: '1.5px solid #e0e8ed', borderRadius: 6, padding: '10px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: 12, color: 'var(--charcoal)' }}>{q}</span>
+            <span style={{ fontSize: 16, color: 'var(--teal)', lineHeight: 1 }}>+</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DirA_CTAStrip() {
+  return (
+    <div style={{ background: 'var(--navy)', padding: '20px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div>
+        <div style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginBottom: 4 }}>Take the 2-minute self-assessment or download a free guide.</div>
+        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>Then book a 30-minute call when you're ready.</div>
+      </div>
+      <span className="btn-sketch btn-primary" style={{ whiteSpace: 'nowrap', fontSize: 12 }}>Get started</span>
+    </div>
+  );
+}
+
+function DirA_Footer() {
+  return (
+    <div style={{ background: 'var(--navy)', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '16px 24px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+      <div>
+        <div style={{ fontWeight: 700, fontSize: 16, color: '#fff' }}>Safe<span style={{ color: 'var(--teal)' }}>AI</span></div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>AI Training & Compliance · Cork, Ireland</div>
+      </div>
+      <div>
+        <div style={{ fontSize: 11, fontWeight: 600, color: '#fff', marginBottom: 6 }}>Quick Links</div>
+        {["Problem","Quiz","Free tools","Guides","Services","About"].map(l => (
+          <div key={l} style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginBottom: 3 }}>{l}</div>
+        ))}
+      </div>
+      <div>
+        <div style={{ fontSize: 11, fontWeight: 600, color: '#fff', marginBottom: 6 }}>Contact</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginBottom: 3 }}>marcela@safeai.ie</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginBottom: 10 }}>Book a call</div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <div style={{ width: 20, height: 20, borderRadius: 4, background: 'rgba(255,255,255,0.15)' }}></div>
+          <div style={{ width: 20, height: 20, borderRadius: 4, background: 'rgba(255,255,255,0.15)' }}></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DirectionA() {
+  return (
+    <div className="wf" style={{ width: 680, fontSize: 13 }}>
+      <Nav variant="A" />
+      <SectionDivider label="Hero" />
+      <DirA_Hero />
+      <SectionDivider label="Problem" />
+      <DirA_Problem />
+      <SectionDivider label="EU AI Act Timeline [NEW]" />
+      <DirA_Timeline />
+      <SectionDivider label="Quiz / Self-Assessment" />
+      <DirA_Quiz />
+      <SectionDivider label="Services" />
+      <DirA_Services />
+      <SectionDivider label="Free Tools" />
+      <DirA_FreeTools />
+      <SectionDivider label="Guides" />
+      <DirA_Guides />
+      <SectionDivider label="Blog" />
+      <DirA_Blog />
+      <SectionDivider label="About Marcela" />
+      <DirA_About />
+      <SectionDivider label="FAQ [NEW]" />
+      <DirA_FAQ />
+      <SectionDivider label="CTA Strip" />
+      <DirA_CTAStrip />
+      <DirA_Footer />
+    </div>
+  );
+}
+
+/* ─────────────── DIRECTION B — "Problem-forward" ─────────────── */
+/*
+  Visual logic:
+  - Hero IS the problem — big typographic statement, quiz is the primary CTA
+  - "Book a call" as secondary CTA in hero, then repeated at services
+  - Sections are colour-blocked: Navy hero → white problem cards → teal-light timeline 
+    → white quiz → navy services → cream tools/guides → white blog → cream about
+  - EU AI Act timeline more dramatic — vertical steps with real dates
+  - Marcela appears early (below hero) as a trust signal, not a separate section
+  - FAQ uses a two-column accordion layout
+*/
+
+function DirB_Hero() {
+  return (
+    <div style={{ background: 'var(--navy)', padding: '28px 24px 24px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 20 }}>
+        <div style={{ flex: 1 }}>
+          <span className="tag" style={{ background: 'rgba(27,154,170,0.25)', color: 'var(--teal)', marginBottom: 12, display: 'block', width: 'fit-content' }}>For Irish small businesses, schools &amp; community orgs</span>
+          <div style={{ fontSize: 28, fontWeight: 700, color: '#fff', lineHeight: 1.15, marginBottom: 8 }}>
+            Using AI in<br />your business?
+          </div>
+          <div style={{ fontSize: 18, fontWeight: 600, color: 'var(--teal)', lineHeight: 1.3, marginBottom: 10 }}>
+            You may already have<br />legal obligations.
+          </div>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, maxWidth: 260, marginBottom: 16 }}>
+            The EU AI Act is here. Even everyday use of ChatGPT, Canva or Midjourney can create legal obligations. Find out where you stand.
+          </div>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
+            <span className="btn-sketch btn-primary">Take the 2-min check</span>
+            <span className="btn-sketch btn-outline" style={{ borderColor: 'rgba(255,255,255,0.5)', color: '#fff', fontSize: 12 }}>Book a call with Marcela</span>
+          </div>
+        </div>
+        {/* EU star circle accent */}
+        <div style={{ width: 120, height: 120, borderRadius: '50%', background: 'var(--teal)', opacity: 0.15, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ fontFamily: 'Caveat', fontSize: 11, color: '#fff', opacity: 0, textAlign: 'center' }}>EU flag</div>
+        </div>
+      </div>
+      {/* Trust strip — location + language, no photo */}
+      <div style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', gap: 16, alignItems: 'center' }}>
+        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>📍 Cork, Ireland</span>
+        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>🌐 English &amp; Polish</span>
+        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>safeai.ie</span>
+      </div>
+    </div>
+  );
+}
+
+function DirB_Problem() {
+  return (
+    <div style={{ background: '#fff', padding: '20px 24px' }}>
+      <div style={{ textAlign: 'center', marginBottom: 14 }}>
+        <span className="tag tag-teal" style={{ marginBottom: 6, display: 'inline-block' }}>The Problem</span>
+        <div style={{ fontSize: 17, fontWeight: 700, color: 'var(--charcoal)' }}>If you've ever done any of this, you're already using AI</div>
+        <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 4 }}>That feels normal. Sometimes it is. Sometimes it is not.</div>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+        {[
+          { icon: "💬", text: 'Asked ChatGPT to "write me a customer email"' },
+          { icon: "📋", text: "Pasted client information into an AI tool" },
+          { icon: "📸", text: "Generated Instagram captions or product descriptions" },
+          { icon: "🖼", text: "Created images with Midjourney or Canva Magic" },
+          { icon: "📄", text: "Asked AI to summarise documents or meetings" },
+        ].map((p, i) => (
+          <div key={i} className="card" style={{ padding: '12px', display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+            <span style={{ fontSize: 16, flexShrink: 0 }}>{p.icon}</span>
+            <span style={{ fontSize: 11, color: 'var(--ink)', lineHeight: 1.5 }}>{p.text}</span>
+          </div>
+        ))}
+      </div>
+      {/* The quiet bit */}
+      <div style={{ marginTop: 12, background: 'var(--teal-light)', borderLeft: '3px solid var(--teal)', borderRadius: '0 6px 6px 0', padding: '10px 14px' }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--charcoal)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>The Quiet Bit</div>
+        <div style={{ fontSize: 11, color: 'var(--ink)', lineHeight: 1.6 }}>You might be sharing customer data without realising. Under the EU AI Act, you are legally responsible for what AI produces on your behalf. Even if you are a one-person business.</div>
+      </div>
+      <p style={{ textAlign: 'center', fontSize: 13, fontStyle: 'italic', fontWeight: 300, color: 'var(--charcoal)', marginTop: 14 }}>
+        You don't need to stop using AI. You just need to use it properly.
+      </p>
+    </div>
+  );
+}
+
+function DirB_Timeline() {
+  const steps = [
+    { date: "Aug 2024", label: "Act enters into force", note: "Prohibited practices banned", done: true },
+    { date: "Feb 2025", label: "GPAI rules apply", note: "General purpose AI obligations", done: true },
+    { date: "Aug 2025", label: "High-risk provisions", note: "Most SME obligations", done: false },
+    { date: "Aug 2026", label: "Full enforcement", note: "All articles apply", done: false },
+  ];
+  return (
+    <div style={{ background: 'var(--teal-light)', padding: '20px 24px' }}>
+      <p className="sec-label">EU AI Act — Where We Are Now</p>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 4 }}>The law is already in motion</div>
+      <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 16 }}>Here's what's in force and what's coming next for your organisation.</div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0, position: 'relative' }}>
+        <div style={{ position: 'absolute', top: 20, left: '12.5%', right: '12.5%', height: 3, background: 'var(--teal)', opacity: 0.3 }}></div>
+        {steps.map((s, i) => (
+          <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, position: 'relative', zIndex: 1 }}>
+            <div style={{
+              width: 40, height: 40, borderRadius: '50%',
+              background: s.done ? 'var(--teal)' : '#fff',
+              border: `2px solid ${s.done ? 'var(--teal)' : '#b0bec5'}`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: 14
+            }}>
+              {s.done ? <span style={{ color: '#fff', fontSize: 16 }}>✓</span> : <span style={{ color: '#b0bec5', fontSize: 14 }}>○</span>}
+            </div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: s.done ? 'var(--teal)' : 'var(--muted)' }}>{s.date}</div>
+            <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--charcoal)', textAlign: 'center' }}>{s.label}</div>
+            <div style={{ fontSize: 10, color: 'var(--muted)', textAlign: 'center' }}>{s.note}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ textAlign: 'center', marginTop: 14, fontSize: 11, color: 'var(--ink)' }}>
+        <span style={{ fontStyle: 'italic' }}>Not sure what this means for you? </span>
+        <span style={{ color: 'var(--teal)', fontWeight: 600 }}>Take the 2-minute check →</span>
+      </div>
+    </div>
+  );
+}
+
+function DirB_Quiz() {
+  return (
+    <div style={{ background: '#fff', padding: '20px 24px' }}>
+      <div style={{ textAlign: 'center', marginBottom: 14 }}>
+        <span className="tag tag-teal" style={{ marginBottom: 6, display: 'inline-block' }}>Self-Assessment</span>
+        <div style={{ fontSize: 17, fontWeight: 700, color: 'var(--charcoal)' }}>Find out your AI exposure in 2 minutes</div>
+        <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 4 }}>4 questions. Free checklist to your inbox. No jargon.</div>
+      </div>
+      {/* Large quiz card */}
+      <div style={{ maxWidth: 420, margin: '0 auto', border: '2px solid var(--teal)', borderRadius: 10, padding: 18 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+          <span style={{ fontSize: 11, color: 'var(--muted)' }}>Step 1 of 4</span>
+          <div style={{ flex: 1, height: 4, background: 'var(--cream)', borderRadius: 2, margin: '0 12px', overflow: 'hidden' }}>
+            <div style={{ width: '25%', height: '100%', background: 'var(--teal)', borderRadius: 2 }}></div>
+          </div>
+        </div>
+        <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--charcoal)', marginBottom: 12, lineHeight: 1.5 }}>
+          Are you or your staff generating images with AI for marketing?
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {["Yes, regularly","Sometimes","Not sure"].map(o => (
+            <div key={o} style={{ padding: '10px 14px', background: 'var(--cream)', borderRadius: 6, border: '1.5px solid #d0dce4', fontSize: 12, color: 'var(--ink)', display: 'flex', gap: 10, alignItems: 'center', cursor: 'default' }}>
+              <div style={{ width: 16, height: 16, borderRadius: '50%', border: '2px solid var(--teal)', flexShrink: 0 }}></div>
+              {o}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DirB_Services() {
+  return (
+    <div style={{ background: 'var(--navy)', padding: '20px 24px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+        <div>
+          <p className="sec-label" style={{ color: 'var(--teal)' }}>Work With Marcela</p>
+          <div style={{ fontSize: 17, fontWeight: 700, color: '#fff' }}>Get this done in a single afternoon</div>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', marginTop: 4 }}>A real human, not another PDF.</div>
+        </div>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10 }}>
+        {[
+          { title: "Practical AI Safety Workshop", price: "€800", cta: "Book a workshop", desc: "2.5hr · ≤20 staff · AI Use Inventory + Policy + Article 4 one-pager" },
+          { title: "AI Readiness Assessment", price: "€1,500", cta: "Book an assessment", desc: "1–2 day · Written report · Prioritised risk remediation plan" },
+          { title: "Monthly AI Literacy", price: "€200/mo", cta: "Learn more", desc: "Monthly call · Quarterly updates · Annual policy review" },
+        ].map((s, i) => (
+          <div key={i} style={{ background: '#fff', borderRadius: 8, padding: 14 }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 4 }}>{s.title}</div>
+            <div style={{ fontSize: 10, color: 'var(--muted)', lineHeight: 1.6, marginBottom: 8 }}>{s.desc}</div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 8 }}>From {s.price}</div>
+            <span className="btn-sketch btn-primary" style={{ fontSize: 10, padding: '5px 10px' }}>{s.cta}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DirB_FreeTools() {
+  return (
+    <div style={{ background: 'var(--cream)', padding: '20px 24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '5fr 7fr', gap: 20, alignItems: 'start' }}>
+        <div>
+          <p className="sec-label">Free Tools</p>
+          <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 6 }}>Designed for your desk,<br />not your lawyer</div>
+          <div style={{ fontSize: 11, color: 'var(--muted)', lineHeight: 1.6 }}>Each download is sent to your inbox. We email twice, then leave you alone unless you ask us not to.</div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {[
+            { title: "Irish SME AI Risk Checklist", type: "PDF · fillable" },
+            { title: "AI Image Safety Guide", type: "PDF" },
+            { title: "SafeAI Team Policy Template", type: "Editable .docx" },
+          ].map((t, i) => (
+            <div key={i} style={{ background: '#fff', border: '1.5px solid #e0e8ed', borderLeft: '3px solid var(--teal)', borderRadius: '0 8px 8px 0', padding: '10px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--charcoal)' }}>{t.title}</div>
+                <div style={{ fontSize: 10, color: 'var(--muted)' }}>{t.type}</div>
+              </div>
+              <span style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 600 }}>Get it →</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DirB_Guides() {
+  return (
+    <div style={{ background: '#fff', padding: '20px 24px' }}>
+      <p className="sec-label">Companion Guides</p>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 14 }}>When you want to go deeper</div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
+        {[
+          { badge: "Free", title: "EU AI Act for Irish Small Orgs", price: "Free with email", desc: "Plain-English, 17 pages" },
+          { badge: "€19", title: "AI for Sole Traders", price: "€19", desc: "Use AI like a team of ten" },
+          { badge: "€39", title: "Educational AI Governance", price: "€39", desc: "For primary, post-primary & FE" },
+        ].map((g, i) => (
+          <div key={i} style={{ background: 'var(--cream)', borderRadius: 8, padding: 14 }}>
+            <span className="tag tag-teal" style={{ marginBottom: 8, display: 'block', width: 'fit-content' }}>{g.badge}</span>
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 4 }}>{g.title}</div>
+            <div style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 10 }}>{g.desc}</div>
+            <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--charcoal)', marginBottom: 8 }}>{g.price}</div>
+            <span className="btn-sketch btn-outline" style={{ fontSize: 11, padding: '5px 12px' }}>Get it</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DirB_Blog() {
+  return (
+    <div style={{ background: 'var(--cream)', padding: '20px 24px' }} id="blog">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 14 }}>
+        <div>
+          <p className="sec-label">From the Blog</p>
+          <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)' }}>Practical AI compliance insights</div>
+          <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 3 }}>No jargon. No scare tactics. Just clear guidance for Irish organisations.</div>
+        </div>
+        <span style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 600, whiteSpace: 'nowrap' }}>View all articles →</span>
+      </div>
+      {/* Featured post — full width */}
+      <div style={{ background: '#fff', borderRadius: 8, border: '1.5px solid #e0e8ed', padding: '14px 16px', marginBottom: 10, display: 'grid', gridTemplateColumns: '5fr 3fr', gap: 16, alignItems: 'center' }}>
+        <div>
+          <span className="tag tag-teal" style={{ marginBottom: 6, display: 'block', width: 'fit-content' }}>EU AI Act</span>
+          <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 4, lineHeight: 1.4 }}>EU AI Act: What Irish SMEs Need to Know in 2025</div>
+          <div style={{ fontSize: 11, color: 'var(--muted)', lineHeight: 1.6, marginBottom: 8 }}>The EU AI Act came into force in August 2024. Here's a plain-English breakdown of what it means for your small business — and what you need to do right now.</div>
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            <span style={{ fontSize: 10, color: 'var(--muted)' }}>15 Dec 2024</span>
+            <span style={{ fontSize: 10, color: 'var(--muted)' }}>5 min read</span>
+            <span style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 600 }}>Read →</span>
+          </div>
+        </div>
+        <div className="ph" style={{ height: 90, borderRadius: 6 }}>featured image</div>
+      </div>
+      {/* 3-column grid for remaining posts */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+        {[
+          { cat: "Policies", title: "Creating a ChatGPT Workplace Policy: Step-by-Step", date: "8 Dec 2024", time: "7 min" },
+          { cat: "GDPR", title: "GDPR and AI Tools: Your Compliance Checklist", date: "28 Nov 2024", time: "6 min" },
+          { cat: "Risk Management", title: "How to Run an AI Risk Assessment for Your Small Business", date: "20 Nov 2024", time: "8 min" },
+        ].map((p, i) => (
+          <div key={i} style={{ background: '#fff', borderRadius: 8, padding: '12px 14px', border: '1.5px solid #e0e8ed' }}>
+            <span className="tag tag-teal" style={{ marginBottom: 6, display: 'block', width: 'fit-content' }}>{p.cat}</span>
+            <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--charcoal)', lineHeight: 1.5, marginBottom: 6 }}>{p.title}</div>
+            <div style={{ fontSize: 10, color: 'var(--muted)' }}>{p.date} · {p.time} read</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DirB_About() {
+  return (
+    <div style={{ background: '#fff', padding: '20px 24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 20, alignItems: 'start' }}>
+        <div>
+          <p className="sec-label">About</p>
+          <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 8 }}>I'm Marcela. I make complex things make sense to ordinary people.</div>
+          <div style={{ fontSize: 11, color: 'var(--ink)', lineHeight: 1.7, marginBottom: 10 }}>
+            I started in the European Parliament — I learned that the difference between a regulation working is whether someone wrote it in plain English. Then 15 years in big tech at Microsoft and VMware, translating engineer-speak into something the rest of the company could act on.
+          </div>
+          <blockquote style={{ borderLeft: '3px solid var(--teal)', paddingLeft: 12, fontStyle: 'italic', fontSize: 12, color: 'var(--charcoal)', lineHeight: 1.6, marginBottom: 12 }}>
+            "AI is a powerful tool. Used carelessly, it can quietly risk everything you've built — your customer trust, your data, your reputation."
+          </blockquote>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <span className="btn-sketch btn-primary" style={{ fontSize: 11 }}>Book a call</span>
+            <span className="btn-sketch btn-outline" style={{ fontSize: 11, padding: '6px 14px' }}>Download a free guide</span>
+          </div>
+        </div>
+        <div>
+          <Placeholder w="100%" h={180} label="Marcela photo" />
+          <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {["EU Parliament — 5 years","Microsoft + VMware — 15 years","Master's EU Legal System (PL)","AI in Business & Digital Transformation","English and Polish"].map((c, i) => (
+              <div key={i} style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--teal)', flexShrink: 0 }}></div>
+                <span style={{ fontSize: 11, color: 'var(--charcoal)' }}>{c}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DirB_FAQ() {
+  const faqs = [
+    ["Do I have EU AI Act obligations as a small business?", "Most likely, yes. If you use AI tools commercially…"],
+    ["Is SafeAI a law firm?", "No. SafeAI provides practical guidance and training, not legal advice."],
+    ["How long does a workshop take?", "2.5 hours, on-site or remote."],
+    ["What if I only use ChatGPT occasionally?", "Even occasional use can create obligations under Article 4."],
+    ["Do you work with schools?", "Yes — education is one of our three core audiences."],
+    ["Can I get a free guide first?", "Absolutely — see the Free Tools section above."],
+  ];
+  return (
+    <div style={{ background: 'var(--cream)', padding: '20px 24px' }}>
+      <p className="sec-label">FAQ</p>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 14 }}>Common questions</div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+        {faqs.map(([q, a], i) => (
+          <div key={i} style={{ background: '#fff', border: '1.5px solid #e0e8ed', borderRadius: 8, padding: '12px 14px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+              <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--charcoal)', lineHeight: 1.4, maxWidth: '85%' }}>{q}</span>
+              <span style={{ fontSize: 16, color: 'var(--teal)', flexShrink: 0 }}>+</span>
+            </div>
+            <div style={{ fontSize: 10, color: 'var(--muted)', fontStyle: 'italic' }}>{a}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DirB_CTAStrip() {
+  return (
+    <div style={{ background: 'var(--teal)', padding: '20px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div>
+        <div style={{ fontSize: 16, fontWeight: 700, color: '#fff', marginBottom: 4 }}>Ready to get this sorted?</div>
+        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)' }}>Take the 2-minute check, download a free guide, or book a call when you're ready.</div>
+      </div>
+      <div style={{ display: 'flex', gap: 10, flexShrink: 0 }}>
+        <span className="btn-sketch" style={{ background: '#fff', color: 'var(--teal)', fontWeight: 700, fontSize: 12 }}>Book a call</span>
+        <span className="btn-sketch btn-outline" style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#fff', fontSize: 12 }}>Take the check</span>
+      </div>
+    </div>
+  );
+}
+
+function DirB_Footer() {
+  return (
+    <div style={{ background: 'var(--navy)', padding: '16px 24px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+      <div>
+        <div style={{ fontWeight: 700, fontSize: 16, color: '#fff' }}>Safe<span style={{ color: 'var(--teal)' }}>AI</span></div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>AI Training & Compliance · Cork, Ireland</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 8 }}>This site is general information, not legal advice.</div>
+      </div>
+      <div>
+        <div style={{ fontSize: 11, fontWeight: 600, color: '#fff', marginBottom: 6 }}>Quick Links</div>
+        {["Problem","Quiz","Free tools","Guides","Services","About"].map(l => (
+          <div key={l} style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginBottom: 3 }}>{l}</div>
+        ))}
+      </div>
+      <div>
+        <div style={{ fontSize: 11, fontWeight: 600, color: '#fff', marginBottom: 6 }}>Contact</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginBottom: 3 }}>marcela@safeai.ie</div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)', marginBottom: 10 }}>Book a call ↗</div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <div style={{ width: 20, height: 20, borderRadius: 4, background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.6)' }}>in</span>
+          </div>
+          <div style={{ width: 20, height: 20, borderRadius: 4, background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.6)' }}>fb</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DirectionB() {
+  return (
+    <div className="wf" style={{ width: 680 }}>
+      <Nav variant="B" />
+      <SectionDivider label="Hero" />
+      <DirB_Hero />
+      <SectionDivider label="Problem" />
+      <DirB_Problem />
+      <SectionDivider label="EU AI Act Timeline [NEW]" />
+      <DirB_Timeline />
+      <SectionDivider label="Quiz / Self-Assessment" />
+      <DirB_Quiz />
+      <SectionDivider label="Services" />
+      <DirB_Services />
+      <SectionDivider label="Free Tools" />
+      <DirB_FreeTools />
+      <SectionDivider label="Guides" />
+      <DirB_Guides />
+      <SectionDivider label="Blog" />
+      <DirB_Blog />
+      <SectionDivider label="About Marcela" />
+      <DirB_About />
+      <SectionDivider label="FAQ [NEW]" />
+      <DirB_FAQ />
+      <SectionDivider label="CTA Strip" />
+      <DirB_CTAStrip />
+      <DirB_Footer />
+    </div>
+  );
+}
+
+/* ─────────────── CANVAS APP ─────────────── */
+
+function App() {
+  return (
+    <DesignCanvas title="SafeAI — Homepage Wireframes">
+      <DCSection id="directions" title="Two Homepage Directions">
+        <DCArtboard id="dir-a" label="Direction A — Calm Authority" width={680}>
+          <DirectionA />
+        </DCArtboard>
+        <DCArtboard id="dir-b" label="Direction B — Problem-Forward" width={680}>
+          <DirectionB />
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

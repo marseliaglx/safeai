@@ -186,9 +186,9 @@ function Navbar({ tweaks }) {
         {/* Logo */}
         <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
           <img
-            src="safeai-logo.svg"
+            src="safeai-logo.png"
             alt="SafeAI logo"
-            style={{ height: 36, width: 'auto', display: 'block' }}
+            style={{ height: 44, width: 'auto', display: 'block' }}
           />
         </a>
 
@@ -810,21 +810,14 @@ function Footer() {
       <div style={{ maxWidth: 960, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 32, marginBottom: 40 }}>
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="14" fill="rgba(27,154,170,0.15)"/>
-                <rect x="8" y="10" width="12" height="10" rx="3" fill="none" stroke={T.teal} strokeWidth="1.6"/>
-                <circle cx="11" cy="14" r="1.2" fill={T.teal}/>
-                <circle cx="17" cy="14" r="1.2" fill={T.teal}/>
-                <path d="M11 17.5c.8.8 2 1 3 .8s2-.8 3-1.8" stroke={T.teal} strokeWidth="1.2" strokeLinecap="round"/>
-                <line x1="14" y1="7" x2="14" y2="10" stroke={T.teal} strokeWidth="1.4" strokeLinecap="round"/>
-                <circle cx="14" cy="6.5" r="1" fill={T.teal}/>
-              </svg>
-              <span style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: 20, color: T.white, letterSpacing: '-0.01em' }}>
-                Safe<span style={{ color: T.teal }}>AI</span>
-              </span>
+            <div style={{ marginBottom: 12 }}>
+              <img
+                src="safeai-logo.png"
+                alt="SafeAI logo"
+                style={{ height: 72, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }}
+              />
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>AI Training & Compliance<br />Cork, Ireland</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>Cork, Ireland</p>
           </div>
           <div>
             <h4 style={{ fontSize: 13, fontWeight: 600, color: T.white, marginBottom: 14 }}>Quick Links</h4>

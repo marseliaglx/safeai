@@ -186,9 +186,9 @@ function Navbar({ tweaks }) {
         {/* Logo */}
         <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
           <img
-            src="safeai-logo.png"
+            src="safeai-logo.svg"
             alt="SafeAI logo"
-            style={{ height: 44, width: 'auto', display: 'block' }}
+            style={{ height: 40, width: 'auto', display: 'block' }}
           />
         </a>
 
@@ -213,50 +213,68 @@ function Navbar({ tweaks }) {
 /* ── Hero Section ── */
 function HeroSection() {
   return (
-    <section id="hero" style={{ background: T.cream, minHeight: '92vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 80 }}>
+    <section id="hero" style={{ background: T.cream, minHeight: ‘92vh’, display: ‘flex’, flexDirection: ‘column’, justifyContent: ‘center’, paddingTop: 80, overflow: ‘hidden’ }}>
       {/* Subtle dot-grid background */}
       <div style={{
-        position: 'absolute', inset: 0, zIndex: 0,
+        position: ‘absolute’, inset: 0, zIndex: 0,
         backgroundImage: `radial-gradient(circle, rgba(27,58,107,0.06) 1px, transparent 1px)`,
-        backgroundSize: '28px 28px',
-        pointerEvents: 'none',
-      }}></div>
-      {/* Teal arc shape bottom-right */}
-      <div style={{
-        position: 'absolute', bottom: -80, right: -80, width: 420, height: 420,
-        borderRadius: '50%', background: T.teal, opacity: 0.08, zIndex: 0,
-        pointerEvents: 'none',
+        backgroundSize: ‘28px 28px’,
+        pointerEvents: ‘none’,
       }}></div>
 
-      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '64px 24px 80px', position: 'relative', zIndex: 1 }}>
-        <span className="sa-tag sa-tag-teal" style={{ marginBottom: 20, display: 'inline-block' }}>
-          For Irish small businesses, schools &amp; community organisations
-        </span>
+      <div style={{ maxWidth: 1120, margin: ‘0 auto’, padding: ‘64px 24px 80px’, position: ‘relative’, zIndex: 1, width: ‘100%’ }}>
+        <div style={{ display: ‘grid’, gridTemplateColumns: ‘1fr auto’, gap: 48, alignItems: ‘center’ }}>
 
-        <h1 style={{ fontSize: 'clamp(36px, 5.5vw, 68px)', fontWeight: 700, color: T.charcoal, lineHeight: 1.1, marginBottom: 20, maxWidth: 780, textWrap: 'balance' }}>
-          Using AI in your business?
-        </h1>
-        <p style={{ fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 600, color: T.teal, lineHeight: 1.3, marginBottom: 20, maxWidth: 620 }}>
-          You may already have legal obligations.
-        </p>
-        <p style={{ fontSize: 16, color: T.charcoal, lineHeight: 1.8, maxWidth: 700, marginBottom: 36 }}>
-          Even everyday use of AI tools like writing emails, creating content, or summarising documents can create legal obligations under the EU AI Act for Irish businesses, schools, and organisations. Most organisations are already using AI. Very few realise they’re responsible for how it’s used.
-        </p>
+          {/* Left: text */}
+          <div>
+            <span className="sa-tag sa-tag-teal" style={{ marginBottom: 20, display: ‘inline-block’ }}>
+              For Irish small businesses, schools &amp; community organisations
+            </span>
 
-        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
-          <a href="#quiz" className="sa-btn-primary" style={{ fontSize: 16, padding: '16px 32px' }}>
-            Take the 2-minute check
-          </a>
-          <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-outline" style={{ fontSize: 16, padding: '14px 32px', color: T.navy, borderColor: 'rgba(27,58,107,0.35)' }}>
-            Book a call with Marcela
-          </a>
-        </div>
+            <h1 style={{ fontSize: ‘clamp(30px, 4.5vw, 56px)’, fontWeight: 700, color: T.charcoal, lineHeight: 1.15, marginBottom: 18, textWrap: ‘balance’ }}>
+              Using AI in your business?
+            </h1>
+            <p style={{ fontSize: ‘clamp(18px, 2.2vw, 26px)’, fontWeight: 600, color: T.teal, lineHeight: 1.35, marginBottom: 18, fontStyle: ‘italic’ }}>
+              You may already have legal obligations and create risks.
+            </p>
+            <p style={{ fontSize: 15, color: T.charcoal, lineHeight: 1.85, maxWidth: 560, marginBottom: 36 }}>
+              Even everyday use of AI tools can create legal obligations under the EU AI Act and GDPR. SafeAI helps Irish SMEs use AI confidently, meet their EU AI Act obligations, and stop worrying about it on a Tuesday evening.
+            </p>
 
-        {/* Footer strip */}
-        <div style={{ display: 'flex', gap: 24, marginTop: 52, paddingTop: 24, borderTop: '1px solid rgba(27,58,107,0.15)', flexWrap: 'wrap' }}>
-          {['Cork, Ireland', 'English & Polish', 'safeai.ie'].map(item => (
-            <span key={item} style={{ fontSize: 13, color: T.muted }}>{item}</span>
-          ))}
+            <div style={{ display: ‘flex’, gap: 16, flexWrap: ‘wrap’, alignItems: ‘center’ }}>
+              <a href="#quiz" className="sa-btn-primary" style={{ fontSize: 15, padding: ‘15px 30px’ }}>
+                Take the 2-minute check
+              </a>
+              <a href="#free-tools" style={{ fontSize: 14, color: T.charcoal, textDecoration: ‘none’, fontWeight: 500 }}>
+                Or download the free Irish SME AI Risk Checklist
+              </a>
+            </div>
+
+            {/* Trust strip */}
+            <div style={{ display: ‘flex’, gap: 24, marginTop: 48, paddingTop: 24, borderTop: ‘1px solid rgba(27,58,107,0.15)’, flexWrap: ‘wrap’ }}>
+              {[‘Cork, Ireland’, ‘English & Polish’, ‘safeai.ie’].map(item => (
+                <span key={item} style={{ fontSize: 13, color: T.muted }}>{item}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: logo */}
+          <div style={{ display: ‘flex’, alignItems: ‘center’, justifyContent: ‘center’, flexShrink: 0 }}>
+            <div style={{ position: ‘relative’, width: 300, height: 300 }}>
+              {/* Teal circle backdrop */}
+              <div style={{
+                position: ‘absolute’, inset: 0,
+                borderRadius: ‘50%’,
+                background: `radial-gradient(circle, rgba(27,154,170,0.12) 0%, rgba(27,154,170,0.04) 70%, transparent 100%)`,
+              }}></div>
+              <img
+                src="safeai-logo.png"
+                alt="SafeAI — AI Training & Compliance"
+                style={{ position: ‘relative’, zIndex: 1, width: ‘100%’, height: ‘100%’, objectFit: ‘contain’, padding: 24 }}
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -810,11 +828,11 @@ function Footer() {
       <div style={{ maxWidth: 960, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 32, marginBottom: 40 }}>
           <div>
-            <div style={{ marginBottom: 12 }}>
+            <div style={{ marginBottom: 16, display: 'inline-block', background: T.white, borderRadius: 12, padding: '10px 16px' }}>
               <img
-                src="safeai-logo.png"
+                src="safeai-logo.svg"
                 alt="SafeAI logo"
-                style={{ height: 72, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }}
+                style={{ height: 52, width: 'auto', display: 'block' }}
               />
             </div>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>Cork, Ireland</p>

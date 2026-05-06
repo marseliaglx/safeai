@@ -213,25 +213,25 @@ function Navbar({ tweaks }) {
 /* ── Hero Section ── */
 function HeroSection() {
   return (
-    <section id="hero" style={{ background: T.cream, minHeight: ‘92vh’, display: ‘flex’, flexDirection: ‘column’, justifyContent: ‘center’, paddingTop: 80, overflow: ‘hidden’ }}>
+    <section id="hero" style={{ background: T.cream, minHeight: '92vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 80, overflow: 'hidden' }}>
       {/* Subtle dot-grid background */}
       <div style={{
-        position: ‘absolute’, inset: 0, zIndex: 0,
+        position: 'absolute', inset: 0, zIndex: 0,
         backgroundImage: `radial-gradient(circle, rgba(27,58,107,0.06) 1px, transparent 1px)`,
-        backgroundSize: ‘28px 28px’,
-        pointerEvents: ‘none’,
+        backgroundSize: '28px 28px',
+        pointerEvents: 'none',
       }}></div>
 
-      <div style={{ maxWidth: 1120, margin: ‘0 auto’, padding: ‘64px 24px 80px’, position: ‘relative’, zIndex: 1, width: ‘100%’ }}>
-        <div style={{ display: ‘grid’, gridTemplateColumns: ‘1fr auto’, gap: 48, alignItems: ‘center’ }}>
+      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '64px 24px 80px', position: 'relative', zIndex: 1, width: '100%' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, alignItems: 'center' }}>
 
           {/* Left: text */}
           <div>
-            <span className="sa-tag sa-tag-teal" style={{ marginBottom: 20, display: ‘inline-block’ }}>
+            <span className="sa-tag sa-tag-teal" style={{ marginBottom: 20, display: 'inline-block' }}>
               For Irish businesses, schools &amp; community organisations
             </span>
 
-            <h1 style={{ fontSize: ‘clamp(28px, 4vw, 50px)’, fontWeight: 700, color: T.charcoal, lineHeight: 1.15, marginBottom: 18, textWrap: ‘balance’ }}>
+            <h1 style={{ fontSize: 'clamp(28px, 4vw, 50px)', fontWeight: 700, color: T.charcoal, lineHeight: 1.15, marginBottom: 18, textWrap: 'balance' }}>
               Using AI in your organisation?<br />
               <span style={{ color: T.navy }}>The EU AI Act may already apply to you.</span>
             </h1>
@@ -243,38 +243,38 @@ function HeroSection() {
               SafeAI helps Irish organisations use AI confidently, reduce compliance risk, and train teams without jargon or overwhelm.
             </p>
 
-            <div style={{ display: ‘flex’, gap: 14, flexWrap: ‘wrap’, alignItems: ‘center’, marginBottom: 16 }}>
-              <a href="#free-tools" className="sa-btn-primary" style={{ fontSize: 15, padding: ‘15px 28px’ }}>
+            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center', marginBottom: 16 }}>
+              <a href="#free-tools" className="sa-btn-primary" style={{ fontSize: 15, padding: '15px 28px' }}>
                 Download the Free AI Risk Checklist
               </a>
               <a href="https://cal.com/safeai/workshop" target="_blank" rel="noopener noreferrer"
-                style={{ display: ‘inline-flex’, alignItems: ‘center’, fontFamily: ‘Poppins, sans-serif’, fontWeight: 600, fontSize: 15, color: T.navy, textDecoration: ‘none’, padding: ‘14px 0’, transition: ‘color 0.15s’ }}>
+                style={{ display: 'inline-flex', alignItems: 'center', fontFamily: 'Poppins, sans-serif', fontWeight: 600, fontSize: 15, color: T.navy, textDecoration: 'none', padding: '14px 0', transition: 'color 0.15s' }}>
                 Book AI Training →
               </a>
             </div>
 
-            <p style={{ fontSize: 13, color: T.muted, fontStyle: ‘italic’, marginBottom: 40 }}>
-              You don’t need to stop using AI. You just need to use it properly.
+            <p style={{ fontSize: 13, color: T.muted, fontStyle: 'italic', marginBottom: 40 }}>
+              You don't need to stop using AI. You just need to use it properly.
             </p>
 
-            <div style={{ paddingTop: 20, borderTop: ‘1px solid rgba(27,58,107,0.12)’ }}>
+            <div style={{ paddingTop: 20, borderTop: '1px solid rgba(27,58,107,0.12)' }}>
               <span style={{ fontSize: 13, color: T.muted }}>Cork-based · Supporting organisations across Ireland</span>
             </div>
           </div>
 
           {/* Right: logo */}
-          <div style={{ display: ‘flex’, alignItems: ‘center’, justifyContent: ‘center’, flexShrink: 0 }}>
-            <div style={{ position: ‘relative’, width: 300, height: 300 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <div style={{ position: 'relative', width: 300, height: 300 }}>
               {/* Teal circle backdrop */}
               <div style={{
-                position: ‘absolute’, inset: 0,
-                borderRadius: ‘50%’,
+                position: 'absolute', inset: 0,
+                borderRadius: '50%',
                 background: `radial-gradient(circle, rgba(27,154,170,0.12) 0%, rgba(27,154,170,0.04) 70%, transparent 100%)`,
               }}></div>
               <img
                 src="safeai-logo.png"
                 alt="SafeAI — AI Training & Compliance"
-                style={{ position: ‘relative’, zIndex: 1, width: ‘100%’, height: ‘100%’, objectFit: ‘contain’, padding: 24 }}
+                style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%', objectFit: 'contain', padding: 24 }}
               />
             </div>
           </div>

@@ -182,13 +182,13 @@ function Navbar({ tweaks }) {
       boxShadow: scrolled ? '0 1px 12px rgba(27,58,107,0.08)' : 'none',
       transition: 'background 0.3s, box-shadow 0.3s',
     }}>
-      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px', minHeight: 82, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
         {/* Logo */}
         <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
           <img
             src="safeai-logo.svg"
             alt="SafeAI logo"
-            style={{ height: 36, width: 'auto', display: 'block' }}
+            style={{ height: 64, width: 'auto', maxWidth: 220, display: 'block', objectFit: 'contain' }}
           />
         </a>
 
@@ -201,9 +201,6 @@ function Navbar({ tweaks }) {
               onMouseLeave={e => e.target.style.color = T.charcoal}
             >{l}</a>
           ))}
-          <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-primary" style={{ fontSize: 14, padding: '10px 20px' }}>
-            Book a call
-          </a>
         </div>
       </div>
     </nav>
@@ -213,7 +210,7 @@ function Navbar({ tweaks }) {
 /* ── Hero Section ── */
 function HeroSection() {
   return (
-    <section id="hero" style={{ background: T.cream, minHeight: '92vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 80 }}>
+    <section id="hero" style={{ background: T.cream, minHeight: '92vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 108 }}>
       {/* Subtle dot-grid background */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 0,
@@ -228,28 +225,39 @@ function HeroSection() {
         pointerEvents: 'none',
       }}></div>
 
-      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '64px 24px 80px', position: 'relative', zIndex: 1 }}>
-        <span className="sa-tag sa-tag-teal" style={{ marginBottom: 20, display: 'inline-block' }}>
-          For Irish small businesses, schools &amp; community organisations
-        </span>
+      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 80px', position: 'relative', zIndex: 1 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 48, flexWrap: 'wrap' }}>
+          <div style={{ flex: '1 1 520px', minWidth: 0 }}>
+            <span className="sa-tag sa-tag-teal" style={{ marginBottom: 20, display: 'inline-block' }}>
+              For Irish small businesses, schools &amp; community organisations
+            </span>
 
-        <h1 style={{ fontSize: 'clamp(36px, 5.5vw, 68px)', fontWeight: 700, color: T.charcoal, lineHeight: 1.1, marginBottom: 20, maxWidth: 780, textWrap: 'balance' }}>
-          Using AI in your business?
-        </h1>
-        <p style={{ fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 600, color: T.teal, lineHeight: 1.3, marginBottom: 20, maxWidth: 620 }}>
-          You may already have legal obligations.
-        </p>
-        <p style={{ fontSize: 16, color: T.charcoal, lineHeight: 1.8, maxWidth: 700, marginBottom: 36 }}>
-          Even everyday use of AI tools like writing emails, creating content, or summarising documents can create legal obligations under the EU AI Act for Irish businesses, schools, and organisations. Most organisations are already using AI. Very few realise they’re responsible for how it’s used.
-        </p>
+            <h1 style={{ fontSize: 'clamp(36px, 5.5vw, 68px)', fontWeight: 700, color: T.charcoal, lineHeight: 1.1, marginBottom: 20, maxWidth: 780, textWrap: 'balance' }}>
+              Using AI in your business?
+            </h1>
+            <p style={{ fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 600, color: T.teal, lineHeight: 1.3, marginBottom: 20, maxWidth: 620 }}>
+              You may already have legal obligations under the EU AI Act.
+            </p>
+            <p style={{ fontSize: 16, color: T.charcoal, lineHeight: 1.8, maxWidth: 700, marginBottom: 36 }}>
+              Even everyday use of AI tools like writing emails, creating content, or summarising documents can create legal obligations under the EU AI Act for Irish businesses, schools, and organisations. Most organisations are already using AI. Very few realise they’re responsible for how it’s used.
+            </p>
 
-        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
-          <a href="#quiz" className="sa-btn-primary" style={{ fontSize: 16, padding: '16px 32px' }}>
-            Take the 2-minute check
-          </a>
-          <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-outline" style={{ fontSize: 16, padding: '14px 32px', color: T.navy, borderColor: 'rgba(27,58,107,0.35)' }}>
-            Book a call with Marcela
-          </a>
+            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
+              <a href="#quiz" className="sa-btn-primary" style={{ fontSize: 16, padding: '16px 32px' }}>
+                Take the 2-minute check
+              </a>
+            </div>
+          </div>
+
+          <div style={{ flex: '0 1 420px', minWidth: 280, display: 'flex', justifyContent: 'center' }} aria-label="SafeAI brand mark">
+            <div style={{ width: '100%', maxWidth: 420, padding: '34px 26px', borderRadius: 26, background: 'rgba(255,255,255,0.78)', border: '1px solid rgba(27,58,107,0.08)', boxShadow: '0 24px 70px rgba(27,58,107,0.12)', backdropFilter: 'blur(4px)' }}>
+              <img
+                src="safeai-logo.png"
+                alt="SafeAI — AI Training & Compliance"
+                style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 14px 22px rgba(27,58,107,0.12))' }}
+              />
+            </div>
+          </div>
         </div>
 
         {/* Footer strip */}
@@ -503,7 +511,7 @@ function ServicesSection() {
           </div>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexShrink: 0 }}>
             <span style={{ fontSize: 18, fontWeight: 700, color: T.white }}>From €200/mo</span>
-            <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-outline" style={{ fontSize: 14, padding: '11px 22px' }}>Learn more</a>
+            <a href="mailto:marcela@safeai.ie" className="sa-btn-outline" style={{ fontSize: 14, padding: '11px 22px' }}>Email Marcela</a>
           </div>
         </div>
       </div>
@@ -754,8 +762,7 @@ function AboutSection() {
             <p style={{ fontSize: 13, fontStyle: 'italic', color: T.teal }}>I run SafeAI from Cork. Bilingual English and Polish. No jargon, no formality, no upselling.</p>
           </div>
           <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-primary" style={{ fontSize: 15, padding: '14px 26px' }}>Book a call</a>
-            <a href="#free-tools" className="sa-btn-ghost" style={{ fontSize: 14, padding: '14px 0', border: `1.5px solid ${T.teal}`, borderRadius: 6, padding: '13px 22px' }}>Download a free guide</a>
+            <a href="#free-tools" className="sa-btn-primary" style={{ fontSize: 15, padding: '14px 26px' }}>Download a free guide</a>
           </div>
         </div>
       </div>
@@ -808,14 +815,14 @@ function CTAStrip() {
       <div style={{ maxWidth: 960, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
         <div>
           <h2 style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 700, color: T.white, marginBottom: 6 }}>Ready to get this sorted?</h2>
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>Take the 2-minute check, download a free guide, or book a call when you're ready.</p>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>Take the 2-minute check or download a free guide when you're ready.</p>
         </div>
         <div style={{ display: 'flex', gap: 14, flexShrink: 0, flexWrap: 'wrap' }}>
-          <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: T.white, color: T.teal, fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: 15, padding: '14px 28px', borderRadius: 6, textDecoration: 'none', transition: 'opacity 0.15s' }}>
-            Book a call
-          </a>
           <a href="#quiz" className="sa-btn-outline" style={{ fontSize: 15, padding: '12px 28px' }}>Take the check</a>
+          <a href="#free-tools"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: T.white, color: T.teal, fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: 15, padding: '14px 28px', borderRadius: 6, textDecoration: 'none', transition: 'opacity 0.15s' }}>
+            Download a free guide
+          </a>
         </div>
       </div>
     </section>
@@ -857,7 +864,7 @@ function Footer() {
             <h4 style={{ fontSize: 13, fontWeight: 600, color: T.white, marginBottom: 14 }}>Contact</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <a href="mailto:marcela@safeai.ie" style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}>marcela@safeai.ie</a>
-              <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}>Book a call ↗</a>
+              <a href="#free-tools" style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}>Free tools</a>
             </div>
             <div style={{ display: 'flex', gap: 10, marginTop: 16 }}>
               {[

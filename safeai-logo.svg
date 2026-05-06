@@ -1,5 +1,5 @@
-<svg width="220" height="70" viewBox="0 0 220 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(0 6)">
+<svg width="220" height="86" viewBox="0 0 220 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(0 8)">
     <g transform="translate(54 0)">
       <line x1="18" y1="0" x2="18" y2="5" stroke="#5D6A75" stroke-width="2" stroke-linecap="round"/>
       <circle cx="18" cy="-1" r="3" fill="#2B9AB0" stroke="#5D6A75" stroke-width="1.5"/>
@@ -13,6 +13,6 @@
     <text x="0" y="56" font-family="Poppins, Arial, sans-serif" font-size="56" font-weight="700" letter-spacing="-1.2">
       <tspan fill="#4A5560">Safe</tspan><tspan fill="#2B9AB0">AI</tspan>
     </text>
-    <text x="28" y="68" font-family="Poppins, Arial, sans-serif" font-size="13" fill="#7A8590">AI Training &amp; Compliance</text>
+    <text x="28" y="72" font-family="Poppins, Arial, sans-serif" font-size="13" fill="#7A8590">AI Training &amp; Compliance</text>
   </g>
 </svg>

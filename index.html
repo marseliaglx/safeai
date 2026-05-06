@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SafeAI — AI Training & Compliance | Cork, Ireland</title>
+  <title>SafeAI — EU AI Act Training & Compliance for Irish Organisations</title>
   <link rel="icon" type="image/png" href="safeai-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
@@ -22,11 +22,10 @@
 <script type="text/babel">
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "heroHeadline": "Using AI in your business?",
-  "heroSub": "You may already have legal obligations.",
-  "primaryCTA": "Take the 2-minute check",
-  "secondaryCTA": "Book a call with Marcela",
-  "showTimeline": true,
+  "heroHeadline": "Using AI in your organisation?",
+  "heroSub": "The EU AI Act may already apply to you.",
+  "primaryCTA": "Download the Free AI Risk Checklist",
+  "secondaryCTA": "Book AI Training",
   "showBlog": true,
   "showGuides": true,
   "accentColor": "#1B9AAA"
@@ -47,8 +46,6 @@ function App() {
       <Navbar />
       <HeroSection />
       <ProblemSection />
-      {tweaks.showTimeline && <TimelineSection />}
-      <QuizSection />
       <ServicesSection />
       <FreeToolsSection />
       {tweaks.showGuides && <GuidesSection />}
@@ -66,7 +63,6 @@ function App() {
           <TweakText id="secondaryCTA" label="Secondary CTA" value={tweaks.secondaryCTA} onChange={v => setTweak('secondaryCTA', v)} />
         </TweakSection>
         <TweakSection title="Sections">
-          <TweakToggle id="showTimeline" label="Show EU AI Act timeline" value={tweaks.showTimeline} onChange={v => setTweak('showTimeline', v)} />
           <TweakToggle id="showGuides" label="Show Guides section" value={tweaks.showGuides} onChange={v => setTweak('showGuides', v)} />
           <TweakToggle id="showBlog" label="Show Blog section" value={tweaks.showBlog} onChange={v => setTweak('showBlog', v)} />
         </TweakSection>

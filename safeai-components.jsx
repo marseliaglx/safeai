@@ -537,18 +537,6 @@ function ServicesSection() {
             </div>
           ))}
         </div>
-
-        {/* Monthly retainer */}
-        <div style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 12, padding: '20px 28px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-          <div>
-            <div style={{ fontSize: 16, fontWeight: 600, color: T.white, marginBottom: 4 }}>Ongoing AI Compliance Support</div>
-            <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>Monthly call, quarterly updates, annual policy review. Keep your team confident and compliant.</div>
-          </div>
-          <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexShrink: 0 }}>
-            <span style={{ fontSize: 18, fontWeight: 700, color: T.white }}>From €200/mo</span>
-            <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-outline" style={{ fontSize: 14, padding: '11px 22px' }}>Learn more</a>
-          </div>
-        </div>
       </div>
     </section>
   );

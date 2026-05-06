@@ -182,13 +182,13 @@ function Navbar({ tweaks }) {
       boxShadow: scrolled ? '0 1px 12px rgba(27,58,107,0.08)' : 'none',
       transition: 'background 0.3s, box-shadow 0.3s',
     }}>
-      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '0 24px', minHeight: 88, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
         {/* Logo */}
         <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
           <img
             src="safeai-logo.svg"
             alt="SafeAI logo"
-            style={{ height: 40, width: 'auto', display: 'block' }}
+            style={{ height: 58, width: 'auto', display: 'block' }}
           />
         </a>
 
@@ -213,7 +213,7 @@ function Navbar({ tweaks }) {
 /* ── Hero Section ── */
 function HeroSection() {
   return (
-    <section id="hero" style={{ background: T.cream, minHeight: '92vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 80, overflow: 'hidden' }}>
+    <section id="hero" style={{ background: T.cream, minHeight: '92vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 108 }}>
       {/* Subtle dot-grid background */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 0,
@@ -222,62 +222,43 @@ function HeroSection() {
         pointerEvents: 'none',
       }}></div>
 
-      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '64px 24px 80px', position: 'relative', zIndex: 1, width: '100%' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, alignItems: 'center' }}>
-
-          {/* Left: text */}
-          <div>
+      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 80px', position: 'relative', zIndex: 1 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 48, flexWrap: 'wrap' }}>
+          <div style={{ flex: '1 1 520px', minWidth: 0 }}>
             <span className="sa-tag sa-tag-teal" style={{ marginBottom: 20, display: 'inline-block' }}>
-              For Irish businesses, schools &amp; community organisations
+              For Irish small businesses, schools &amp; community organisations
             </span>
 
-            <h1 style={{ fontSize: 'clamp(28px, 4vw, 50px)', fontWeight: 700, color: T.charcoal, lineHeight: 1.15, marginBottom: 18, textWrap: 'balance' }}>
-              Using AI in your organisation?<br />
-              <span style={{ color: T.navy }}>The EU AI Act may already apply to you.</span>
+            <h1 style={{ fontSize: 'clamp(36px, 5.5vw, 68px)', fontWeight: 700, color: T.charcoal, lineHeight: 1.1, marginBottom: 20, maxWidth: 780, textWrap: 'balance' }}>
+              Using AI in your business?
             </h1>
-
-            <p style={{ fontSize: 15, color: T.charcoal, lineHeight: 1.9, maxWidth: 540, marginBottom: 10 }}>
-              Even everyday AI use — like writing emails, creating content, or summarising documents — can create responsibilities under the EU AI Act and GDPR.
+            <p style={{ fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 600, color: T.teal, lineHeight: 1.3, marginBottom: 20, maxWidth: 620 }}>
+              You may already have legal obligations.
             </p>
-            <p style={{ fontSize: 15, color: T.charcoal, lineHeight: 1.9, maxWidth: 540, marginBottom: 36 }}>
-              SafeAI helps Irish organisations use AI confidently, reduce compliance risk, and train teams without jargon or overwhelm.
+            <p style={{ fontSize: 16, color: T.charcoal, lineHeight: 1.8, maxWidth: 700, marginBottom: 36 }}>
+              Even everyday use of AI tools like writing emails, creating content, or summarising documents can create legal obligations under the EU AI Act for Irish businesses, schools, and organisations. Most organisations are already using AI. Very few realise they’re responsible for how it’s used.
             </p>
 
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center', marginBottom: 16 }}>
-              <a href="#free-tools" className="sa-btn-primary" style={{ fontSize: 15, padding: '15px 28px' }}>
-                Download the Free AI Risk Checklist
+            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
+              <a href="#quiz" className="sa-btn-primary" style={{ fontSize: 16, padding: '16px 32px' }}>
+                Take the 2-minute check
               </a>
-              <a href="https://cal.com/safeai/workshop" target="_blank" rel="noopener noreferrer"
-                style={{ display: 'inline-flex', alignItems: 'center', fontFamily: 'Poppins, sans-serif', fontWeight: 600, fontSize: 15, color: T.navy, textDecoration: 'none', padding: '14px 0', transition: 'color 0.15s' }}>
-                Book AI Training →
+              <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-outline" style={{ fontSize: 16, padding: '14px 32px', color: T.navy, borderColor: 'rgba(27,58,107,0.35)' }}>
+                Book a call with Marcela
               </a>
-            </div>
-
-            <p style={{ fontSize: 13, color: T.muted, fontStyle: 'italic', marginBottom: 40 }}>
-              You don't need to stop using AI. You just need to use it properly.
-            </p>
-
-            <div style={{ paddingTop: 20, borderTop: '1px solid rgba(27,58,107,0.12)' }}>
-              <span style={{ fontSize: 13, color: T.muted }}>Cork-based · Supporting organisations across Ireland</span>
             </div>
           </div>
 
-          {/* Right: logo */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <div style={{ position: 'relative', width: 300, height: 300 }}>
-              {/* Teal circle backdrop */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                borderRadius: '50%',
-                background: `radial-gradient(circle, rgba(27,154,170,0.12) 0%, rgba(27,154,170,0.04) 70%, transparent 100%)`,
-              }}></div>
+          <div style={{ flex: '0 1 420px', minWidth: 280, display: 'flex', justifyContent: 'center' }} aria-label="SafeAI brand mark">
+            <div style={{ width: '100%', maxWidth: 420, padding: '34px 26px', borderRadius: 26, background: 'rgba(255,255,255,0.78)', border: '1px solid rgba(27,58,107,0.08)', boxShadow: '0 24px 70px rgba(27,58,107,0.12)', backdropFilter: 'blur(4px)' }}>
               <img
                 src="safeai-logo.png"
                 alt="SafeAI — AI Training & Compliance"
-                style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%', objectFit: 'contain', padding: 24 }}
+                style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 14px 22px rgba(27,58,107,0.12))' }}
               />
             </div>
           </div>
+        </div>
 
         </div>
       </div>
@@ -701,14 +682,30 @@ function BlogSection() {
   function fmtDate(d) {
     return new Date(d).toLocaleDateString('en-IE', { day: 'numeric', month: 'short', year: 'numeric' });
   }
+
+  const blogUrl = 'https://blog.safeai.ie/';
   const posts = [
-    { slug: 'eu-ai-act-irish-smes', cat: 'EU AI Act', title: 'EU AI Act: What Irish SMEs Need to Know in 2025', excerpt: "The EU AI Act came into force in August 2024. Here's a plain-English breakdown of what it means for your small business — and what you need to do right now.", date: '2024-12-15', time: '5 min', featured: true },
-    { slug: 'chatgpt-workplace-policy', cat: 'Policies', title: 'Creating a ChatGPT Workplace Policy: A Step-by-Step Guide', excerpt: "Your staff are already using AI. Here's how to create a sensible policy that protects your business without killing productivity.", date: '2024-12-08', time: '7 min', featured: false },
-    { slug: 'gdpr-ai-tools', cat: 'GDPR', title: 'GDPR and AI Tools: Your Compliance Checklist', excerpt: "Using AI tools with customer data? Make sure you're ticking these GDPR boxes.", date: '2024-11-28', time: '6 min', featured: false },
-    { slug: 'ai-risk-assessment', cat: 'Risk Management', title: 'How to Run an AI Risk Assessment for Your Small Business', excerpt: "You don't need a compliance team. Here's a practical framework any SME owner can follow.", date: '2024-11-20', time: '8 min', featured: false },
+    {
+      url: 'https://blog.safeai.ie/the-real-risks-of-using-ai-blindly-a-wake-up-call-for-irish-small-businesses',
+      cat: 'AI Risk',
+      title: 'The real risks of using AI blindly: A wake-up call for Irish small businesses',
+      excerpt: 'AI can draft emails, design graphics and answer customer queries — but unchecked use creates real risks around hallucinations, privacy, transparency, bias and brand trust.',
+      date: '2026-05-05',
+      time: '2 min',
+      featured: true,
+    },
+    {
+      url: 'https://blog.safeai.ie/the-eu-ai-act-what-every-irish-small-business-needs-to-know-without-the-legal-jargon',
+      cat: 'EU AI Act',
+      title: 'The EU AI Act: what every Irish small business needs to know (without the legal jargon)',
+      excerpt: 'A practical explanation of how everyday AI use can create obligations for Irish businesses, schools and organisations — and the simple steps to take now.',
+      date: '2026-05-04',
+      time: '4 min',
+      featured: false,
+    },
   ];
-  const featured = posts[0];
-  const rest = posts.slice(1);
+  const featured = posts.find(p => p.featured) || posts[0];
+  const rest = posts.filter(p => p !== featured);
 
   return (
     <section id="blog" style={{ background: T.cream, padding: '80px 24px' }}>
@@ -717,45 +714,49 @@ function BlogSection() {
           <div>
             <p className="sa-eyebrow">From the Blog</p>
             <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: T.charcoal }}>Practical AI compliance insights</h2>
-            <p style={{ fontSize: 15, color: T.muted, marginTop: 6 }}>No jargon, no scare tactics. Just clear guidance for Irish organisations.</p>
+            <p style={{ fontSize: 15, color: T.muted, marginTop: 6 }}>Latest SafeAI articles from Marcela on AI risks, EU AI Act obligations and plain-English compliance for Irish organisations.</p>
           </div>
-          <a href="/blog" style={{ fontSize: 14, color: T.teal, fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+          <a href={blogUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: T.teal, fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
             View all articles <Icon.Arrow size={14} color={T.teal} />
           </a>
         </div>
 
         {/* Featured post */}
-        <div className="sa-card blog-card" style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: 32, marginBottom: 20, padding: '28px 32px', alignItems: 'center' }}>
+        <a href={featured.url} target="_blank" rel="noopener noreferrer" className="sa-card blog-card" style={{ display: 'grid', gridTemplateColumns: '1fr 260px', gap: 32, marginBottom: 20, padding: '28px 32px', alignItems: 'center', textDecoration: 'none' }}>
           <div>
             <span className="sa-tag sa-tag-teal" style={{ marginBottom: 12, display: 'inline-block' }}>{featured.cat}</span>
             <h3 style={{ fontSize: 20, fontWeight: 700, color: T.charcoal, marginBottom: 10, lineHeight: 1.4 }}>{featured.title}</h3>
             <p style={{ fontSize: 14, color: T.muted, lineHeight: 1.7, marginBottom: 16 }}>{featured.excerpt}</p>
-            <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: T.muted }}><Icon.Calendar />{fmtDate(featured.date)}</span>
               <span style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: T.muted }}><Icon.Clock />{featured.time} read</span>
-              <a href={`/blog/${featured.slug}`} style={{ fontSize: 13, color: T.teal, fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }}>Read article <Icon.Arrow size={12} color={T.teal} /></a>
+              <span style={{ fontSize: 13, color: T.teal, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>Read on blog.safeai.ie <Icon.Arrow size={12} color={T.teal} /></span>
             </div>
           </div>
           <div style={{
-            height: 160, borderRadius: 8,
-            background: `repeating-linear-gradient(45deg, #e8edf2 0px, #e8edf2 3px, #f4f7f9 3px, #f4f7f9 14px)`,
-            border: '1.5px dashed #b0bec5', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: T.muted, fontSize: 12, fontStyle: 'italic'
-          }}>featured image</div>
-        </div>
+            minHeight: 150, borderRadius: 10,
+            background: `linear-gradient(135deg, ${T.navy} 0%, ${T.teal} 100%)`,
+            display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+            color: T.white, padding: 20, boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.18)'
+          }}>
+            <span style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.14em', opacity: 0.74 }}>Latest article</span>
+            <span style={{ fontSize: 28, fontWeight: 700, lineHeight: 1.1 }}>Safe<span style={{ color: '#8FE3ED' }}>AI</span> Blog</span>
+            <span style={{ fontSize: 12, opacity: 0.78 }}>External blog ↗</span>
+          </div>
+        </a>
 
-        {/* 3-col grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
           {rest.map((p, i) => (
-            <div key={i} className="sa-card blog-card" style={{ padding: '20px 22px' }}>
+            <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" className="sa-card blog-card" style={{ padding: '20px 22px', textDecoration: 'none' }}>
               <span className="sa-tag sa-tag-teal" style={{ marginBottom: 10, display: 'inline-block' }}>{p.cat}</span>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: T.charcoal, lineHeight: 1.5, marginBottom: 8 }}>{p.title}</h3>
+              <h3 style={{ fontSize: 15, fontWeight: 700, color: T.charcoal, lineHeight: 1.5, marginBottom: 8 }}>{p.title}</h3>
               <p style={{ fontSize: 12, color: T.muted, lineHeight: 1.6, marginBottom: 14 }}>{p.excerpt}</p>
               <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, color: T.muted }}><Icon.Calendar />{fmtDate(p.date)}</span>
                 <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, color: T.muted }}><Icon.Clock />{p.time} read</span>
-                <a href={`/blog/${p.slug}`} style={{ fontSize: 12, color: T.teal, fontWeight: 600, textDecoration: 'none' }}>Read →</a>
+                <span style={{ fontSize: 12, color: T.teal, fontWeight: 600 }}>Read →</span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

@@ -530,7 +530,7 @@ function ServicesSection() {
             <div key={i} style={{ background: T.white, borderRadius: 12, padding: '28px 28px 24px' }}>
               <h3 style={{ fontSize: 18, fontWeight: 700, color: T.charcoal, marginBottom: 12 }}>{s.title}</h3>
               <p style={{ fontSize: 14, color: T.ink, lineHeight: 1.8, marginBottom: 20 }}>{s.desc}</p>
-              <p style={{ fontSize: 20, fontWeight: 700, color: T.charcoal, marginBottom: 20 }}>{s.price}</p>
+              <span style={{ display: 'inline-block', fontSize: 12, fontWeight: 600, color: T.muted, background: T.cream, border: '1px solid #d0dce4', borderRadius: 20, padding: '4px 12px', marginBottom: 20 }}>Coming soon</span>
               <a href={s.href} target="_blank" rel="noopener noreferrer" className="sa-btn-primary" style={{ fontSize: 14, padding: '12px 22px' }}>{s.cta}</a>
             </div>
           ))}

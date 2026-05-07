@@ -221,12 +221,6 @@ function HeroSection() {
         backgroundSize: '28px 28px',
         pointerEvents: 'none',
       }}></div>
-      {/* Teal arc shape bottom-right */}
-      <div style={{
-        position: 'absolute', bottom: -80, right: -80, width: 420, height: 420,
-        borderRadius: '50%', background: T.teal, opacity: 0.08, zIndex: 0,
-        pointerEvents: 'none',
-      }}></div>
 
       <div style={{ maxWidth: 1120, margin: '0 auto', padding: '56px 24px 80px', position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 48, flexWrap: 'wrap' }}>
@@ -265,13 +259,6 @@ function HeroSection() {
             </div>
           </div>
         </div>
-
-        {/* Footer strip */}
-        <div style={{ display: 'flex', gap: 24, marginTop: 52, paddingTop: 24, borderTop: '1px solid rgba(27,58,107,0.15)', flexWrap: 'wrap' }}>
-          {['Cork, Ireland', 'English & Polish', 'safeai.ie'].map(item => (
-            <span key={item} style={{ fontSize: 13, color: T.muted }}>{item}</span>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -279,43 +266,83 @@ function HeroSection() {
 
 /* ── Problem Section ── */
 function ProblemSection() {
-  const problems = [
-    { text: 'Asked ChatGPT to "write me a customer email"' },
-    { text: 'Pasted client information into an AI tool to "improve it"' },
-    { text: 'Generated Instagram captions or product descriptions with AI' },
-    { text: 'Created images using Midjourney, ChatGPT, or Canva Magic' },
-    { text: 'Asked AI to summarise documents, meetings, or messages' },
+  const uses = [
+    'Using AI to write emails or content',
+    'Pasting customer information into AI tools',
+    'Creating AI-generated marketing materials',
+    'Summarising meetings or documents',
+    'Letting staff use AI tools without guidance',
+  ];
+  const risks = [
+    'AI tools may process or store what you enter',
+    'Customer or staff data can be exposed unintentionally',
+    'AI-generated content can create copyright and transparency risks',
+    'Organisations remain responsible for how AI is used internally',
   ];
   return (
-    <section id="problem" style={{ background: T.white, padding: '80px 24px' }}>
+    <section id="problem" style={{ background: T.white, padding: '88px 24px 0' }}>
       <div style={{ maxWidth: 960, margin: '0 auto' }}>
+
+        {/* Part 1: awareness */}
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <p className="sa-eyebrow">The Problem</p>
-          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: T.charcoal, marginBottom: 12, textWrap: 'balance' }}>
-            If you've ever done any of this, you're already using AI
+          <p className="sa-eyebrow">EU AI Act Ireland · AI Compliance</p>
+          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, color: T.charcoal, marginBottom: 14, textWrap: 'balance' }}>
+            Most organisations are already using AI
           </h2>
-          <p style={{ fontSize: 16, color: T.muted }}>That feels normal. Sometimes it is. Sometimes it is not.</p>
+          <p style={{ fontSize: 17, color: T.muted, maxWidth: 560, margin: '0 auto' }}>
+            Very few realise they may already be responsible for how it's used.
+          </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16, marginBottom: 32 }}>
-          {problems.map((p, i) => (
-            <div key={i} className="sa-card" style={{ display: 'flex', gap: 14, alignItems: 'flex-start', padding: 20 }}>
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: T.teal, flexShrink: 0, marginTop: 8 }}></div>
-              <span style={{ fontSize: 14, color: T.ink, lineHeight: 1.6 }}>{p.text}</span>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12, marginBottom: 40 }}>
+          {uses.map((text, i) => (
+            <div key={i} className="sa-card" style={{ display: 'flex', gap: 14, alignItems: 'flex-start', padding: '16px 20px' }}>
+              <div style={{ width: 7, height: 7, borderRadius: '50%', background: T.teal, flexShrink: 0, marginTop: 7 }}></div>
+              <span style={{ fontSize: 14, color: T.ink, lineHeight: 1.65 }}>{text}</span>
             </div>
           ))}
         </div>
 
-        <div style={{ background: T.tealLight, borderLeft: `4px solid ${T.teal}`, borderRadius: '0 10px 10px 0', padding: '20px 24px' }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: T.charcoal, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 8 }}>The Quiet Bit</p>
-          <p style={{ fontSize: 15, color: T.ink, lineHeight: 1.8 }}>
-            You might be sharing customer data without realising. AI-generated content can accidentally copy existing work. Some tools store and reuse what you type. And under the EU AI Act, you are legally responsible for what AI produces on your behalf. <strong>Even if you are a one-person business.</strong>
+        <div style={{ textAlign: 'center', marginBottom: 72 }}>
+          <p style={{ fontSize: 15, color: T.ink, lineHeight: 1.9, maxWidth: 620, margin: '0 auto 28px' }}>
+            If any of this is already happening in your organisation, the EU AI Act and GDPR may already apply — including for everyday tools like ChatGPT, Claude, or Canva AI.
           </p>
+          <a href="#free-tools" className="sa-btn-primary" style={{ fontSize: 15, padding: '14px 28px' }}>
+            Get the Free AI Risk Checklist
+          </a>
         </div>
 
-        <p style={{ textAlign: 'center', marginTop: 40, fontSize: 20, fontStyle: 'italic', fontWeight: 300, color: T.charcoal }}>
-          You don't need to stop using AI. You just need to use it properly.
-        </p>
+        {/* Divider */}
+        <div style={{ borderTop: '1px solid #e8edf2', marginBottom: 72 }}></div>
+
+        {/* Part 2: the quiet bit — renamed & improved */}
+        <div style={{ marginBottom: 96 }}>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
+            <p className="sa-eyebrow">AI Governance · AI Risk Assessment Ireland</p>
+            <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: T.charcoal, marginBottom: 10, textWrap: 'balance' }}>
+              The part most organisations don't realise
+            </h2>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 0, marginBottom: 36 }}>
+            {risks.map((text, i) => (
+              <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'flex-start', padding: '16px 12px', borderBottom: '1px solid #f0f4f7' }}>
+                <Icon.Check size={20} />
+                <span style={{ fontSize: 14, color: T.ink, lineHeight: 1.75 }}>{text}</span>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ background: T.tealLight, borderLeft: `4px solid ${T.teal}`, borderRadius: '0 10px 10px 0', padding: '22px 28px', maxWidth: 700 }}>
+            <p style={{ fontSize: 15, color: T.ink, lineHeight: 1.85, marginBottom: 12 }}>
+              Even small businesses and community organisations can have obligations under the EU AI Act.
+            </p>
+            <p style={{ fontSize: 15, fontWeight: 600, color: T.charcoal, lineHeight: 1.7 }}>
+              You don't need to stop using AI.<br />You just need to use it properly.
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
   );
@@ -487,16 +514,16 @@ function QuizSection() {
 function ServicesSection() {
   const services = [
     { title: 'Practical AI Safety Workshop', price: 'From €800', cta: 'Book a workshop', href: 'https://cal.com/safeai/workshop', desc: '2.5-hour on-site or remote workshop for teams of up to 20. You leave with an AI Use Inventory, an Acceptable Use Policy, and your Article 4 compliance one-pager.' },
-    { title: 'AI Readiness Assessment', price: 'From €1,500', cta: 'Book an assessment', href: 'https://cal.com/safeai/assessment', desc: '1–2 day engagement. Written report with prioritised risks and a clear remediation plan. The thing to do before a regulator turns up.' },
+    { title: 'AI Readiness Assessment', price: 'From €1,500', cta: 'Book an assessment', href: 'https://cal.com/safeai/assessment', desc: '1–2 day engagement. Written report with prioritised risks and a clear remediation plan — before risks become expensive.' },
   ];
   return (
     <section id="services" style={{ background: T.navy, padding: '80px 24px' }}>
       <div style={{ maxWidth: 960, margin: '0 auto' }}>
-        <p className="sa-eyebrow" style={{ color: T.teal }}>Work With Marcela</p>
-        <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: T.white, marginBottom: 10, textWrap: 'balance', maxWidth: 560 }}>
-          Get this done in a single afternoon
+        <p className="sa-eyebrow" style={{ color: T.teal }}>AI Training &amp; Compliance Support</p>
+        <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: T.white, marginBottom: 10, textWrap: 'balance', maxWidth: 600 }}>
+          Practical support for organisations that want clarity, not complexity.
         </h2>
-        <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', marginBottom: 48 }}>For organisations that want a real human in the room, not another PDF.</p>
+        <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', marginBottom: 48, maxWidth: 540 }}>AI training for SMEs · AI policy template · AI risk assessment Ireland</p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, marginBottom: 20 }}>
           {services.map((s, i) => (
@@ -507,18 +534,6 @@ function ServicesSection() {
               <a href={s.href} target="_blank" rel="noopener noreferrer" className="sa-btn-primary" style={{ fontSize: 14, padding: '12px 22px' }}>{s.cta}</a>
             </div>
           ))}
-        </div>
-
-        {/* Monthly retainer */}
-        <div style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 12, padding: '20px 28px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-          <div>
-            <div style={{ fontSize: 16, fontWeight: 600, color: T.white, marginBottom: 4 }}>Monthly AI Literacy Maintenance</div>
-            <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>Monthly call, quarterly updates, annual policy review. Keep your team confident and compliant.</div>
-          </div>
-          <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexShrink: 0 }}>
-            <span style={{ fontSize: 18, fontWeight: 700, color: T.white }}>From €200/mo</span>
-            <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-outline" style={{ fontSize: 14, padding: '11px 22px' }}>Learn more</a>
-          </div>
         </div>
       </div>
     </section>
@@ -737,7 +752,13 @@ function BlogSection() {
 
 /* ── About Section ── */
 function AboutSection() {
-  const creds = ['5 years in the European Parliament','15 years at Microsoft and VMware',"Master's in EU Legal System (Poland)",'AI in Business & Digital Transformation','English and Polish'];
+  const creds = [
+    '5 years in the European Parliament',
+    '15 years at Microsoft and VMware',
+    "Master's in EU Legal System",
+    'AI in Business & Digital Transformation',
+    'Bilingual — English and Polish',
+  ];
   return (
     <section id="about" style={{ background: T.white, padding: '80px 24px' }}>
       <div style={{ maxWidth: 960, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 56, alignItems: 'start' }}>
@@ -755,21 +776,21 @@ function AboutSection() {
           </div>
         </div>
         <div>
-          <p className="sa-eyebrow">About</p>
-          <h2 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: 700, color: T.charcoal, marginBottom: 20, textWrap: 'balance' }}>
-            I'm Marcela. I make complex things make sense to ordinary people.
+          <p className="sa-eyebrow">About Marcela</p>
+          <h2 style={{ fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 700, color: T.charcoal, marginBottom: 20, textWrap: 'balance' }}>
+            Making complex things make sense to ordinary people.
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, fontSize: 15, color: T.ink, lineHeight: 1.85 }}>
-            <p>I started in the European Parliament, where I learned that the difference between a regulation working and a regulation failing is whether someone bothered to write it in plain English. Then I spent fifteen years in big tech, at Microsoft and VMware, mostly translating engineer-speak into something the rest of the company could act on.</p>
-            <blockquote style={{ borderLeft: `4px solid ${T.teal}`, paddingLeft: 20, fontStyle: 'italic', fontWeight: 300, fontSize: 17, color: T.charcoal, lineHeight: 1.7 }}>
-              "AI is a powerful tool. Used with humans in mind, it can genuinely empower a small business. Used carelessly, it can quietly risk everything you've built — your customer trust, your data, your reputation."
+            <p>I started in the European Parliament, where I learned that regulations only work when people can actually understand them. I then spent fifteen years at Microsoft and VMware, translating complexity into something teams could act on.</p>
+            <blockquote style={{ borderLeft: `4px solid ${T.teal}`, paddingLeft: 20, fontStyle: 'italic', fontWeight: 300, fontSize: 16, color: T.charcoal, lineHeight: 1.75 }}>
+              "AI is powerful. Used responsibly, it can genuinely help small organisations. Used carelessly, it can quietly risk everything — your data, your customer trust, your reputation."
             </blockquote>
-            <p>I hold a Master's in Public Administration in the European Legal System. I am also completing programmes in AI in Business and Digital Transformation through the EU-funded Digital4Business consortium.</p>
-            <p style={{ fontSize: 13, fontStyle: 'italic', color: T.teal }}>I run SafeAI from Cork. Bilingual English and Polish. No jargon, no formality, no upselling.</p>
+            <p>I hold a Master's in Public Administration in the EU Legal System and am completing programmes in AI in Business and Digital Transformation. I run SafeAI from Cork, supporting businesses, schools, and community organisations across Ireland.</p>
+            <p style={{ fontSize: 13, fontStyle: 'italic', color: T.teal }}>No jargon. No upselling. Practical guidance you can actually use.</p>
           </div>
           <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-primary" style={{ fontSize: 15, padding: '14px 26px' }}>Book a call</a>
-            <a href="#free-tools" className="sa-btn-ghost" style={{ fontSize: 14, padding: '14px 0', border: `1.5px solid ${T.teal}`, borderRadius: 6, padding: '13px 22px' }}>Download a free guide</a>
+            <a href="#free-tools" className="sa-btn-ghost" style={{ fontSize: 14, border: `1.5px solid ${T.teal}`, borderRadius: 6, padding: '13px 22px' }}>Download a free guide</a>
           </div>
         </div>
       </div>
@@ -787,7 +808,7 @@ function FAQSection() {
     { q: 'How long does a workshop take?', a: '2.5 hours, on-site or remote. We work with teams of up to 20 people. By the end you have your AI Use Inventory, your Acceptable Use Policy, and your Article 4 one-pager — done.' },
     { q: 'What if I only use ChatGPT occasionally?', a: "Even occasional use can create obligations, particularly around data protection (GDPR) and transparency. The EU AI Act's Article 4 AI literacy requirement applies to anyone using AI in a commercial context — there's no minimum usage threshold." },
     { q: 'Do you work with schools and community organisations?', a: 'Yes — education and community organisations are two of our three core audiences. We have a specific guide for educational settings (primary, post-primary, and further education) and experience working with non-profits and GAA clubs.' },
-    { q: 'Can I get something for free before committing?', a: "Absolutely. Start with the 2-minute self-assessment above, or download any of the free tools in the Free Tools section. You'll get a practical sense of where your organisation stands with no obligation." },
+    { q: 'Can I get something for free before committing?', a: "Absolutely. Download the free Irish SME AI Risk Checklist or the EU AI Act field guide from the Free Tools section. You'll get a practical sense of where your organisation stands with no obligation." },
   ];
 
   return (
@@ -818,18 +839,22 @@ function FAQSection() {
 /* ── CTA Strip ── */
 function CTAStrip() {
   return (
-    <section style={{ background: T.teal, padding: '48px 24px' }}>
-      <div style={{ maxWidth: 960, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
-        <div>
-          <h2 style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 700, color: T.white, marginBottom: 6 }}>Ready to get this sorted?</h2>
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)' }}>Take the 2-minute check, download a free guide, or book a call when you're ready.</p>
-        </div>
-        <div style={{ display: 'flex', gap: 14, flexShrink: 0, flexWrap: 'wrap' }}>
-          <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: T.white, color: T.teal, fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: 15, padding: '14px 28px', borderRadius: 6, textDecoration: 'none', transition: 'opacity 0.15s' }}>
-            Book a call
+    <section style={{ background: T.teal, padding: '60px 24px' }}>
+      <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
+        <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: T.white, marginBottom: 10 }}>
+          Start using AI more safely and confidently
+        </h2>
+        <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', marginBottom: 36, maxWidth: 460, margin: '0 auto 36px' }}>
+          Practical AI training and compliance support for Irish organisations.
+        </p>
+        <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a href="#free-tools"
+            style={{ display: 'inline-flex', alignItems: 'center', background: T.white, color: T.teal, fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: 15, padding: '15px 28px', borderRadius: 6, textDecoration: 'none', transition: 'opacity 0.15s' }}>
+            Download the Free AI Checklist
           </a>
-          <a href="#quiz" className="sa-btn-outline" style={{ fontSize: 15, padding: '12px 28px' }}>Take the check</a>
+          <a href="https://cal.com/safeai/workshop" target="_blank" rel="noopener noreferrer" className="sa-btn-outline" style={{ fontSize: 15, padding: '13px 28px' }}>
+            Book a Workshop
+          </a>
         </div>
       </div>
     </section>
@@ -838,27 +863,20 @@ function CTAStrip() {
 
 /* ── Footer ── */
 function Footer() {
-  const qlinks = ['Problem','Quiz','Free tools','Guides','Blog','Services','About'];
+  const qlinks = ['Problem','Services','Free tools','Guides','Blog','About'];
   return (
     <footer style={{ background: T.navy, padding: '56px 24px 32px' }}>
       <div style={{ maxWidth: 960, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 32, marginBottom: 40 }}>
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="14" fill="rgba(27,154,170,0.15)"/>
-                <rect x="8" y="10" width="12" height="10" rx="3" fill="none" stroke={T.teal} strokeWidth="1.6"/>
-                <circle cx="11" cy="14" r="1.2" fill={T.teal}/>
-                <circle cx="17" cy="14" r="1.2" fill={T.teal}/>
-                <path d="M11 17.5c.8.8 2 1 3 .8s2-.8 3-1.8" stroke={T.teal} strokeWidth="1.2" strokeLinecap="round"/>
-                <line x1="14" y1="7" x2="14" y2="10" stroke={T.teal} strokeWidth="1.4" strokeLinecap="round"/>
-                <circle cx="14" cy="6.5" r="1" fill={T.teal}/>
-              </svg>
-              <span style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: 20, color: T.white, letterSpacing: '-0.01em' }}>
-                Safe<span style={{ color: T.teal }}>AI</span>
-              </span>
+            <div style={{ marginBottom: 16, display: 'inline-block', background: T.white, borderRadius: 12, padding: '10px 16px' }}>
+              <img
+                src="safeai-logo.svg"
+                alt="SafeAI logo"
+                style={{ height: 52, width: 'auto', display: 'block' }}
+              />
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>AI Training & Compliance<br />Cork, Ireland</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>Cork, Ireland</p>
           </div>
           <div>
             <h4 style={{ fontSize: 13, fontWeight: 600, color: T.white, marginBottom: 14 }}>Quick Links</h4>

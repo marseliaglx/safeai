@@ -15,6 +15,17 @@ const T = {
   white:      '#FFFFFF',
 };
 
+/* ── Formspree email submission ── */
+const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // replace at formspree.io after creating a free form
+function submitEmail(email, source) {
+  if (!email || FORMSPREE_ID === 'YOUR_FORMSPREE_ID') return Promise.resolve();
+  return fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, source: source }),
+  }).catch(function() {});
+}
+
 /* ── Base styles injected once ── */
 if (!document.getElementById('safeai-base')) {
   const s = document.createElement('style');
@@ -172,7 +183,7 @@ function Navbar({ tweaks }) {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  const links = ['Problem','Quiz','Free tools','Guides','Blog','About'];
+  const links = ['Problem','Services','Free tools','Blog','About'];
 
   return (
     <nav style={{
@@ -201,7 +212,7 @@ function Navbar({ tweaks }) {
               onMouseLeave={e => e.target.style.color = T.charcoal}
             >{l}</a>
           ))}
-          <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-primary" style={{ fontSize: 14, padding: '10px 20px' }}>
+          <a href="#booking" className="sa-btn-primary" style={{ fontSize: 14, padding: '10px 20px' }}>
             Book a call
           </a>
         </div>
@@ -243,7 +254,7 @@ function HeroSection() {
               <a href="#quiz" className="sa-btn-primary" style={{ fontSize: 16, padding: '16px 32px' }}>
                 Take the 2-minute check
               </a>
-              <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-outline" style={{ fontSize: 16, padding: '14px 32px', color: T.navy, borderColor: 'rgba(27,58,107,0.35)' }}>
+              <a href="#booking" className="sa-btn-outline" style={{ fontSize: 16, padding: '14px 32px', color: T.navy, borderColor: 'rgba(27,58,107,0.35)' }}>
                 Book a call with Marcela
               </a>
             </div>
@@ -491,7 +502,7 @@ function QuizSection() {
                 <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: T.charcoal, marginBottom: 8 }}>Send me my full report and the free Irish SME AI Risk Checklist</label>
                 <div style={{ display: 'flex', gap: 10 }}>
                   <input type="email" className="sa-input" placeholder="your@email.ie" value={email} onChange={e => setEmail(e.target.value)} />
-                  <button className="sa-btn-primary" style={{ fontSize: 14, padding: '13px 20px', flexShrink: 0 }} onClick={() => email && setSubmitted(true)}>
+                  <button className="sa-btn-primary" style={{ fontSize: 14, padding: '13px 20px', flexShrink: 0 }} onClick={() => { if (email) { submitEmail(email, 'quiz'); setSubmitted(true); } }}>
                     Send it <Icon.Arrow size={16} color="#fff" />
                   </button>
                 </div>
@@ -591,7 +602,7 @@ function FreeToolsSection() {
                   <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: T.charcoal, marginBottom: 8 }}>Where should we send it?</label>
                   <div style={{ display: 'flex', gap: 10 }}>
                     <input type="email" className="sa-input" placeholder="your@email.ie" value={emailVal} onChange={e => setEmailVal(e.target.value)} />
-                    <button className="sa-btn-primary" style={{ fontSize: 14, padding: '13px 18px', flexShrink: 0 }} onClick={() => emailVal && setSent(modal)}>Send</button>
+                    <button className="sa-btn-primary" style={{ fontSize: 14, padding: '13px 18px', flexShrink: 0 }} onClick={() => { if (emailVal) { submitEmail(emailVal, 'free-tools'); setSent(modal); } }}>Send</button>
                   </div>
                 </>
               )}
@@ -652,7 +663,7 @@ function GuidesSection() {
                 <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: T.charcoal, marginBottom: 8 }}>Where should we send it?</label>
                 <div style={{ display: 'flex', gap: 10 }}>
                   <input type="email" className="sa-input" placeholder="your@email.ie" value={emailVal} onChange={e => setEmailVal(e.target.value)} />
-                  <button className="sa-btn-primary" style={{ fontSize: 14, padding: '13px 18px', flexShrink: 0 }} onClick={() => emailVal && setSent(true)}>Send</button>
+                  <button className="sa-btn-primary" style={{ fontSize: 14, padding: '13px 18px', flexShrink: 0 }} onClick={() => { if (emailVal) { submitEmail(emailVal, 'guide-free'); setSent(true); } }}>Send</button>
                 </div>
               </>
             )}
@@ -789,7 +800,7 @@ function AboutSection() {
             <p style={{ fontSize: 13, fontStyle: 'italic', color: T.teal }}>No jargon. No upselling. Practical guidance you can actually use.</p>
           </div>
           <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" className="sa-btn-primary" style={{ fontSize: 15, padding: '14px 26px' }}>Book a call</a>
+            <a href="#booking" className="sa-btn-primary" style={{ fontSize: 15, padding: '14px 26px' }}>Book a call</a>
             <a href="#free-tools" className="sa-btn-ghost" style={{ fontSize: 14, border: `1.5px solid ${T.teal}`, borderRadius: 6, padding: '13px 22px' }}>Download a free guide</a>
           </div>
         </div>
@@ -889,7 +900,7 @@ function Footer() {
             <h4 style={{ fontSize: 13, fontWeight: 600, color: T.white, marginBottom: 14 }}>Contact</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <a href="mailto:marcela@safeai.ie" style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}>marcela@safeai.ie</a>
-              <a href="https://cal.com/safeai/call" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}>Book a call ↗</a>
+              <a href="#booking" style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}>Book a call ↗</a>
             </div>
             <div style={{ display: 'flex', gap: 10, marginTop: 16 }}>
               {[
@@ -919,9 +930,168 @@ function Footer() {
   );
 }
 
+/* ── Social Proof Bar ── */
+function SocialProofBar() {
+  const sectors = ['SMEs & Sole Traders', 'Schools & Further Education', 'Community Organisations', 'Non-profits & GAA Clubs', 'Cork, Dublin & Remote'];
+  return (
+    <div style={{ background: '#fff', borderBottom: '1px solid #e8edf2', padding: '18px 24px' }}>
+      <div style={{ maxWidth: 960, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
+        <span style={{ fontSize: 11, color: T.muted, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginRight: 6 }}>Serving</span>
+        {sectors.map(function(s, i) {
+          return (
+            <span key={i} style={{ fontSize: 12, color: T.charcoal, background: T.cream, border: '1px solid #d8e4eb', borderRadius: 20, padding: '4px 14px' }}>{s}</span>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+/* ── Testimonials Section ── */
+function TestimonialsSection() {
+  const items = [
+    { quote: 'Marcela made the EU AI Act understandable for the whole team. We left with a real policy, not just slides.', name: 'Workshop participant', org: 'Irish SME, Cork' },
+    { quote: 'We had no idea our daily AI use could create legal issues. SafeAI helped us fix that in half a day.', name: 'Operations Manager', org: 'Community Organisation, Dublin' },
+    { quote: 'Practical, no-nonsense, and specific to Ireland. Exactly what we needed.', name: 'Principal', org: 'Post-primary school, Munster' },
+  ];
+  return (
+    <section id="testimonials" style={{ background: T.cream, padding: '80px 24px' }}>
+      <div style={{ maxWidth: 960, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 48 }}>
+          <p className="sa-eyebrow">What clients say</p>
+          <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, color: T.charcoal }}>Trusted by Irish organisations</h2>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20, marginBottom: 20 }}>
+          {items.map(function(t, i) {
+            return (
+              <div key={i} className="sa-card" style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ fontSize: 40, color: T.teal, lineHeight: 0.8, marginBottom: 14, fontFamily: 'Georgia, serif' }}>"</div>
+                <p style={{ fontSize: 14, color: T.ink, lineHeight: 1.85, flex: 1, marginBottom: 20 }}>{t.quote}</p>
+                <div>
+                  <p style={{ fontSize: 13, fontWeight: 600, color: T.charcoal, marginBottom: 2 }}>{t.name}</p>
+                  <p style={{ fontSize: 12, color: T.muted }}>{t.org}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <p style={{ textAlign: 'center', fontSize: 11, color: T.muted, fontStyle: 'italic' }}>Placeholder testimonials — swap in real client quotes when available.</p>
+      </div>
+    </section>
+  );
+}
+
+/* ── Booking Modal (triggered by href="#booking") ── */
+function BookingModal() {
+  const R = React;
+  const [open, setOpen] = R.useState(false);
+  R.useEffect(function() {
+    function check() { setOpen(window.location.hash === '#booking'); }
+    check();
+    window.addEventListener('hashchange', check);
+    return function() { window.removeEventListener('hashchange', check); };
+  }, []);
+  function close() {
+    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    setOpen(false);
+  }
+  if (!open) return null;
+  return (
+    <div onClick={close} style={{ position: 'fixed', inset: 0, background: 'rgba(27,58,107,0.6)', zIndex: 300, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
+      <div onClick={function(e) { e.stopPropagation(); }} style={{ background: T.white, borderRadius: 14, width: '100%', maxWidth: 780, height: '88vh', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ padding: '14px 20px', borderBottom: '1px solid #e8edf2', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexShrink: 0 }}>
+          <span style={{ fontSize: 15, fontWeight: 600, color: T.charcoal }}>Book a call with Marcela</span>
+          <button onClick={close} style={{ background: 'none', border: 'none', fontSize: 22, cursor: 'pointer', color: T.muted, lineHeight: 1, padding: '0 4px', fontFamily: 'Poppins, sans-serif' }}>&times;</button>
+        </div>
+        <iframe src="https://cal.com/safeai/call?embed=true" style={{ flex: 1, border: 'none', width: '100%' }} title="Book a call with Marcela" />
+      </div>
+    </div>
+  );
+}
+
+/* ── Cookie Banner (GDPR) ── */
+function CookieBanner() {
+  const R = React;
+  const [visible, setVisible] = R.useState(false);
+  R.useEffect(function() { setVisible(!localStorage.getItem('safeai-cookie-ok')); }, []);
+  function accept() { localStorage.setItem('safeai-cookie-ok', '1'); setVisible(false); }
+  if (!visible) return null;
+  return (
+    <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 500, background: T.navy, padding: '14px 24px', display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', boxShadow: '0 -4px 20px rgba(0,0,0,0.2)' }}>
+      <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.6, flex: 1, margin: 0 }}>
+        We use essential cookies to keep this site working. By continuing you agree to our <a href="#" style={{ color: T.teal, textDecoration: 'none' }}>cookie policy</a>.
+      </p>
+      <div style={{ display: 'flex', gap: 10, flexShrink: 0 }}>
+        <button onClick={accept} className="sa-btn-primary" style={{ fontSize: 13, padding: '9px 20px' }}>Accept</button>
+        <button onClick={accept} style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Poppins, sans-serif', padding: '9px 4px' }}>Dismiss</button>
+      </div>
+    </div>
+  );
+}
+
+/* ── WhatsApp Floating Button ── */
+function WhatsAppButton() {
+  const phone = '353000000000'; // replace with Marcela's WhatsApp number e.g. 353851234567
+  const msg = 'Hi Marcela, I found SafeAI and would like to ask a quick question.';
+  return (
+    <a
+      href={'https://wa.me/' + phone + '?text=' + encodeURIComponent(msg)}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      title="Chat on WhatsApp"
+      style={{ position: 'fixed', bottom: 88, right: 24, zIndex: 400, width: 52, height: 52, borderRadius: '50%', background: '#25D366', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 16px rgba(37,211,102,0.4)', textDecoration: 'none', transition: 'transform 0.15s' }}
+      onMouseEnter={function(e) { e.currentTarget.style.transform = 'scale(1.1)'; }}
+      onMouseLeave={function(e) { e.currentTarget.style.transform = 'scale(1)'; }}
+    >
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  );
+}
+
+/* ── Newsletter Section ── */
+function NewsletterSection() {
+  const R = React;
+  const [email, setEmail] = R.useState('');
+  const [status, setStatus] = R.useState(null);
+  function handleSubmit() {
+    if (!email) return;
+    submitEmail(email, 'newsletter');
+    setStatus('sent');
+  }
+  return (
+    <section style={{ background: T.tealLight, padding: '56px 24px' }}>
+      <div style={{ maxWidth: 540, margin: '0 auto', textAlign: 'center' }}>
+        <p className="sa-eyebrow">Stay informed</p>
+        <h2 style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 700, color: T.charcoal, marginBottom: 8 }}>
+          EU AI Act updates for Irish organisations
+        </h2>
+        <p style={{ fontSize: 14, color: T.muted, marginBottom: 28 }}>
+          Plain-English updates when the law changes. One email per month at most.
+        </p>
+        {status === 'sent' ? (
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+            <Icon.CheckCircle size={36} />
+            <span style={{ fontSize: 15, fontWeight: 600, color: T.charcoal }}>You are on the list!</span>
+          </div>
+        ) : (
+          <div style={{ display: 'flex', gap: 10, maxWidth: 420, margin: '0 auto' }}>
+            <input type="email" className="sa-input" placeholder="your@email.ie" value={email} onChange={function(e) { setEmail(e.target.value); }} onKeyDown={function(e) { if (e.key === 'Enter') handleSubmit(); }} />
+            <button onClick={handleSubmit} className="sa-btn-primary" style={{ flexShrink: 0, padding: '13px 20px', fontSize: 14 }}>Subscribe</button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 // Export everything to window
 Object.assign(window, {
   T, Icon, Navbar, HeroSection, ProblemSection, TimelineSection,
   QuizSection, ServicesSection, FreeToolsSection, GuidesSection,
-  BlogSection, AboutSection, FAQSection, CTAStrip, Footer
+  BlogSection, AboutSection, FAQSection, CTAStrip, Footer,
+  SocialProofBar, TestimonialsSection, BookingModal, CookieBanner,
+  WhatsAppButton, NewsletterSection
 });

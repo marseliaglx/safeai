@@ -111,6 +111,18 @@ if (!document.getElementById('safeai-base')) {
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #c8d6de; border-radius: 3px; }
+
+    /* Mobile nav */
+    .sa-nav-links { display: flex; align-items: center; gap: 32px; }
+    .sa-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: ${T.charcoal}; }
+    .sa-mobile-menu { display: none; }
+    @media (max-width: 860px) {
+      .sa-nav-links { display: none; }
+      .sa-hamburger { display: flex; align-items: center; justify-content: center; }
+      .sa-mobile-menu { display: block; position: fixed; top: 88px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(8px); border-bottom: 1px solid #e8edf2; padding: 20px 24px 28px; z-index: 99; }
+      .sa-mobile-link { display: block; padding: 13px 0; font-size: 16px; font-weight: 500; color: ${T.charcoal}; text-decoration: none; border-bottom: 1px solid #f0f4f7; }
+      .sa-mobile-link:last-child { border-bottom: none; }
+    }
   `;
   document.head.appendChild(s);
 }
@@ -183,13 +195,21 @@ function Navbar({ tweaks }) {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  const links = ['Problem','Services','Free tools','Blog','About'];
+  const links = [
+    { label: 'Check your risk', href: '#quiz' },
+    { label: 'Services', href: '#services' },
+    { label: 'Free Tools', href: '#free-tools' },
+    { label: 'Blog', href: '#blog' },
+    { label: 'About', href: '#about' },
+  ];
+
+  function closeMobile() { setMobileOpen(false); }
 
   return (
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-      background: scrolled ? 'rgba(255,255,255,0.97)' : 'transparent',
-      backdropFilter: scrolled ? 'blur(8px)' : 'none',
+      background: scrolled || mobileOpen ? 'rgba(255,255,255,0.97)' : 'transparent',
+      backdropFilter: scrolled || mobileOpen ? 'blur(8px)' : 'none',
       boxShadow: scrolled ? '0 1px 12px rgba(27,58,107,0.08)' : 'none',
       transition: 'background 0.3s, box-shadow 0.3s',
     }}>
@@ -204,19 +224,38 @@ function Navbar({ tweaks }) {
         </a>
 
         {/* Desktop links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-          {links.map(l => (
-            <a key={l} href={`#${l.toLowerCase().replace(' ','-')}`}
+        <div className="sa-nav-links">
+          {links.map(function(l) { return (
+            <a key={l.label} href={l.href}
               style={{ fontSize: 14, fontWeight: 500, color: T.charcoal, textDecoration: 'none', transition: 'color 0.15s' }}
-              onMouseEnter={e => e.target.style.color = T.teal}
-              onMouseLeave={e => e.target.style.color = T.charcoal}
-            >{l}</a>
-          ))}
+              onMouseEnter={function(e) { e.target.style.color = T.teal; }}
+              onMouseLeave={function(e) { e.target.style.color = T.charcoal; }}
+            >{l.label}</a>
+          ); })}
           <a href="#booking" className="sa-btn-primary" style={{ fontSize: 14, padding: '10px 20px' }}>
             Book a call
           </a>
         </div>
+
+        {/* Hamburger (mobile only) */}
+        <button className="sa-hamburger" onClick={function() { setMobileOpen(!mobileOpen); }} aria-label="Toggle menu">
+          {mobileOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke={T.charcoal} strokeWidth="2" strokeLinecap="round"/></svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 8h18M3 12h18M3 16h18" stroke={T.charcoal} strokeWidth="2" strokeLinecap="round"/></svg>
+          )}
+        </button>
       </div>
+
+      {/* Mobile dropdown */}
+      {mobileOpen && (
+        <div className="sa-mobile-menu">
+          {links.map(function(l) { return (
+            <a key={l.label} href={l.href} className="sa-mobile-link" onClick={closeMobile}>{l.label}</a>
+          ); })}
+          <a href="#booking" className="sa-btn-primary" style={{ display: 'inline-flex', marginTop: 16, fontSize: 15, padding: '13px 24px' }} onClick={closeMobile}>Book a call</a>
+        </div>
+      )}
     </nav>
   );
 }

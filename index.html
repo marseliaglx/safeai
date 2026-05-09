@@ -28,13 +28,14 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "secondaryCTA": "Book AI Training",
   "showBlog": true,
   "showGuides": true,
+  "showQuiz": true,
+  "showTestimonials": true,
   "accentColor": "#1B9AAA"
 }/*EDITMODE-END*/;
 
 function App() {
   const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
 
-  // Override teal color if changed
   React.useEffect(() => {
     if (tweaks && tweaks.accentColor) {
       document.documentElement.style.setProperty('--teal-override', tweaks.accentColor);
@@ -45,15 +46,23 @@ function App() {
     <>
       <Navbar />
       <HeroSection />
+      <SocialProofBar />
       <ProblemSection />
+      {tweaks.showQuiz && <QuizSection />}
       <ServicesSection />
+      {tweaks.showTestimonials && <TestimonialsSection />}
       <FreeToolsSection />
       {tweaks.showGuides && <GuidesSection />}
       {tweaks.showBlog && <BlogSection />}
       <AboutSection />
       <FAQSection />
       <CTAStrip />
+      <NewsletterSection />
       <Footer />
+
+      <BookingModal />
+      <CookieBanner />
+      <WhatsAppButton />
 
       <TweaksPanel>
         <TweakSection title="Content">
@@ -63,6 +72,8 @@ function App() {
           <TweakText id="secondaryCTA" label="Secondary CTA" value={tweaks.secondaryCTA} onChange={v => setTweak('secondaryCTA', v)} />
         </TweakSection>
         <TweakSection title="Sections">
+          <TweakToggle id="showQuiz" label="Show Risk Checker" value={tweaks.showQuiz} onChange={v => setTweak('showQuiz', v)} />
+          <TweakToggle id="showTestimonials" label="Show Testimonials" value={tweaks.showTestimonials} onChange={v => setTweak('showTestimonials', v)} />
           <TweakToggle id="showGuides" label="Show Guides section" value={tweaks.showGuides} onChange={v => setTweak('showGuides', v)} />
           <TweakToggle id="showBlog" label="Show Blog section" value={tweaks.showBlog} onChange={v => setTweak('showBlog', v)} />
         </TweakSection>

@@ -1,0 +1,260 @@
+[
+  {
+    "q": "Does the EU AI Act apply to my small Irish business?",
+    "a": "Yes. If your organisation operates in Ireland, employs staff, and uses any AI tool — including ChatGPT, Canva AI, Grammarly, or a CRM with AI features — then the EU AI Act applies to you as a 'deployer'. The Act covers all organisations that use AI, regardless of size, sector, or whether you built the AI yourself. The only exemption is use of AI purely for personal, non-professional activities — which employees using ChatGPT for work do not qualify for.",
+    "category": "Applies to me",
+    "aeo_note": "Targets: 'does EU AI Act apply to small business Ireland', 'does AI Act apply to SME', 'EU AI Act small business Ireland 2026'"
+  },
+  {
+    "q": "We're a school / community organisation, not a business — does the AI Act still apply to us?",
+    "a": "Yes. The EU AI Act uses the term 'deployer' to cover any natural or legal person, public authority, agency or other body using an AI system — this explicitly includes schools, charities, GAA clubs, community organisations, and public bodies. If your principal uses ChatGPT to draft communications, or your admin team uses Canva AI for posters, your organisation is a deployer. Article 4's AI literacy obligation applies to every organisation using AI, and schools specifically are flagged in the Act's high-risk Annex because AI used for student assessment can be high-risk.",
+    "category": "Applies to me",
+    "aeo_note": "Targets: 'EU AI Act schools Ireland', 'does AI Act apply to charities', 'EU AI Act community organisations'"
+  },
+  {
+    "q": "I only use ChatGPT to write emails and marketing copy — surely that's too small-scale to matter?",
+    "a": "Scale doesn't determine whether the law applies — only what level of obligation it triggers. Any professional use of an AI tool makes you a deployer under the AI Act. For everyday text generation like drafting emails or social media posts, your obligations are relatively light: principally Article 4 (ensure your staff have basic AI literacy) and Article 5 (don't use prohibited AI practices). You are not exempt simply because your use is routine or low-volume.",
+    "category": "Applies to me",
+    "aeo_note": "Targets: 'ChatGPT email writing EU AI Act', 'is AI Act for small users', 'minimal risk AI obligations'"
+  },
+  {
+    "q": "What is a 'deployer' under the EU AI Act, and am I one?",
+    "a": "A deployer is defined in Article 3 as any natural or legal person, public authority, agency or other body that uses an AI system under its authority, except where the AI system is used purely for personal, non-professional activity. If your business or organisation uses any commercially available AI tool — ChatGPT, Microsoft Copilot, Google Gemini, Canva's AI features, Grammarly, Otter.ai, or an AI-powered CRM — for work purposes, you are a deployer. The provider (e.g. OpenAI, Google, Canva) has separate obligations for building the tool; your obligations are about how you use it.",
+    "category": "Applies to me",
+    "aeo_note": "Targets: 'what is a deployer EU AI Act', 'am I a deployer AI Act', 'provider vs deployer Ireland'"
+  },
+  {
+    "q": "When did the EU AI Act start applying, and when do the big deadlines hit?",
+    "a": "The AI Act entered into force on 1 August 2024. The first obligations — banning certain prohibited AI practices and requiring AI literacy under Article 4 — applied from 2 February 2025. Obligations for general-purpose AI model providers applied from 2 August 2025. Following the Digital Omnibus deal agreed by the EU Parliament and Council on 7 May 2026, obligations on high-risk AI systems (Annex III, covering education, employment, law enforcement, etc.) have been delayed to 2 December 2027 for most organisations. AI-generated content watermarking requirements apply from 2 December 2026. Importantly, Article 4 AI literacy and all prohibited-practice bans remain fully in force now.",
+    "category": "Applies to me",
+    "aeo_note": "Targets: 'EU AI Act timeline Ireland 2026', 'when does AI Act apply', 'EU AI Act deadlines August 2026'"
+  },
+  {
+    "q": "The high-risk AI rules are being delayed to 2027 — does that mean I don't need to do anything yet?",
+    "a": "No — that is a common and dangerous misreading. The delay to December 2027 only applies to Annex III high-risk AI system obligations. Two major obligations already apply right now: Article 5 (prohibited AI practices, since February 2025) and Article 4 (AI literacy for all staff dealing with AI, since February 2025). Enforcement by national authorities (including Ireland's) began from August 2025. If you are using any AI tool in your organisation and have done nothing, you are already potentially non-compliant.",
+    "category": "Applies to me",
+    "aeo_note": "Targets: 'EU AI Act delay 2027 do I still need to comply', 'Article 4 still applies 2026', 'high risk delay SME'"
+  },
+  {
+    "q": "What is Article 4 and what does it actually require me to do?",
+    "a": "Article 4 of the EU AI Act requires all providers and deployers of AI systems to take measures to ensure their staff and anyone who operates or uses AI on the organisation's behalf has a sufficient level of AI literacy. The exact text says organisations must act 'to their best extent', acknowledging proportionality for smaller organisations. In practice this means: (1) identifying which staff use AI and for what; (2) ensuring they understand the risks, limitations, and legal obligations around those tools; and (3) keeping a record that you have done this. A one-time all-hands email is unlikely to be sufficient — some form of documented training or policy is expected.",
+    "category": "Legal obligations",
+    "aeo_note": "Targets: 'EU AI Act Article 4 requirements', 'AI literacy obligation Ireland', 'what does Article 4 mean for small business'"
+  },
+  {
+    "q": "Do I need a formal AI policy or Acceptable Use Policy for my team?",
+    "a": "While the AI Act does not use the term 'Acceptable Use Policy' in its text, Article 4's AI literacy obligation in practice requires you to document how AI may and may not be used in your organisation. A written AI Acceptable Use Policy — covering which tools are approved, what data can be entered, how outputs must be reviewed, and what is prohibited — is the standard mechanism for demonstrating compliance. It also protects you under GDPR if an employee later pastes customer data into an unapproved tool. Regulators and auditors will expect to see written evidence of your AI governance approach.",
+    "category": "Legal obligations",
+    "aeo_note": "Targets: 'AI acceptable use policy Ireland', 'do I need AI policy SME', 'EU AI Act policy requirement'"
+  },
+  {
+    "q": "What AI practices are completely banned under the EU AI Act?",
+    "a": "Article 5 sets out eight categories of AI that are absolutely prohibited across the EU, with effect since 2 February 2025. These include: AI systems that manipulate people through subliminal or deceptive techniques; social scoring systems used by public or private entities to evaluate people's trustworthiness; AI that exploits vulnerabilities (age, disability, etc.) to manipulate behaviour; real-time remote biometric identification in public spaces for law enforcement (with very narrow exceptions); AI that infers criminal intent from personal characteristics; and untargeted scraping of facial images from the internet or CCTV to build recognition databases. Following the May 2026 Omnibus deal, AI systems that generate non-consensual sexual deepfakes ('nudifier' apps) are also explicitly banned. Breaches carry fines of up to €35 million or 7% of global annual turnover.",
+    "category": "Legal obligations",
+    "aeo_note": "Targets: 'what is banned under EU AI Act', 'prohibited AI practices Ireland', 'Article 5 banned AI'"
+  },
+  {
+    "q": "Is ChatGPT high-risk, minimal-risk, or something in between?",
+    "a": "ChatGPT and similar large language models (including Claude, Google Gemini, and Microsoft Copilot) are classified as General-Purpose AI (GPAI) systems. As a GPAI, the primary obligations fall on OpenAI (the provider), not on you as the user, for general text generation tasks. However, your use of ChatGPT can trigger higher-risk obligations depending on context: if you use it to help make decisions about employees (hiring, promotion), assess student work, or handle sensitive personal data, it can move into high-risk territory. For everyday uses like drafting emails, summarising documents, or writing marketing copy, it remains minimal-to-limited risk.",
+    "category": "Everyday AI use",
+    "aeo_note": "Targets: 'is ChatGPT high risk EU AI Act', 'ChatGPT compliance Ireland', 'GPAI obligations deployer'"
+  },
+  {
+    "q": "Do I need to label or disclose content I create with Canva AI or similar tools?",
+    "a": "Yes, from 2 December 2026 under Article 50. Providers of generative AI systems must mark AI-generated audio, image, and video content in a machine-readable format (e.g. watermarking or metadata). Deployers — meaning businesses that use Canva AI to create content for public distribution — have a responsibility not to remove those markers and, for some content types, must clearly disclose that the content is AI-generated. AI-generated deepfakes and AI-generated text published to inform the public on matters of public interest must be visibly labelled. The obligation is less onerous for clearly satirical or artistic content, but businesses creating AI images for marketing, social media, or public information must plan for this.",
+    "category": "Everyday AI use",
+    "aeo_note": "Targets: 'Canva AI labelling requirement Ireland', 'do I need to label AI images', 'AI-generated content disclosure EU'"
+  },
+  {
+    "q": "Can I use Grammarly on work documents, and what are my obligations?",
+    "a": "Grammarly and similar AI writing-assistance tools are generally classified as minimal-risk or limited-risk AI systems — they improve text based on your input without making consequential decisions about people. Your obligations as a deployer are essentially: (1) ensure your staff are aware they are using an AI system (Article 4); (2) check that any personal data processed by Grammarly is covered by a Data Processing Agreement (GDPR Article 28); and (3) avoid pasting confidential client data, legally privileged information, or sensitive personal data into Grammarly's free consumer tier, which does not have enterprise data handling guarantees. Grammarly Business offers stronger GDPR compliance terms.",
+    "category": "Everyday AI use",
+    "aeo_note": "Targets: 'Grammarly EU AI Act Ireland', 'Grammarly GDPR compliance business', 'AI writing tool obligations'"
+  },
+  {
+    "q": "We use Otter.ai or Microsoft Teams transcription for meeting notes — what do we need to consider?",
+    "a": "AI meeting transcription tools process voice recordings, which are personal data under GDPR. Before using any transcription tool in meetings, all participants must be clearly informed that the meeting is being recorded and transcribed by an AI — a general 'joining implies consent' notice is insufficient under GDPR. You need a lawful basis for the processing (usually legitimate interests or consent), a Data Processing Agreement with the transcription tool provider, and a retention and deletion policy for transcripts. If the tool — like some versions of Otter.ai — sends recordings to its servers and uses them for model training, you must review and configure the tool's data settings to restrict this. Spain's DPA and other EU regulators have issued specific guidance flagging these risks.",
+    "category": "Everyday AI use",
+    "aeo_note": "Targets: 'Otter.ai GDPR Ireland', 'meeting transcription AI Act compliance', 'AI note taker consent obligation'"
+  },
+  {
+    "q": "Can my team use ChatGPT on their personal accounts for work tasks?",
+    "a": "This is one of the riskiest grey zones for Irish SMEs. When an employee uses ChatGPT on a personal free account for work purposes, two problems arise: (1) under the AI Act, the organisation is still considered the deployer because the use is professional, not personal — so your obligations as an organisation apply regardless of which account is used; and (2) the free tier of ChatGPT does not have the GDPR-compliant Data Processing Agreement that OpenAI's enterprise/API tiers offer, meaning any personal data entered is a potential GDPR breach. Many regulatory enforcement actions have been triggered exactly this way. Your AI Acceptable Use Policy should clearly specify which tools and which account tiers are approved.",
+    "category": "Everyday AI use",
+    "aeo_note": "Targets: 'employee personal ChatGPT account work Ireland', 'shadow AI GDPR risk', 'ChatGPT free tier GDPR'"
+  },
+  {
+    "q": "What about Microsoft Copilot, which is built into our Microsoft 365 subscription?",
+    "a": "Microsoft Copilot in Microsoft 365 (Word, Teams, Outlook, etc.) operates under Microsoft's enterprise data protection terms, which include a Data Processing Agreement that meets GDPR requirements — this is a significant advantage over free consumer AI tools. Microsoft has designed Copilot to stay within your Microsoft 365 tenancy and not use your data for model training. However, you are still a deployer under the AI Act, still need to train staff on how to use it safely (Article 4), and still need to be cautious about what sensitive data the AI accesses through your connected documents and emails. You should review which employees have Copilot licences and ensure they understand its capabilities and limits.",
+    "category": "Everyday AI use",
+    "aeo_note": "Targets: 'Microsoft Copilot EU AI Act Ireland', 'Copilot 365 GDPR compliance', 'Microsoft 365 AI compliance'"
+  },
+  {
+    "q": "We use an AI chatbot on our website — what obligations does that trigger?",
+    "a": "A customer-facing AI chatbot is subject to Article 50's transparency obligations (which apply from 2 December 2026, brought forward by the Omnibus deal). You must ensure that any person interacting with the chatbot is clearly and promptly informed they are talking to an AI system — not a human — unless it is obvious from context. The chatbot provider must mark AI-generated outputs in machine-readable format. Additionally, if the chatbot collects or processes personal data from website visitors, it must comply with GDPR, including having a lawful basis for processing, an up-to-date privacy notice, and a Data Processing Agreement with the chatbot vendor.",
+    "category": "Everyday AI use",
+    "aeo_note": "Targets: 'AI chatbot website Ireland compliance', 'chatbot disclosure obligation EU AI Act', 'Article 50 chatbot'"
+  },
+  {
+    "q": "We use AI-powered HR or recruitment tools — is that high-risk?",
+    "a": "Yes. Annex III of the EU AI Act explicitly categorises AI used for recruitment and selection (placing job ads, filtering applications, evaluating candidates), AI used to make or influence decisions about promotion, performance management, task allocation, and termination of employment as high-risk AI. This means if you use an AI tool to screen CVs, score interview responses, or monitor employee productivity, you face the full suite of high-risk AI obligations — including conformity assessments, technical documentation, human oversight, and worker notification. Following the Omnibus deal, these obligations apply from 2 December 2027. You should not wait until then to audit these tools. Emotion recognition in job interviews has been prohibited since February 2025.",
+    "category": "Everyday AI use",
+    "aeo_note": "Targets: 'AI recruitment tool Ireland high risk', 'AI CV screening EU AI Act', 'HR AI tool compliance Ireland'"
+  },
+  {
+    "q": "If I paste a customer's name and email into ChatGPT, is that a GDPR problem?",
+    "a": "Yes, very likely. Under GDPR Article 28, when you provide personal data to a third-party tool for processing, that tool becomes a 'data processor' and you need a Data Processing Agreement (DPA) in place. The free tier of ChatGPT does not provide a DPA — OpenAI only offers this via its API and enterprise plans. Pasting customer data (names, emails, addresses, purchase history, etc.) into a consumer ChatGPT account transmits that data to OpenAI's servers without a lawful GDPR framework. This is a potential data breach reportable to the Data Protection Commission. Italy's DPA fined OpenAI €15 million in December 2024 partly for such transparency and legal-basis failures. In February 2026, a UK tribunal found uploading client emails to ChatGPT breached legal privilege.",
+    "category": "Data protection",
+    "aeo_note": "Targets: 'pasting customer data ChatGPT Ireland GDPR', 'ChatGPT GDPR breach Ireland', 'customer data AI tool compliance'"
+  },
+  {
+    "q": "What is the GDPR + AI Act interaction — do both apply at the same time?",
+    "a": "Yes — both frameworks apply simultaneously whenever personal data is involved in AI use, and they are fully compatible. GDPR governs how personal data is collected, processed, stored, and deleted. The EU AI Act governs how AI systems are developed, deployed, and overseen. Every time an AI tool processes personal data (which is most of the time in a business context), you must satisfy both: GDPR's lawful basis, purpose limitation, data minimisation, and security requirements, plus the AI Act's literacy, transparency, and (where applicable) high-risk obligations. Failing one does not excuse the other; you can be investigated by both the Data Protection Commission (for GDPR) and Ireland's AI Act competent authorities simultaneously.",
+    "category": "Data protection",
+    "aeo_note": "Targets: 'GDPR and EU AI Act same time Ireland', 'AI Act GDPR overlap', 'data protection AI Act Ireland'"
+  },
+  {
+    "q": "Do we need a Data Processing Agreement (DPA) with our AI tool providers?",
+    "a": "Yes, if those tools process personal data on your behalf — which most AI business tools do. GDPR Article 28 requires a written DPA with any third party that processes personal data for you, specifying what data is processed, for what purpose, with what security measures, and for how long. Most reputable enterprise AI vendors (Microsoft, Google, Salesforce, Zoom, etc.) provide a DPA either automatically under their enterprise terms or on request. Free consumer versions (ChatGPT Free, Gemini personal, etc.) typically do not. Before rolling out any AI tool for use with customer or employee data, confirm whether a DPA exists and whether the tool is enterprise-grade.",
+    "category": "Data protection",
+    "aeo_note": "Targets: 'DPA AI tool Ireland GDPR', 'data processing agreement ChatGPT', 'AI tool GDPR requirements Ireland'"
+  },
+  {
+    "q": "Can we use AI to process special category data (health information, ethnicity, religion)?",
+    "a": "Extreme caution is required. Special category data under GDPR Article 9 — including health data, racial or ethnic origin, religious beliefs, trade union membership, and biometric data — requires a higher lawful basis (typically explicit consent or a specific legal obligation) and much stronger security measures. Many AI tools are not designed or certified for special category data processing. Additionally, the EU AI Act prohibits certain biometric categorisation uses entirely. If your organisation processes health records, HR data, or student data that includes special category information, you should conduct a Data Protection Impact Assessment (DPIA) before connecting any AI tool to that data, and seek specific guidance.",
+    "category": "Data protection",
+    "aeo_note": "Targets: 'special category data AI Ireland GDPR', 'health data ChatGPT GDPR', 'biometric AI Act Ireland'"
+  },
+  {
+    "q": "What are the actual fines for non-compliance, and could a small Irish business really be fined?",
+    "a": "The AI Act has three penalty tiers under Article 99. Breaching the prohibited practices ban (Article 5) carries fines of up to €35 million or 7% of total global annual turnover — whichever is lower for SMEs. High-risk AI violations carry up to €15 million or 3% of turnover (lower for SMEs). Providing misleading information to authorities carries up to €7.5 million or 1% of turnover. Enforcement in Ireland is managed by 15 designated national competent authorities (including the Competition and Consumer Protection Commission for consumer-facing AI) from August 2025 onwards. While initial enforcement has focused on large providers, deployers — including Irish SMEs — are within scope. GDPR fines from the Data Protection Commission can also run in parallel.",
+    "category": "Risks",
+    "aeo_note": "Targets: 'EU AI Act fines Ireland', 'AI Act penalties SME', 'how much can AI Act fine small business'"
+  },
+  {
+    "q": "Are the fines realistic for a small business, or will regulators only go after big companies?",
+    "a": "Regulators generally pursue large providers first, but that does not mean SME deployers are immune. Irish enforcement authorities are empowered to investigate complaints, conduct audits, and issue corrective orders. Enforcement may begin through a formal warning or corrective action before fines are applied — but reputational damage and mandatory remediation can be costly even without a financial penalty. Under GDPR we have already seen Irish and EU regulators pursue complaints against smaller organisations. The stronger protection for SMEs is the proportionality in penalty calculation — if your turnover is €1 million, the maximum Article 5 fine is €70,000, not €35 million — but this is a ceiling, not an invitation to ignore the law.",
+    "category": "Risks",
+    "aeo_note": "Targets: 'will Ireland enforce AI Act SME', 'AI Act fine small business realistic', 'Irish AI enforcement'"
+  },
+  {
+    "q": "What happens if one of my employees misuses an AI tool without my knowledge?",
+    "a": "Under both GDPR and the AI Act, the organisation bears responsibility for AI use that happens under its authority — even if you were unaware. If an employee uses an unapproved AI tool at work (sometimes called 'shadow AI'), processes customer data through a personal ChatGPT account, or uses an AI tool in a way that breaches GDPR, the organisation is liable. This is why a documented AI Acceptable Use Policy, regular staff training, and a list of approved AI tools are not just good practice — they are your evidence of reasonable steps taken. Without that documentation, it becomes very difficult to demonstrate compliance or mitigate regulatory consequences.",
+    "category": "Risks",
+    "aeo_note": "Targets: 'employee AI misuse Ireland liability', 'shadow AI GDPR liability Ireland', 'staff ChatGPT misuse responsibility'"
+  },
+  {
+    "q": "Is there any risk to my professional indemnity insurance or contracts if I use AI without a policy?",
+    "a": "Potentially yes. Many professional indemnity insurance policies are beginning to include AI-specific exclusions or requirements. If you use AI to generate deliverables for clients without disclosure or oversight, and those deliverables contain errors or cause harm, your insurer may argue you failed to exercise reasonable professional care. Some client contracts — especially in legal, financial, and medical sectors — are beginning to include AI disclosure clauses. Without an AI policy, you also cannot demonstrate to a client, insurer, or regulator that you have appropriate controls in place. This risk is currently evolving rapidly.",
+    "category": "Risks",
+    "aeo_note": "Targets: 'AI Act professional indemnity insurance Ireland', 'using AI in client work risk', 'AI policy contracts Ireland'"
+  },
+  {
+    "q": "What is 'shadow AI' and why is it a risk for my organisation?",
+    "a": "Shadow AI refers to AI tools being used by employees without the knowledge or approval of their organisation's management or IT function. It commonly occurs when employees sign up for free AI tools (ChatGPT, Gemini, Claude, image generators, transcription apps) using personal or work email addresses, and start using them for work tasks. The risk is significant: personal data can be transmitted to providers without a DPA; proprietary or confidential information can be fed into external AI systems; and the organisation has no oversight, audit trail, or ability to demonstrate AI Act compliance. The first step to addressing shadow AI is an honest internal audit of which AI tools are actually being used across your team.",
+    "category": "Risks",
+    "aeo_note": "Targets: 'shadow AI risk Ireland', 'employees using ChatGPT without permission', 'AI tool inventory Ireland'"
+  },
+  {
+    "q": "What practical steps should I take right now to comply with the EU AI Act?",
+    "a": "The four most urgent steps for any Irish SME or organisation are: (1) Build an AI Use Inventory — list every AI tool your team uses, who uses it, what data it accesses, and whether it has enterprise-grade data protection terms; (2) Assess risk — identify whether any of those tools fall into high-risk categories (employment decisions, student assessment, etc.); (3) Create a written AI Acceptable Use Policy — specify approved tools, prohibited uses, data handling rules, and review frequency; (4) Deliver documented AI literacy training to all relevant staff to satisfy Article 4. These steps also substantially mitigate your GDPR exposure. Many Irish SMEs can achieve a strong baseline compliance position in a single well-facilitated workshop.",
+    "category": "Getting compliant",
+    "aeo_note": "Targets: 'EU AI Act compliance steps Ireland SME', 'what to do AI Act Ireland', 'AI Act practical steps small business'"
+  },
+  {
+    "q": "What should an AI Acceptable Use Policy for a small Irish business include?",
+    "a": "A practical AI Acceptable Use Policy for an Irish SME should cover: (1) a list of approved AI tools and the account tiers permitted (enterprise vs. consumer); (2) categories of data that may never be entered into AI tools (customer personal data, health information, confidential client information, financial data); (3) requirements for human review of AI-generated outputs before use; (4) disclosure requirements when AI is used to produce client-facing content; (5) what employees should do if they discover a potential AI-related data incident; and (6) a review and update schedule. The policy should be proportionate to your actual AI use — a two-page document covering the tools your team actually uses is more useful than a generic 20-page template.",
+    "category": "Getting compliant",
+    "aeo_note": "Targets: 'AI acceptable use policy Ireland template', 'what to include AI policy SME', 'AI workplace policy Ireland'"
+  },
+  {
+    "q": "What is an AI Use Inventory and why do I need one?",
+    "a": "An AI Use Inventory is a structured list of all AI systems and tools your organisation currently uses or is piloting. It should capture: the tool name and provider, what it is used for, which staff or teams use it, what categories of data it accesses, whether a Data Processing Agreement exists, and what risk level it represents under the AI Act. Without an inventory, you cannot know whether you have high-risk AI tools in use, cannot demonstrate Article 4 compliance, and cannot respond effectively if the Data Protection Commission or an AI Act authority requests evidence of your AI governance. Inventories often reveal 'shadow AI' — tools employees have adopted that management was unaware of.",
+    "category": "Getting compliant",
+    "aeo_note": "Targets: 'AI use inventory Ireland', 'how to audit AI tools business', 'EU AI Act AI inventory SME'"
+  },
+  {
+    "q": "How do I train my staff to satisfy Article 4 without a huge budget?",
+    "a": "Article 4 uses the phrase 'to their best extent', which acknowledges proportionality for smaller organisations — you do not need a multi-day corporate training programme. What you do need is documented evidence that staff who use AI tools understand: what the tool does and its limitations, what data they can and cannot input, who is responsible for reviewing AI outputs, and the organisation's rules for AI use. This can be delivered through a focused 2-3 hour workshop, a short e-learning module, or a team briefing session — provided you keep a record of who attended, what was covered, and when. SafeAI's Practical AI Safety Workshop is specifically designed to achieve this for Irish SMEs in a single session.",
+    "category": "Getting compliant",
+    "aeo_note": "Targets: 'Article 4 AI literacy training Ireland', 'staff AI training small business', 'cheap AI compliance training Ireland'"
+  },
+  {
+    "q": "Do I need a lawyer to comply with the EU AI Act?",
+    "a": "For most Irish SMEs using everyday AI tools at minimal or limited risk, you do not need a lawyer to achieve a solid baseline of compliance. The practical steps — inventorying your AI tools, creating an Acceptable Use Policy, training staff — are operational and governance tasks that can be done with expert practical guidance rather than legal advice. Where legal advice becomes valuable is if you are using AI in high-risk contexts (employment decisions, health data, financial assessments), drafting AI clauses into client contracts, or responding to a regulatory investigation. SafeAI provides practical guidance and frameworks, not legal advice, and will refer you to a specialist solicitor where a legal question requires it.",
+    "category": "Getting compliant",
+    "aeo_note": "Targets: 'do I need lawyer EU AI Act Ireland', 'AI Act compliance without lawyer SME', 'practical AI compliance Ireland'"
+  },
+  {
+    "q": "Who enforces the EU AI Act in Ireland?",
+    "a": "Ireland has designated 15 national competent authorities for the AI Act, covering different sectors. The Competition and Consumer Protection Commission (CCPC) oversees consumer-facing AI. The Data Protection Commission (DPC) handles AI that intersects with personal data protection. The Central Bank of Ireland covers AI in financial services. Coimisiún na Meán oversees AI in media. A National AI Office is being established (under the Regulation of Artificial Intelligence Bill 2026) to act as the central coordinating authority and single point of contact. National enforcement has been active since 2 August 2025. The EU AI Office in Brussels has direct enforcement authority over general-purpose AI model providers.",
+    "category": "Legal obligations",
+    "aeo_note": "Targets: 'who enforces EU AI Act Ireland', 'AI Act regulator Ireland', 'Ireland national AI competent authority'"
+  },
+  {
+    "q": "What does 'AI literacy' actually mean — do I need to make everyone a tech expert?",
+    "a": "No — 'AI literacy' under Article 4 is deliberately defined at a practical, proportionate level. The AI Act defines it as the skills, knowledge and understanding that enable informed use and operation of AI systems, and awareness of the opportunities, risks, and harms that AI can present. For a shop assistant who uses an AI scheduling tool, that might mean understanding that the AI can make errors and outputs need human checking. For a manager using AI-assisted HR tools, it means understanding the legal obligations around AI-assisted employment decisions. Nobody needs to understand machine learning code — the focus is on safe, informed, and responsible use in the specific context of each person's role.",
+    "category": "Legal obligations",
+    "aeo_note": "Targets: 'what is AI literacy Article 4', 'do staff need AI training Ireland', 'Article 4 AI literacy meaning'"
+  },
+  {
+    "q": "Are there any free resources to help Irish businesses get started?",
+    "a": "Yes. SafeAI offers several free resources for Irish SMEs: the Irish SME AI Risk Checklist (a practical tool to assess your AI exposure), the AI Image Safety Guide (covering Canva, DALL-E, and similar tools), and the SafeAI Team Policy Template (a customisable starting-point Acceptable Use Policy). The European Commission's AI Act Service Desk also provides guidance and a free compliance checker. Enterprise Ireland and Ireland's network of European Digital Innovation Hubs (EDIHs) offer supports for SME AI adoption. These free resources are a strong starting point, though a facilitated workshop or assessment will identify organisation-specific risks that generic checklists cannot.",
+    "category": "Getting compliant",
+    "aeo_note": "Targets: 'free EU AI Act resources Ireland', 'AI compliance checklist Ireland SME', 'free AI Act help small business'"
+  },
+  {
+    "q": "What is SafeAI and what does it offer?",
+    "a": "SafeAI (safeai.ie) is an Irish AI training and compliance consultancy founded by Marcela, based in Cork and working with organisations nationally and remotely. SafeAI helps Irish SMEs, schools, and community organisations understand and meet their EU AI Act obligations through practical, plain-English guidance — not legal advice. Core services include the Practical AI Safety Workshop (2.5 hours, up to 20 people, outputs an AI Use Inventory, Acceptable Use Policy, and Article 4 compliance one-pager) and the AI Readiness Assessment (1–2 days, producing a written report with prioritised risks and recommendations). Free resources including a risk checklist, image safety guide, and team policy template are also available at safeai.ie.",
+    "category": "About SafeAI",
+    "aeo_note": "Targets: 'SafeAI Ireland', 'AI compliance training Cork Ireland', 'EU AI Act workshop Ireland'"
+  },
+  {
+    "q": "What qualifications does SafeAI's founder Marcela bring to this work?",
+    "a": "Marcela brings a rare combination of EU policy expertise and enterprise technology experience. She spent five years at the European Parliament, developing deep familiarity with EU legislative processes — including the drafting and passage of the AI Act itself. She then spent 15 years in enterprise technology roles at Microsoft and VMware, giving her direct practical experience of how AI tools are deployed in business environments. She holds a Master's degree in EU Legal System, grounding her AI Act guidance in the actual legal text. This combination — knowing what the law means and how technology works in practice — is what makes SafeAI's approach distinctively useful for Irish organisations navigating real compliance questions.",
+    "category": "About SafeAI",
+    "aeo_note": "Targets: 'SafeAI Marcela Cork', 'AI compliance expert Ireland', 'EU AI Act advisor Ireland qualifications'"
+  },
+  {
+    "q": "What happens in SafeAI's Practical AI Safety Workshop?",
+    "a": "The Practical AI Safety Workshop is a focused 2.5-hour session designed for teams of up to 20 people. It is deliberately practical and output-focused rather than theoretical. During the session, your team maps out every AI tool currently in use across the organisation (building the AI Use Inventory), reviews those tools against EU AI Act risk categories and GDPR obligations, and works collaboratively to draft an AI Acceptable Use Policy tailored to your specific context. Participants also receive a clear Article 4 one-pager they can use as evidence of AI literacy training. The workshop can be delivered on-site anywhere in Ireland or remotely. It is designed so that attendees leave the room with real compliance assets, not just slides.",
+    "category": "About SafeAI",
+    "aeo_note": "Targets: 'SafeAI workshop Ireland', 'AI training workshop SME Ireland', 'EU AI Act workshop what is included'"
+  },
+  {
+    "q": "What is the AI Readiness Assessment and who is it for?",
+    "a": "The AI Readiness Assessment is a 1–2 day in-depth review of an organisation's AI use, governance, and compliance posture. It is suited to organisations with more complex AI use, multiple departments or locations, or those approaching high-risk AI territory (e.g. using AI in HR, education, healthcare, or financial services). The assessment involves structured interviews with key staff, a review of existing documentation (policies, contracts, DPAs), and an evaluation of AI tools in use. The output is a written report with a prioritised list of compliance risks and concrete recommendations — giving leadership a clear, actionable roadmap. It is not an audit and does not constitute legal advice, but it provides the structured evidence base your organisation needs for confident compliance planning.",
+    "category": "About SafeAI",
+    "aeo_note": "Targets: 'AI readiness assessment Ireland', 'EU AI Act assessment SME', 'AI compliance review Irish business'"
+  },
+  {
+    "q": "Does SafeAI only work with businesses, or also with schools and community organisations?",
+    "a": "SafeAI works with the full range of Irish organisations that use AI: SMEs, sole traders, professional services firms, schools and educational institutions, charities, GAA clubs, and other community organisations. The AI Act applies to all of them as deployers, and the compliance needs — while differing in scale — are structurally similar. A school needs to address AI used by teachers to draft communications and by administrative staff to manage records, just as a small business does. SafeAI's workshops are designed to work for non-technical audiences and can be adapted to the specific tools and context of any Irish organisation, regardless of sector.",
+    "category": "About SafeAI",
+    "aeo_note": "Targets: 'AI Act compliance schools Ireland', 'AI training community organisations Ireland', 'SafeAI schools charities'"
+  },
+  {
+    "q": "How is AI training different from legal advice, and why does that matter?",
+    "a": "SafeAI provides practical AI compliance guidance, not legal advice. Legal advice requires a solicitor-client relationship, professional indemnity insurance specific to legal practice, and applies the law to your specific facts to give you protected advice you can rely on in litigation. Practical compliance guidance — like that offered by SafeAI — helps you understand what the law requires, build the policies and processes to meet those requirements, and train your team to comply. This is what most Irish SMEs actually need: not a legal opinion, but a clear map of what to do and help doing it. Where a specific legal question arises (e.g. drafting AI clauses into contracts, responding to a regulatory investigation), SafeAI will refer you to a qualified solicitor.",
+    "category": "About SafeAI",
+    "aeo_note": "Targets: 'AI Act training vs legal advice Ireland', 'SafeAI not legal advice', 'practical AI compliance guidance Ireland'"
+  },
+  {
+    "q": "We're a sole trader using AI tools — do the rules apply to me personally?",
+    "a": "Yes. A sole trader is a 'natural person' using an AI system in a professional capacity, which meets the definition of deployer under the AI Act. The 'personal non-professional' exemption only applies to private, personal use (such as using ChatGPT to plan your own holiday). If you use AI tools in your freelance work, consulting, or trade — even without a limited company — you have Article 4 obligations proportionate to your scale. In practice, for a sole trader using ChatGPT to write proposals and Canva to create client materials, compliance is relatively simple: understand the tools you use, avoid inputting client personal data into consumer-tier tools without a DPA, and document your approach.",
+    "category": "Applies to me",
+    "aeo_note": "Targets: 'sole trader EU AI Act Ireland', 'freelancer AI Act compliance', 'AI Act self-employed Ireland'"
+  },
+  {
+    "q": "What AI tools are actually high-risk for a typical Irish small business?",
+    "a": "For most Irish SMEs using everyday productivity tools, very few AI systems will meet the high-risk threshold. High-risk AI is specifically defined in Annex III of the Act and covers: AI used to make or influence decisions in recruitment, hiring, promotion, or dismissal; AI used to assess or score students in educational settings; AI used for credit scoring or insurance underwriting; AI systems that manage critical infrastructure; and AI used in health or medical decision-making. If your business uses ChatGPT for copywriting, Canva for design, Grammarly for editing, or Otter for notes, these are not high-risk. The risk assessment becomes more serious if your tools make or inform consequential decisions about real people.",
+    "category": "Applies to me",
+    "aeo_note": "Targets: 'high risk AI small business Ireland', 'which AI tools are high risk', 'Annex III high risk AI examples Ireland'"
+  },
+  {
+    "q": "How quickly can SafeAI help us get compliant, and what does it cost?",
+    "a": "SafeAI's Practical AI Safety Workshop delivers your core compliance foundations — AI Use Inventory, Acceptable Use Policy, and Article 4 one-pager — in a single 2.5-hour session, which can be arranged within a few weeks. For organisations needing a deeper review, the AI Readiness Assessment typically takes 1–2 working days of engagement. Free resources (risk checklist, image safety guide, policy template) are available immediately at safeai.ie. For pricing, contact Marcela directly through safeai.ie — SafeAI's services are designed to be accessible for Irish SMEs and can be delivered on-site across Ireland or remotely. Remember that the cost of non-compliance — even just the time and disruption of a regulatory inquiry — is almost always higher than the cost of prevention.",
+    "category": "About SafeAI",
+    "aeo_note": "Targets: 'SafeAI pricing Ireland', 'how much AI Act compliance Ireland', 'EU AI Act workshop cost Ireland'"
+  }
+]

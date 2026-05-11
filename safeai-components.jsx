@@ -925,6 +925,7 @@ function Footer() {
     { label: 'Blog', href: '#blog' },
     { label: 'About', href: '#about' },
     { label: 'FAQ', href: 'faq.html' },
+    { label: 'Why Train?', href: 'why-train.html' },
   ];
   return (
     <footer style={{ background: T.navy, padding: '56px 24px 32px' }}>

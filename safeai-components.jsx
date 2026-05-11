@@ -563,17 +563,17 @@ function QuizSection() {
 /* ── Services Section ── */
 function ServicesSection() {
   const services = [
-    { title: 'Practical AI Safety Workshop', price: 'From €800', cta: 'Book a workshop', href: 'https://cal.com/safeai/workshop', desc: '2.5-hour on-site or remote workshop for teams of up to 20. You leave with an AI Use Inventory, an Acceptable Use Policy, and your Article 4 compliance one-pager.' },
-    { title: 'AI Readiness Assessment', price: 'From €1,500', cta: 'Book an assessment', href: 'https://cal.com/safeai/assessment', desc: '1–2 day engagement. Written report with prioritised risks and a clear remediation plan — before risks become expensive.' },
+    { title: 'Practical AI Safety Workshop', price: 'From €800', cta: 'Book a workshop', href: 'https://cal.com/safeai/workshop', desc: '2.5-hour on-site or remote session for teams of up to 20. Your team maps every AI tool in use, agrees what is and is not acceptable, and leaves with an AI Use Inventory and a draft Acceptable Use Policy to build on.' },
+    { title: 'AI Awareness Talk', price: '', cta: 'Get in touch', href: 'mailto:marcela@safeai.ie', desc: 'A 45–60 minute keynote or staff briefing on AI risks, the EU AI Act, and what safe AI use looks like in practice. Suitable for all-hands meetings, CPD days, conferences, and board briefings.' },
   ];
   return (
     <section id="services" style={{ background: T.navy, padding: '80px 24px' }}>
       <div style={{ maxWidth: 960, margin: '0 auto' }}>
-        <p className="sa-eyebrow" style={{ color: T.teal }}>AI Training &amp; Compliance Support</p>
+        <p className="sa-eyebrow" style={{ color: T.teal }}>AI Training &amp; Awareness</p>
         <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: T.white, marginBottom: 10, textWrap: 'balance', maxWidth: 600 }}>
           Practical support for organisations that want clarity, not complexity.
         </h2>
-        <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', marginBottom: 48, maxWidth: 540 }}>AI training for SMEs · AI policy template · AI risk assessment Ireland</p>
+        <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', marginBottom: 48, maxWidth: 540 }}>AI awareness training for SMEs · schools · community organisations · Ireland</p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, marginBottom: 20 }}>
           {services.map((s, i) => (
@@ -854,8 +854,8 @@ function FAQSection() {
   const [open, setOpen] = R.useState(null);
   const faqs = [
     { q: 'Do I actually have EU AI Act obligations as a small business?', a: 'Most likely, yes. If you use AI tools commercially — including general-purpose tools like ChatGPT — the EU AI Act imposes obligations on you. The most immediate is Article 4, which requires AI literacy for all staff using AI in their work. SafeAI provides general information and training; for legal advice specific to your situation, consult a solicitor.' },
-    { q: 'Is SafeAI a law firm?', a: 'No. SafeAI provides practical guidance, training, and templates to help your organisation understand and act on its obligations. We are not a law firm or an auditor. Our materials are not legal advice.' },
-    { q: 'How long does a workshop take?', a: '2.5 hours, on-site or remote. We work with teams of up to 20 people. By the end you have your AI Use Inventory, your Acceptable Use Policy, and your Article 4 one-pager — done.' },
+    { q: 'Is SafeAI a law firm?', a: 'No. SafeAI is an AI awareness and training service — not a law firm, not a compliance auditor, and not a GDPR consultant. Marcela helps organisations understand what AI tools they use, what the EU AI Act says about AI literacy, and how to put basic safe-use practices in place. For legal advice on your specific situation, you need a solicitor.' },
+    { q: 'How long does a workshop take?', a: '2.5 hours, on-site or remote. We work with teams of up to 20 people. Your team maps every AI tool in use, discusses safe practices, and agrees a draft Acceptable Use Policy to build on together.' },
     { q: 'What if I only use ChatGPT occasionally?', a: "Even occasional use can create obligations, particularly around data protection (GDPR) and transparency. The EU AI Act's Article 4 AI literacy requirement applies to anyone using AI in a commercial context — there's no minimum usage threshold." },
     { q: 'Do you work with schools and community organisations?', a: 'Yes — education and community organisations are two of our three core audiences. We have a specific guide for educational settings (primary, post-primary, and further education) and experience working with non-profits and GAA clubs.' },
     { q: 'Can I get something for free before committing?', a: "Absolutely. Download the free Irish SME AI Risk Checklist or the EU AI Act field guide from the Free Tools section. You'll get a practical sense of where your organisation stands with no obligation." },
@@ -900,7 +900,7 @@ function CTAStrip() {
           Start using AI more safely and confidently
         </h2>
         <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', marginBottom: 36, maxWidth: 460, margin: '0 auto 36px' }}>
-          Practical AI training and compliance support for Irish organisations.
+          Practical AI awareness training for Irish organisations.
         </p>
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="#free-tools"

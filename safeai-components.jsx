@@ -999,40 +999,6 @@ function SocialProofBar() {
   );
 }
 
-/* ── Testimonials Section ── */
-function TestimonialsSection() {
-  const items = [
-    { quote: 'Marcela made the EU AI Act understandable for the whole team. We left with a real policy, not just slides.', name: 'Workshop participant', org: 'Irish SME, Cork' },
-    { quote: 'We had no idea our daily AI use could create legal issues. SafeAI helped us fix that in half a day.', name: 'Operations Manager', org: 'Community Organisation, Dublin' },
-    { quote: 'Practical, no-nonsense, and specific to Ireland. Exactly what we needed.', name: 'Principal', org: 'Post-primary school, Munster' },
-  ];
-  return (
-    <section id="testimonials" style={{ background: T.cream, padding: '80px 24px' }}>
-      <div style={{ maxWidth: 960, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <p className="sa-eyebrow">What clients say</p>
-          <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, color: T.charcoal }}>Trusted by Irish organisations</h2>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20, marginBottom: 20 }}>
-          {items.map(function(t, i) {
-            return (
-              <div key={i} className="sa-card" style={{ display: 'flex', flexDirection: 'column' }}>
-                <div style={{ fontSize: 40, color: T.teal, lineHeight: 0.8, marginBottom: 14, fontFamily: 'Georgia, serif' }}>"</div>
-                <p style={{ fontSize: 14, color: T.ink, lineHeight: 1.85, flex: 1, marginBottom: 20 }}>{t.quote}</p>
-                <div>
-                  <p style={{ fontSize: 13, fontWeight: 600, color: T.charcoal, marginBottom: 2 }}>{t.name}</p>
-                  <p style={{ fontSize: 12, color: T.muted }}>{t.org}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <p style={{ textAlign: 'center', fontSize: 11, color: T.muted, fontStyle: 'italic' }}>Placeholder testimonials — swap in real client quotes when available.</p>
-      </div>
-    </section>
-  );
-}
-
 /* ── Booking Modal (triggered by href="#booking") ── */
 function BookingModal() {
   const R = React;
@@ -1144,6 +1110,6 @@ Object.assign(window, {
   T, Icon, Navbar, HeroSection, ProblemSection, TimelineSection,
   QuizSection, ServicesSection, FreeToolsSection, GuidesSection,
   BlogSection, AboutSection, FAQSection, CTAStrip, Footer,
-  SocialProofBar, TestimonialsSection, BookingModal, CookieBanner,
+  SocialProofBar, BookingModal, CookieBanner,
   WhatsAppButton, NewsletterSection
 });

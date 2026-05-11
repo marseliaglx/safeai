@@ -883,7 +883,7 @@ function FAQSection() {
         </div>
         <div style={{ textAlign: 'center', marginTop: 40 }}>
           <a href="faq.html" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 15, fontWeight: 600, color: T.teal, textDecoration: 'none' }}>
-            See all 43 questions &rarr;
+            See all 49 questions &rarr;
           </a>
         </div>
       </div>

@@ -881,6 +881,11 @@ function FAQSection() {
             </div>
           ))}
         </div>
+        <div style={{ textAlign: 'center', marginTop: 40 }}>
+          <a href="faq.html" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 15, fontWeight: 600, color: T.teal, textDecoration: 'none' }}>
+            See all 43 questions &rarr;
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -913,7 +918,15 @@ function CTAStrip() {
 
 /* ── Footer ── */
 function Footer() {
-  const qlinks = ['Problem','Services','Free tools','Guides','Blog','About'];
+  const qlinks = [
+    { label: 'Services', href: '#services' },
+    { label: 'Free Tools', href: '#free-tools' },
+    { label: 'Guides', href: '#guides' },
+    { label: 'Blog', href: '#blog' },
+    { label: 'About', href: '#about' },
+    { label: 'FAQ', href: 'faq.html' },
+    { label: 'Why Train?', href: 'why-train.html' },
+  ];
   return (
     <footer style={{ background: T.navy, padding: '56px 24px 32px' }}>
       <div style={{ maxWidth: 960, margin: '0 auto' }}>
@@ -931,8 +944,8 @@ function Footer() {
           <div>
             <h4 style={{ fontSize: 13, fontWeight: 600, color: T.white, marginBottom: 14 }}>Quick Links</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {qlinks.map(l => <a key={l} href={`#${l.toLowerCase().replace(' ','-')}`} style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', textDecoration: 'none', transition: 'color 0.15s' }}
-                onMouseEnter={e => e.target.style.color = '#fff'} onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.55)'}>{l}</a>)}
+              {qlinks.map(l => <a key={l.label} href={l.href} style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', textDecoration: 'none', transition: 'color 0.15s' }}
+                onMouseEnter={e => e.target.style.color = '#fff'} onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.55)'}>{l.label}</a>)}
             </div>
           </div>
           <div>

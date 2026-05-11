@@ -29,7 +29,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "showBlog": true,
   "showGuides": true,
   "showQuiz": true,
-  "showTestimonials": true,
   "accentColor": "#1B9AAA"
 }/*EDITMODE-END*/;
 
@@ -50,7 +49,6 @@ function App() {
       <ProblemSection />
       {tweaks.showQuiz && <QuizSection />}
       <ServicesSection />
-      {tweaks.showTestimonials && <TestimonialsSection />}
       <FreeToolsSection />
       {tweaks.showGuides && <GuidesSection />}
       {tweaks.showBlog && <BlogSection />}
@@ -73,7 +71,6 @@ function App() {
         </TweakSection>
         <TweakSection title="Sections">
           <TweakToggle id="showQuiz" label="Show Risk Checker" value={tweaks.showQuiz} onChange={v => setTweak('showQuiz', v)} />
-          <TweakToggle id="showTestimonials" label="Show Testimonials" value={tweaks.showTestimonials} onChange={v => setTweak('showTestimonials', v)} />
           <TweakToggle id="showGuides" label="Show Guides section" value={tweaks.showGuides} onChange={v => setTweak('showGuides', v)} />
           <TweakToggle id="showBlog" label="Show Blog section" value={tweaks.showBlog} onChange={v => setTweak('showBlog', v)} />
         </TweakSection>

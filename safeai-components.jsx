@@ -719,10 +719,10 @@ function BlogSection() {
     return new Date(d).toLocaleDateString('en-IE', { day: 'numeric', month: 'short', year: 'numeric' });
   }
 
-  const blogUrl = 'https://blog.safeai.ie/';
+  const blogUrl = 'blog.html';
   const posts = [
     {
-      url: 'https://blog.safeai.ie/the-real-risks-of-using-ai-blindly-a-wake-up-call-for-irish-small-businesses',
+      url: 'blog.html?slug=the-real-risks-of-using-ai-blindly-a-wake-up-call-for-irish-small-businesses',
       cat: 'AI Risk',
       title: 'The real risks of using AI blindly: A wake-up call for Irish small businesses',
       excerpt: 'AI can draft emails, design graphics and answer customer queries — but unchecked use creates real risks around hallucinations, privacy, transparency, bias and brand trust.',
@@ -731,7 +731,7 @@ function BlogSection() {
       featured: true,
     },
     {
-      url: 'https://blog.safeai.ie/the-eu-ai-act-what-every-irish-small-business-needs-to-know-without-the-legal-jargon',
+      url: 'blog.html?slug=the-eu-ai-act-what-every-irish-small-business-needs-to-know-without-the-legal-jargon',
       cat: 'EU AI Act',
       title: 'The EU AI Act: what every Irish small business needs to know (without the legal jargon)',
       excerpt: 'A practical explanation of how everyday AI use can create obligations for Irish businesses, schools and organisations — and the simple steps to take now.',
@@ -752,13 +752,13 @@ function BlogSection() {
             <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: T.charcoal }}>Practical AI compliance insights</h2>
             <p style={{ fontSize: 15, color: T.muted, marginTop: 6 }}>Latest SafeAI articles from Marcela on AI risks, EU AI Act obligations and plain-English compliance for Irish organisations.</p>
           </div>
-          <a href={blogUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: T.teal, fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
+          <a href={blogUrl} style={{ fontSize: 14, color: T.teal, fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
             View all articles <Icon.Arrow size={14} color={T.teal} />
           </a>
         </div>
 
         {/* Featured post */}
-        <a href={featured.url} target="_blank" rel="noopener noreferrer" className="sa-card blog-card" style={{ display: 'grid', gridTemplateColumns: '1fr 260px', gap: 32, marginBottom: 20, padding: '28px 32px', alignItems: 'center', textDecoration: 'none' }}>
+        <a href={featured.url} className="sa-card blog-card" style={{ display: 'grid', gridTemplateColumns: '1fr 260px', gap: 32, marginBottom: 20, padding: '28px 32px', alignItems: 'center', textDecoration: 'none' }}>
           <div>
             <span className="sa-tag sa-tag-teal" style={{ marginBottom: 12, display: 'inline-block' }}>{featured.cat}</span>
             <h3 style={{ fontSize: 20, fontWeight: 700, color: T.charcoal, marginBottom: 10, lineHeight: 1.4 }}>{featured.title}</h3>
@@ -766,7 +766,7 @@ function BlogSection() {
             <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: T.muted }}><Icon.Calendar />{fmtDate(featured.date)}</span>
               <span style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: T.muted }}><Icon.Clock />{featured.time} read</span>
-              <span style={{ fontSize: 13, color: T.teal, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>Read on blog.safeai.ie <Icon.Arrow size={12} color={T.teal} /></span>
+              <span style={{ fontSize: 13, color: T.teal, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 5 }}>Read article <Icon.Arrow size={12} color={T.teal} /></span>
             </div>
           </div>
           <div style={{
@@ -777,13 +777,13 @@ function BlogSection() {
           }}>
             <span style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.14em', opacity: 0.74 }}>Latest article</span>
             <span style={{ fontSize: 28, fontWeight: 700, lineHeight: 1.1 }}>Safe<span style={{ color: '#8FE3ED' }}>AI</span> Blog</span>
-            <span style={{ fontSize: 12, opacity: 0.78 }}>External blog ↗</span>
+            <span style={{ fontSize: 12, opacity: 0.78 }}>safeai.ie/blog</span>
           </div>
         </a>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
           {rest.map((p, i) => (
-            <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" className="sa-card blog-card" style={{ padding: '20px 22px', textDecoration: 'none' }}>
+            <a key={i} href={p.url} className="sa-card blog-card" style={{ padding: '20px 22px', textDecoration: 'none' }}>
               <span className="sa-tag sa-tag-teal" style={{ marginBottom: 10, display: 'inline-block' }}>{p.cat}</span>
               <h3 style={{ fontSize: 15, fontWeight: 700, color: T.charcoal, lineHeight: 1.5, marginBottom: 8 }}>{p.title}</h3>
               <p style={{ fontSize: 12, color: T.muted, lineHeight: 1.6, marginBottom: 14 }}>{p.excerpt}</p>
@@ -923,6 +923,7 @@ function Footer() {
     { label: 'Free Tools', href: '#free-tools' },
     { label: 'Guides', href: '#guides' },
     { label: 'Blog', href: '#blog' },
+    { label: 'Blog', href: 'blog.html' },
     { label: 'About', href: '#about' },
     { label: 'FAQ', href: 'faq.html' },
     { label: 'Why Train?', href: 'why-train.html' },

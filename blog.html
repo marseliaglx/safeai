@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — SafeAI Ireland</title>
+  <meta name="description" content="Practical AI awareness articles from Marcela at SafeAI — covering the EU AI Act, AI risks, and safe AI use for Irish businesses, schools and community organisations." />
+  <link rel="canonical" href="https://safeai.ie/blog.html" />
+  <link rel="icon" type="image/png" href="safeai-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; color: #3D4F5C; background: #fff; }
+    a { color: #1B9AAA; text-decoration: none; }
+    a:hover { color: #147a87; }
+    img { max-width: 100%; display: block; }
+
+    :root {
+      --teal: #1B9AAA;
+      --navy: #0D1F2D;
+      --charcoal: #1E2D3D;
+      --ink: #3D4F5C;
+      --muted: #6B7A87;
+      --cream: #F7F9FB;
+      --white: #FFFFFF;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e8edf2;
+      padding: 0 24px;
+    }
+    .header-inner {
+      max-width: 1060px; margin: 0 auto;
+      min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .header-logo { display: flex; align-items: center; text-decoration: none; }
+    .header-logo img { height: 46px; width: auto; }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .nav-link {
+      font-size: 13px; font-weight: 500; color: var(--ink);
+      padding: 8px 12px; border-radius: 6px; text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-link:hover { background: var(--cream); color: var(--teal); }
+    .nav-cta {
+      display: inline-flex; align-items: center;
+      background: var(--teal); color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;
+      padding: 10px 18px; border-radius: 6px; text-decoration: none;
+      transition: opacity 0.15s; margin-left: 8px;
+    }
+    .nav-cta:hover { opacity: 0.88; color: #fff; }
+    @media (max-width: 640px) {
+      .header-nav .nav-link { display: none; }
+    }
+
+    /* ── Hero / list header ── */
+    .blog-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a4f 60%, var(--teal) 100%);
+      padding: 56px 24px 48px; text-align: center;
+    }
+    .blog-hero-eyebrow {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(143,227,237,0.9); margin-bottom: 14px;
+    }
+    .blog-hero h1 {
+      font-size: clamp(26px, 4vw, 42px); font-weight: 700; color: #fff;
+      line-height: 1.2; margin-bottom: 12px;
+    }
+    .blog-hero p {
+      font-size: 15px; color: rgba(255,255,255,0.72);
+      max-width: 520px; margin: 0 auto; line-height: 1.7;
+    }
+
+    /* ── Post article header (shown when reading a post) ── */
+    .post-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a4f 100%);
+      padding: 48px 24px 40px;
+    }
+    .post-hero-inner { max-width: 760px; margin: 0 auto; }
+    .post-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: rgba(255,255,255,0.6);
+      margin-bottom: 24px; cursor: pointer; border: none;
+      background: none; font-family: 'Poppins', sans-serif;
+      transition: color 0.15s; padding: 0;
+    }
+    .post-back:hover { color: #fff; }
+    .post-tag {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: rgba(27,154,170,0.3); color: #7fe8f5;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .post-hero h1 {
+      font-size: clamp(22px, 3.5vw, 38px); font-weight: 700; color: #fff;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .post-meta {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      font-size: 12px; color: rgba(255,255,255,0.5);
+    }
+
+    /* ── Main wrapper ── */
+    .page-body { max-width: 1060px; margin: 0 auto; padding: 48px 24px 80px; }
+    .post-body { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    /* ── Post grid ── */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .post-card {
+      background: #fff; border: 1px solid #e0e8ef; border-radius: 12px;
+      overflow: hidden; cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .post-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-2px); }
+    .post-card-cover {
+      height: 180px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+      position: relative; overflow: hidden;
+    }
+    .post-card-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .post-card-cover-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .post-card-cover-placeholder svg { opacity: 0.2; }
+    .post-card-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+    .post-card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .post-card-tag {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      background: rgba(27,154,170,0.1); color: var(--teal);
+      padding: 3px 9px; border-radius: 4px;
+    }
+    .post-card h2 {
+      font-size: 16px; font-weight: 700; color: var(--charcoal);
+      line-height: 1.4; margin-bottom: 8px;
+    }
+    .post-card p {
+      font-size: 13px; color: var(--muted); line-height: 1.7;
+      flex: 1; margin-bottom: 16px;
+    }
+    .post-card-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 11px; color: var(--muted); border-top: 1px solid #f0f4f7;
+      padding-top: 12px; margin-top: auto;
+    }
+    .post-card-read {
+      font-size: 13px; font-weight: 600; color: var(--teal);
+    }
+
+    /* ── Article content ── */
+    .article-content { font-size: 16px; line-height: 1.9; color: var(--ink); }
+    .article-content h1,
+    .article-content h2 { font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; color: var(--charcoal); margin: 40px 0 16px; line-height: 1.3; }
+    .article-content h3 { font-size: 18px; font-weight: 700; color: var(--charcoal); margin: 32px 0 12px; }
+    .article-content h4 { font-size: 16px; font-weight: 600; color: var(--charcoal); margin: 24px 0 8px; }
+    .article-content p { margin-bottom: 20px; }
+    .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 20px; }
+    .article-content li { margin-bottom: 8px; }
+    .article-content strong { color: var(--charcoal); font-weight: 600; }
+    .article-content a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
+    .article-content a:hover { color: #147a87; }
+    .article-content blockquote {
+      border-left: 4px solid var(--teal); margin: 28px 0;
+      padding: 16px 24px; background: var(--cream); border-radius: 0 8px 8px 0;
+      font-style: italic; color: var(--charcoal);
+    }
+    .article-content img {
+      border-radius: 10px; margin: 28px 0; max-width: 100%;
+    }
+    .article-content pre {
+      background: #1e2d3d; color: #e2e8f0; padding: 20px 24px;
+      border-radius: 8px; overflow-x: auto; margin-bottom: 20px;
+      font-size: 14px; line-height: 1.6;
+    }
+    .article-content code {
+      background: rgba(27,154,170,0.1); color: var(--teal);
+      padding: 2px 6px; border-radius: 4px; font-size: 0.9em;
+    }
+    .article-content pre code { background: none; color: inherit; padding: 0; }
+    .article-content hr { border: none; border-top: 1px solid #e8edf2; margin: 36px 0; }
+    .article-content table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 14px; }
+    .article-content th { background: var(--cream); font-weight: 600; color: var(--charcoal); padding: 10px 14px; border: 1px solid #e0e8ef; text-align: left; }
+    .article-content td { padding: 10px 14px; border: 1px solid #e0e8ef; }
+
+    /* ── Loading / error ── */
+    .state-block {
+      text-align: center; padding: 80px 24px;
+    }
+    .state-block p { font-size: 15px; color: var(--muted); margin-top: 12px; }
+    .spinner {
+      width: 36px; height: 36px; margin: 0 auto;
+      border: 3px solid #e0e8ef; border-top-color: var(--teal);
+      border-radius: 50%; animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Post CTA box ── */
+    .post-cta {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a4f 100%);
+      border-radius: 14px; padding: 36px 32px; margin: 48px 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .post-cta h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .post-cta p { font-size: 14px; color: rgba(255,255,255,0.68); }
+    .post-cta a {
+      display: inline-flex; align-items: center;
+      background: var(--teal); color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      padding: 13px 22px; border-radius: 8px; text-decoration: none;
+      white-space: nowrap; flex-shrink: 0; transition: opacity 0.15s;
+    }
+    .post-cta a:hover { opacity: 0.88; color: #fff; }
+
+    /* ── Footer ── */
+    .site-footer { background: var(--navy); padding: 28px 24px; margin-top: 0; }
+    .footer-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: #fff; }
+
+    @media (max-width: 560px) {
+      .posts-grid { grid-template-columns: 1fr; }
+      .post-cta { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="header-logo">
+      <img src="safeai-logo.svg" alt="SafeAI" />
+    </a>
+    <nav class="header-nav">
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="index.html#free-tools" class="nav-link">Free Tools</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="why-train.html" class="nav-link">Why Train?</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#booking" class="nav-cta">Book a Call</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Dynamic content injected here ── -->
+<div id="app"></div>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2026 SafeAI &nbsp;&middot;&nbsp; General information, not legal advice.</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="faq.html">FAQ</a>
+      <a href="why-train.html">Why Train?</a>
+      <a href="index.html#services">Services</a>
+      <a href="mailto:marcela@safeai.ie">marcela@safeai.ie</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var HOST = 'blog.safeai.ie';
+  var API  = 'https://gql.hashnode.com/';
+  var app  = document.getElementById('app');
+
+  /* ── Helpers ── */
+  function fmtDate(str) {
+    return new Date(str).toLocaleDateString('en-IE', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  function getSlug() {
+    return new URLSearchParams(window.location.search).get('slug');
+  }
+
+  function gql(query, variables) {
+    return fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: query, variables: variables })
+    }).then(function(r) { return r.json(); });
+  }
+
+  /* ── Placeholder cover SVG ── */
+  function placeholderCover() {
+    return '<div class="post-card-cover-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>';
+  }
+
+  /* ────────────────────────────────
+     LIST VIEW
+  ──────────────────────────────── */
+  function showList() {
+    document.title = 'Blog — SafeAI Ireland';
+    app.innerHTML =
+      '<div class="blog-hero">' +
+        '<span class="blog-hero-eyebrow">SafeAI Blog</span>' +
+        '<h1>Practical AI awareness for Irish organisations</h1>' +
+        '<p>Plain-English articles on the EU AI Act, AI risks, and safe AI use — written by Marcela.</p>' +
+      '</div>' +
+      '<div class="page-body"><div id="posts-area"><div class="state-block"><div class="spinner"></div><p>Loading articles…</p></div></div></div>';
+
+    var postsQ = 'query($host:String!){publication(host:$host){posts(first:20){edges{node{title slug brief publishedAt readTimeInMinutes coverImage{url} tags{name}}}}}}';
+
+    gql(postsQ, { host: HOST }).then(function(res) {
+      var area = document.getElementById('posts-area');
+      if (!area) return;
+
+      var pub = res && res.data && res.data.publication;
+      if (!pub) {
+        area.innerHTML = '<div class="state-block"><p>Could not load articles. <a href="https://blog.safeai.ie" target="_blank" rel="noopener">Visit blog.safeai.ie directly &rarr;</a></p></div>';
+        return;
+      }
+
+      var edges = pub.posts.edges;
+      if (!edges.length) {
+        area.innerHTML = '<div class="state-block"><p>No articles yet — check back soon.</p></div>';
+        return;
+      }
+
+      var html = '<div class="posts-grid">';
+      edges.forEach(function(e) {
+        var p = e.node;
+        var slug = p.slug;
+        var cover = p.coverImage && p.coverImage.url
+          ? '<img src="' + p.coverImage.url + '" alt="" loading="lazy" />'
+          : placeholderCover();
+        var tags = (p.tags || []).slice(0, 2).map(function(t) {
+          return '<span class="post-card-tag">' + t.name + '</span>';
+        }).join('');
+
+        html +=
+          '<article class="post-card" onclick="openPost(\'' + slug + '\')">' +
+            '<div class="post-card-cover">' + cover + '</div>' +
+            '<div class="post-card-body">' +
+              (tags ? '<div class="post-card-tags">' + tags + '</div>' : '') +
+              '<h2>' + p.title + '</h2>' +
+              '<p>' + (p.brief || '') + '</p>' +
+              '<div class="post-card-footer">' +
+                '<span>' + fmtDate(p.publishedAt) + (p.readTimeInMinutes ? ' &middot; ' + p.readTimeInMinutes + ' min read' : '') + '</span>' +
+                '<span class="post-card-read">Read &rarr;</span>' +
+              '</div>' +
+            '</div>' +
+          '</article>';
+      });
+      html += '</div>';
+      area.innerHTML = html;
+    }).catch(function() {
+      var area = document.getElementById('posts-area');
+      if (area) area.innerHTML = '<div class="state-block"><p>Could not load articles. <a href="https://blog.safeai.ie" target="_blank" rel="noopener">Visit blog.safeai.ie directly &rarr;</a></p></div>';
+    });
+  }
+
+  /* ────────────────────────────────
+     SINGLE POST VIEW
+  ──────────────────────────────── */
+  function showPost(slug) {
+    app.innerHTML =
+      '<div class="state-block" style="padding:60px 24px"><div class="spinner"></div><p>Loading article…</p></div>';
+
+    var postQ = 'query($host:String!,$slug:String!){publication(host:$host){post(slug:$slug){title publishedAt readTimeInMinutes coverImage{url} tags{name} content{html} author{name}}}}';
+
+    gql(postQ, { host: HOST, slug: slug }).then(function(res) {
+      var post = res && res.data && res.data.publication && res.data.publication.post;
+      if (!post) {
+        app.innerHTML = '<div class="state-block"><p>Article not found. <button class="post-back" onclick="goBack()">&#8592; Back to blog</button></p></div>';
+        return;
+      }
+
+      document.title = post.title + ' — SafeAI Ireland';
+
+      var cover = post.coverImage && post.coverImage.url
+        ? '<img src="' + post.coverImage.url + '" alt="" style="width:100%;max-height:420px;object-fit:cover;border-radius:12px;margin-bottom:36px;" />'
+        : '';
+
+      var tags = (post.tags || []).slice(0, 3).map(function(t) {
+        return '<span class="post-tag">' + t.name + '</span>';
+      }).join(' ');
+
+      app.innerHTML =
+        '<div class="post-hero">' +
+          '<div class="post-hero-inner">' +
+            '<button class="post-back" onclick="goBack()">&#8592; Back to all articles</button>' +
+            (tags ? '<div style="margin-bottom:8px">' + tags + '</div>' : '') +
+            '<h1>' + post.title + '</h1>' +
+            '<div class="post-meta">' +
+              '<span>' + fmtDate(post.publishedAt) + '</span>' +
+              (post.readTimeInMinutes ? '<span>' + post.readTimeInMinutes + ' min read</span>' : '') +
+              (post.author ? '<span>By ' + post.author.name + '</span>' : '') +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="post-body">' +
+          cover +
+          '<div class="article-content">' + (post.content && post.content.html || '') + '</div>' +
+          '<div class="post-cta">' +
+            '<div>' +
+              '<h3>Found this useful?</h3>' +
+              '<p>SafeAI runs practical AI awareness workshops for Irish businesses, schools, and community organisations.</p>' +
+            '</div>' +
+            '<a href="index.html#booking">Book a Call with Marcela</a>' +
+          '</div>' +
+          '<p style="text-align:center;margin-top:8px"><button class="post-back" onclick="goBack()" style="font-size:14px;color:var(--teal);font-weight:600">&#8592; All articles</button></p>' +
+        '</div>';
+    }).catch(function() {
+      app.innerHTML = '<div class="state-block"><p>Could not load this article. <a href="https://blog.safeai.ie/' + slug + '" target="_blank" rel="noopener">Read it on blog.safeai.ie &rarr;</a></p></div>';
+    });
+  }
+
+  /* ────────────────────────────────
+     NAVIGATION
+  ──────────────────────────────── */
+  function openPost(slug) {
+    history.pushState({ slug: slug }, '', 'blog.html?slug=' + slug);
+    window.scrollTo(0, 0);
+    showPost(slug);
+  }
+
+  function goBack() {
+    history.pushState({}, '', 'blog.html');
+    window.scrollTo(0, 0);
+    showList();
+  }
+
+  window.addEventListener('popstate', function() {
+    var slug = getSlug();
+    slug ? showPost(slug) : showList();
+  });
+
+  /* ── Boot ── */
+  var slug = getSlug();
+  slug ? showPost(slug) : showList();
+</script>
+</body>
+</html>

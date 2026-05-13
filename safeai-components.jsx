@@ -722,7 +722,7 @@ function BlogSection() {
   const blogUrl = 'blog.html';
   const posts = [
     {
-      url: 'blog.html?slug=the-real-risks-of-using-ai-blindly-a-wake-up-call-for-irish-small-businesses',
+      url: 'posts/the-real-risks-of-using-ai-blindly-a-wake-up-call-for-irish-small-businesses.html',
       cat: 'AI Risk',
       title: 'The real risks of using AI blindly: A wake-up call for Irish small businesses',
       excerpt: 'AI can draft emails, design graphics and answer customer queries — but unchecked use creates real risks around hallucinations, privacy, transparency, bias and brand trust.',
@@ -731,7 +731,7 @@ function BlogSection() {
       featured: true,
     },
     {
-      url: 'blog.html?slug=the-eu-ai-act-what-every-irish-small-business-needs-to-know-without-the-legal-jargon',
+      url: 'posts/the-eu-ai-act-what-every-irish-small-business-needs-to-know-without-the-legal-jargon.html',
       cat: 'EU AI Act',
       title: 'The EU AI Act: what every Irish small business needs to know (without the legal jargon)',
       excerpt: 'A practical explanation of how everyday AI use can create obligations for Irish businesses, schools and organisations — and the simple steps to take now.',

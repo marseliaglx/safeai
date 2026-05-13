@@ -293,11 +293,9 @@
   }
 
   function gql(query, variables) {
-    return fetch(API, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query: query, variables: variables })
-    }).then(function(r) { return r.json(); });
+    var slug = variables && variables.slug;
+    var url = slug ? '/api/blog?slug=' + encodeURIComponent(slug) : '/api/blog';
+    return fetch(url).then(function(r) { return r.json(); });
   }
 
   /* ── Placeholder cover SVG ── */

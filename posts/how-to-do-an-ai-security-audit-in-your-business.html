@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Do an AI Security Audit in Your Business (Without Hiring a Consultant) — SafeAI Ireland</title>
+  <meta name="description" content="A four-part framework for finding out which AI tools your team is really using, what data is flowing through them, and what to do about it." />
+  <link rel="canonical" href="https://safeai.ie/posts/how-to-do-an-ai-security-audit-in-your-business.html" />
+  <link rel="icon" type="image/png" href="../safeai-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Do an AI Security Audit in Your Business (Without Hiring a Consultant)",
+    "description": "A four-part framework for finding out which AI tools your team is really using, what data is flowing through them, and what to do about it.",
+    "datePublished": "2026-05-14",
+    "author": { "@type": "Person", "name": "Marcela", "url": "https://safeai.ie" },
+    "publisher": { "@type": "Organization", "name": "SafeAI", "url": "https://safeai.ie" }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; color: #3D4F5C; background: #fff; }
+    a { color: #1B9AAA; text-decoration: none; }
+    a:hover { color: #147a87; }
+
+    /* ── Header ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e8edf2; padding: 0 24px;
+    }
+    .header-inner {
+      max-width: 1060px; margin: 0 auto;
+      min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .header-logo img { height: 46px; width: auto; display: block; }
+    .header-nav { display: flex; align-items: center; gap: 4px; }
+    .nav-link {
+      font-size: 13px; font-weight: 500; color: #3D4F5C;
+      padding: 8px 12px; border-radius: 6px; transition: background 0.15s, color 0.15s;
+    }
+    .nav-link:hover { background: #F7F9FB; color: #1B9AAA; }
+    .nav-cta {
+      background: #1B9AAA; color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;
+      padding: 10px 18px; border-radius: 6px; margin-left: 8px;
+      transition: opacity 0.15s; display: inline-flex; align-items: center;
+    }
+    .nav-cta:hover { opacity: 0.88; color: #fff; }
+    @media (max-width: 640px) { .header-nav .nav-link { display: none; } }
+
+    /* ── Post hero ── */
+    .post-hero {
+      background: linear-gradient(135deg, #0D1F2D 0%, #1a3a4f 100%);
+      padding: 48px 24px 40px;
+    }
+    .post-hero-inner { max-width: 760px; margin: 0 auto; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: rgba(255,255,255,0.55);
+      margin-bottom: 24px; transition: color 0.15s;
+    }
+    .back-link:hover { color: #fff; }
+    .post-tag {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: rgba(27,154,170,0.3); color: #7fe8f5;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .post-hero h1 {
+      font-size: clamp(22px, 3.5vw, 38px); font-weight: 700; color: #fff;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .post-meta { display: flex; gap: 20px; flex-wrap: wrap; font-size: 12px; color: rgba(255,255,255,0.5); }
+
+    /* ── Article body ── */
+    .post-body { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+    .article-content { font-size: 16px; line-height: 1.9; color: #3D4F5C; }
+    .article-content h2 { font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: #1E2D3D; margin: 40px 0 14px; line-height: 1.3; }
+    .article-content h3 { font-size: 18px; font-weight: 700; color: #1E2D3D; margin: 32px 0 10px; }
+    .article-content p { margin-bottom: 20px; }
+    .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 20px; }
+    .article-content li { margin-bottom: 8px; }
+    .article-content strong { color: #1E2D3D; font-weight: 600; }
+    .article-content a { color: #1B9AAA; text-decoration: underline; text-underline-offset: 3px; }
+    .article-content blockquote {
+      border-left: 4px solid #1B9AAA; margin: 28px 0;
+      padding: 16px 24px; background: #F7F9FB; border-radius: 0 8px 8px 0;
+      font-style: italic; color: #1E2D3D;
+    }
+    .article-content img { border-radius: 10px; margin: 28px 0; max-width: 100%; }
+    .article-content hr { border: none; border-top: 1px solid #e8edf2; margin: 36px 0; }
+
+    /* ── CTA box ── */
+    .post-cta {
+      background: linear-gradient(135deg, #0D1F2D 0%, #1a3a4f 100%);
+      border-radius: 14px; padding: 36px 32px; margin: 48px 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .post-cta h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .post-cta p { font-size: 14px; color: rgba(255,255,255,0.68); }
+    .post-cta a {
+      display: inline-flex; align-items: center;
+      background: #1B9AAA; color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      padding: 13px 22px; border-radius: 8px;
+      white-space: nowrap; flex-shrink: 0; transition: opacity 0.15s;
+    }
+    .post-cta a:hover { opacity: 0.88; color: #fff; }
+
+    /* ── Footer ── */
+    .site-footer { background: #0D1F2D; padding: 28px 24px; }
+    .footer-inner { max-width: 1060px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.5); transition: color 0.15s; }
+    .footer-links a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html"><img src="../safeai-logo.svg" alt="SafeAI" style="height:46px;width:auto;display:block;" /></a>
+    <nav class="header-nav">
+      <a href="../index.html#services" class="nav-link">Services</a>
+      <a href="../index.html#free-tools" class="nav-link">Free Tools</a>
+      <a href="../faq.html" class="nav-link">FAQ</a>
+      <a href="../why-train.html" class="nav-link">Why Train?</a>
+      <a href="../index.html#about" class="nav-link">About</a>
+      <a href="../index.html#booking" class="nav-cta">Book a Call</a>
+    </nav>
+  </div>
+</header>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <a href="../blog.html" class="back-link">&#8592; All articles</a>
+    <div><span class="post-tag">Getting Organised</span></div>
+    <h1>How to Do an AI Security Audit in Your Business (Without Hiring a Consultant)</h1>
+    <div class="post-meta">
+      <span>14 May 2026</span>
+      <span>5 min read</span>
+      <span>By Marcela</span>
+    </div>
+  </div>
+</div>
+
+<div class="post-body">
+  <article class="article-content">
+
+    <p>Your team member just used a free AI tool to summarise the notes from a meeting with a key client. Saved themselves twenty minutes. Felt efficient. Felt modern.</p>
+
+    <p>What they may not have realised: the notes — including the client's name, the commercial terms being discussed, and your internal strategy — may now be sitting on servers in the United States, processed under terms of service that permit training future AI models on user inputs. No malicious intent. No awareness that anything unusual happened. Just a useful shortcut with an invisible cost.</p>
+
+    <p>This is the most common AI security problem in small Irish businesses right now. Not dramatic hacks or sophisticated attacks. Just well-meaning people using convenient tools without knowing where the data goes.</p>
+
+    <p>An AI security audit is how you find out how much of this is already happening, and what to do about it.</p>
+
+    <hr />
+
+    <h2>What an AI audit actually is</h2>
+
+    <p>It is not a technical inspection of whether your tools are working. It is a structured look at four things: what tools your team is using, what data is flowing through those tools, whether your current practices are legally sound, and whether your people actually know what they should and should not be doing.</p>
+
+    <p>A useful analogy: getting a smart home system installed in a house without first checking whether the wiring, the locks, and the plumbing are up to it. The new technology might be excellent. The foundations might not support it. An AI audit checks the foundations.</p>
+
+    <p>Most businesses that go through this process for the first time discover that it doubles as the first serious review of their data practices and internal policies in years. That is not a criticism — it is just the reality of how fast AI has arrived and how slowly most internal governance catches up.</p>
+
+    <hr />
+
+    <h2>The four-part framework</h2>
+
+    <h3>Part 1: Tool audit — what is your team actually using?</h3>
+
+    <p>This is almost always more interesting than expected. You probably know about the AI tools you have officially licensed or approved. The question is what else is in use.</p>
+
+    <p>Shadow AI — tools employees have started using independently, without any formal approval — is extremely common. It is not a sign of bad intent; it is a sign that people are trying to work efficiently and the official toolkit has not kept up. But it does create exposure.</p>
+
+    <p>Start by asking your team, anonymously, a single question: what AI tools — free or paid — have you used for work purposes in the last month? The answers will tell you where you actually are, rather than where you assume you are.</p>
+
+    <p>The next step is understanding what the approved tools actually do with data. There is a significant difference between a closed enterprise environment (like Microsoft Copilot integrated with your existing Microsoft 365 subscription, where your data stays within your tenant) and a free public tool where the data may be used to train future models. Your team needs to know which category each tool falls into.</p>
+
+    <h3>Part 2: Data audit — what are you putting into these tools?</h3>
+
+    <p>Once you know which tools are in use, the question becomes: what data is flowing through them?</p>
+
+    <p>Classify what your business handles according to sensitivity. At the top end: personal data covered by GDPR, client confidential information, financial records, commercial strategy, anything covered by professional privilege or contractual confidentiality. In the middle: internal operational data that is not personally sensitive but is commercially sensitive. At the lower end: genuinely generic content where there is no meaningful risk.</p>
+
+    <p>The audit question is: are the higher-sensitivity categories going into tools that are not appropriate for them? This often happens unconsciously — someone pastes a paragraph from a client report to ask an AI to improve the phrasing, without stopping to think about the content of that paragraph.</p>
+
+    <p>GDPR is particularly relevant here. Sending personal data about EU residents to a service hosted in the US requires either that the service has appropriate data processing agreements in place, or that you have another lawful basis for the transfer. Most free tools do not satisfy this requirement. Most people using them do not know this.</p>
+
+    <h3>Part 3: Legal audit — what do the rules actually require?</h3>
+
+    <p>The EU AI Act, which is already partially in force, requires that organisations using AI ensure their staff have sufficient AI literacy, understand the risk classification of the systems they are using, and have appropriate governance in place. These are not future obligations — parts of them are live now.</p>
+
+    <p>GDPR applies to any AI processing that involves personal data, which covers a huge proportion of everyday business AI use.</p>
+
+    <p>The practical question for a small business is: do you have any written policies governing AI use, and if so, do they actually reflect what your team is doing? If the answer to either part is no, that is where the legal audit begins. It does not require a solicitor to fix the basics — it requires someone to write down the rules and communicate them clearly.</p>
+
+    <p>The moment when you most need written policies is not after a problem occurs. It is before one, when the documentation can demonstrate that your organisation acted with reasonable diligence.</p>
+
+    <h3>Part 4: People audit — does your team actually know the rules?</h3>
+
+    <p>Policies that exist but have never been communicated are not policies. They are documents.</p>
+
+    <p>The people audit is a check on whether the humans in your organisation understand the practical difference between safe and unsafe AI use — not in theory, but in the actual situations they encounter in their daily work.</p>
+
+    <p>A useful exercise: take a real but anonymised piece of work content — a paragraph from a report, a section of a client brief, a draft of an internal document — and ask your team whether it would be appropriate to paste that into a free public AI tool. Then discuss the reasoning.</p>
+
+    <p>This is not a test with right and wrong answers written on a marking scheme. It is a conversation that surfaces assumptions, fills gaps, and builds the kind of practical judgment that written policies alone cannot create.</p>
+
+    <p>If your team cannot articulate why some data should not go into certain tools, no policy will reliably prevent it from happening.</p>
+
+    <hr />
+
+    <h2>Three things you can do this week</h2>
+
+    <p><strong>Send one question to your whole team.</strong> "What AI tools — free or paid — have you used for work purposes in the last month?" Make it anonymous. Look at the results before deciding what to do with them.</p>
+
+    <p><strong>Have a thirty-minute conversation with whoever handles your legal or compliance questions.</strong> Ask one thing: do we have written guidelines on using public AI tools, and are they current? No clear answer means the answer is no.</p>
+
+    <p><strong>Run the newspaper test at your next team meeting.</strong> Take a real, anonymised piece of your typical work output. Ask: would we be comfortable if this content appeared in the news tomorrow alongside the name of the AI tool we put it into? The reactions in the room will tell you more than a questionnaire.</p>
+
+    <hr />
+
+    <h2>This is not bureaucracy. It is risk management.</h2>
+
+    <p>The businesses that find AI regulation hardest are not the ones that tried and fell slightly short. They are the ones that never stopped to check what was actually happening inside their own four walls.</p>
+
+    <p>An AI security audit is not a large project. Done well, it is a focused two or three hours with the right people, a short list of honest questions, and the willingness to act on the answers. Most of the gaps it uncovers are straightforward to close — a written policy, a list of approved tools, a clear rule about what data stays out of public AI systems.</p>
+
+    <p>The cost of the audit is an afternoon. The cost of not doing one tends to be considerably higher.</p>
+
+    <hr />
+
+    <p><em>If you want a structured way to work through this, the AI Acceptable Use Policy guide and the 7-Step AI Ethics Checklist on <a href="../index.html#free-tools">safeai.ie</a> are good starting points. Or <a href="../index.html#booking">book a call</a> — we can walk through the four areas with you and tell you where you actually stand.</em></p>
+
+  </article>
+
+  <div class="post-cta">
+    <div>
+      <h3>Found this useful?</h3>
+      <p>SafeAI runs practical AI awareness workshops for Irish businesses, schools, and community organisations.</p>
+    </div>
+    <a href="../index.html#booking">Book a Call with Marcela</a>
+  </div>
+
+  <p style="text-align:center;margin-top:8px;">
+    <a href="../blog.html" style="font-size:14px;font-weight:600;color:#1B9AAA;">&#8592; All articles</a>
+  </p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2026 SafeAI &nbsp;&middot;&nbsp; General information, not legal advice.</span>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../why-train.html">Why Train?</a>
+      <a href="mailto:marcela@safeai.ie">marcela@safeai.ie</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

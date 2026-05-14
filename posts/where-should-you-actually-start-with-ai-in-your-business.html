@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where Should You Actually Start With AI in Your Business? — SafeAI Ireland</title>
+  <meta name="description" content="The instinct is to start with whatever feels most exciting. That instinct produces a lot of failed AI projects. Here is a better approach." />
+  <link rel="canonical" href="https://safeai.ie/posts/where-should-you-actually-start-with-ai-in-your-business.html" />
+  <link rel="icon" type="image/png" href="../safeai-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Where Should You Actually Start With AI in Your Business?",
+    "description": "The instinct is to start with whatever feels most exciting. That instinct produces a lot of failed AI projects. Here is a better approach.",
+    "datePublished": "2026-05-14",
+    "author": { "@type": "Person", "name": "Marcela", "url": "https://safeai.ie" },
+    "publisher": { "@type": "Organization", "name": "SafeAI", "url": "https://safeai.ie" }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; color: #3D4F5C; background: #fff; }
+    a { color: #1B9AAA; text-decoration: none; }
+    a:hover { color: #147a87; }
+
+    /* ── Header ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e8edf2; padding: 0 24px;
+    }
+    .header-inner {
+      max-width: 1060px; margin: 0 auto;
+      min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .header-logo img { height: 46px; width: auto; display: block; }
+    .header-nav { display: flex; align-items: center; gap: 4px; }
+    .nav-link {
+      font-size: 13px; font-weight: 500; color: #3D4F5C;
+      padding: 8px 12px; border-radius: 6px; transition: background 0.15s, color 0.15s;
+    }
+    .nav-link:hover { background: #F7F9FB; color: #1B9AAA; }
+    .nav-cta {
+      background: #1B9AAA; color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;
+      padding: 10px 18px; border-radius: 6px; margin-left: 8px;
+      transition: opacity 0.15s; display: inline-flex; align-items: center;
+    }
+    .nav-cta:hover { opacity: 0.88; color: #fff; }
+    @media (max-width: 640px) { .header-nav .nav-link { display: none; } }
+
+    /* ── Post hero ── */
+    .post-hero {
+      background: linear-gradient(135deg, #0D1F2D 0%, #1a3a4f 100%);
+      padding: 48px 24px 40px;
+    }
+    .post-hero-inner { max-width: 760px; margin: 0 auto; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: rgba(255,255,255,0.55);
+      margin-bottom: 24px; transition: color 0.15s;
+    }
+    .back-link:hover { color: #fff; }
+    .post-tag {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: rgba(27,154,170,0.3); color: #7fe8f5;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .post-hero h1 {
+      font-size: clamp(22px, 3.5vw, 38px); font-weight: 700; color: #fff;
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .post-meta { display: flex; gap: 20px; flex-wrap: wrap; font-size: 12px; color: rgba(255,255,255,0.5); }
+
+    /* ── Article body ── */
+    .post-body { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+    .article-content { font-size: 16px; line-height: 1.9; color: #3D4F5C; }
+    .article-content h2 { font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: #1E2D3D; margin: 40px 0 14px; line-height: 1.3; }
+    .article-content h3 { font-size: 18px; font-weight: 700; color: #1E2D3D; margin: 32px 0 10px; }
+    .article-content p { margin-bottom: 20px; }
+    .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 20px; }
+    .article-content li { margin-bottom: 8px; }
+    .article-content strong { color: #1E2D3D; font-weight: 600; }
+    .article-content a { color: #1B9AAA; text-decoration: underline; text-underline-offset: 3px; }
+    .article-content blockquote {
+      border-left: 4px solid #1B9AAA; margin: 28px 0;
+      padding: 16px 24px; background: #F7F9FB; border-radius: 0 8px 8px 0;
+      font-style: italic; color: #1E2D3D;
+    }
+    .article-content img { border-radius: 10px; margin: 28px 0; max-width: 100%; }
+    .article-content hr { border: none; border-top: 1px solid #e8edf2; margin: 36px 0; }
+
+    /* ── CTA box ── */
+    .post-cta {
+      background: linear-gradient(135deg, #0D1F2D 0%, #1a3a4f 100%);
+      border-radius: 14px; padding: 36px 32px; margin: 48px 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .post-cta h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .post-cta p { font-size: 14px; color: rgba(255,255,255,0.68); }
+    .post-cta a {
+      display: inline-flex; align-items: center;
+      background: #1B9AAA; color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      padding: 13px 22px; border-radius: 8px;
+      white-space: nowrap; flex-shrink: 0; transition: opacity 0.15s;
+    }
+    .post-cta a:hover { opacity: 0.88; color: #fff; }
+
+    /* ── Footer ── */
+    .site-footer { background: #0D1F2D; padding: 28px 24px; }
+    .footer-inner { max-width: 1060px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.5); transition: color 0.15s; }
+    .footer-links a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html"><img src="../safeai-logo.svg" alt="SafeAI" style="height:46px;width:auto;display:block;" /></a>
+    <nav class="header-nav">
+      <a href="../index.html#services" class="nav-link">Services</a>
+      <a href="../index.html#free-tools" class="nav-link">Free Tools</a>
+      <a href="../faq.html" class="nav-link">FAQ</a>
+      <a href="../why-train.html" class="nav-link">Why Train?</a>
+      <a href="../index.html#about" class="nav-link">About</a>
+      <a href="../index.html#booking" class="nav-cta">Book a Call</a>
+    </nav>
+  </div>
+</header>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <a href="../blog.html" class="back-link">&#8592; All articles</a>
+    <div><span class="post-tag">Getting Started</span></div>
+    <h1>Where Should You Actually Start With AI in Your Business?</h1>
+    <div class="post-meta">
+      <span>14 May 2026</span>
+      <span>5 min read</span>
+      <span>By Marcela</span>
+    </div>
+  </div>
+</div>
+
+<div class="post-body">
+  <article class="article-content">
+
+    <p>The question most small business owners are actually sitting with is not "should we use AI?" — that decision has been made, whether deliberately or not. The question is: where do we start, and how do we make sure we do not make a mess of it?</p>
+
+    <p>The instinct is usually to start with whatever feels most exciting, or most urgent, or most recently mentioned in a podcast. That instinct produces a lot of failed AI projects. Not because the technology does not work, but because the process chosen was the wrong one to start with.</p>
+
+    <p>There is a better approach. And it is simpler than most AI implementation guides suggest.</p>
+
+    <hr />
+
+    <h2>The goal is not automation — it is eliminating friction</h2>
+
+    <p>Before looking for processes to automate, it helps to reframe what you are actually trying to do. The best AI applications in small businesses are rarely the most ambitious ones. They are the ones that remove the small, persistent frustrations that quietly drain time and energy every single week.</p>
+
+    <p>Think of it this way. You would not build a bridge at the widest point of a river just because it was impressive. You build it where people are actually struggling to cross — where the bank is steep and the water is fast and everyone takes a long way around. Finding those crossings in your business is the first job.</p>
+
+    <p>The good news is that your team already knows where they are.</p>
+
+    <hr />
+
+    <h2>Three signals that a process is ready for AI</h2>
+
+    <p>If a task or process triggers at least two of the following, it is a strong candidate.</p>
+
+    <h3>Signal 1: It happens constantly and it is always the same</h3>
+
+    <p>Tasks that repeat daily or weekly, across multiple people, are the ones where even a small improvement compounds into something significant. If five people spend forty-five minutes every Monday morning doing the same kind of work, and AI can reduce that to ten minutes, you have just recovered meaningful time every single week.</p>
+
+    <p>Common examples in Irish SMEs: summarising meeting notes, drafting first responses to standard customer enquiries, pulling key information from long email threads, formatting regular reports.</p>
+
+    <h3>Signal 2: It involves making sense of a lot of unstructured text</h3>
+
+    <p>AI is genuinely excellent at reading through large amounts of text and extracting what matters. This is one of the things it does better than most humans — faster, without losing focus, without the cognitive fatigue that sets in after page forty of a document.</p>
+
+    <p>Processes that involve reading through customer feedback, reviewing lengthy contracts for specific clauses, synthesising information from multiple reports, or transcribing and summarising calls — these are strong candidates. The work is not intellectually complex, but it is time-consuming and attention-intensive.</p>
+
+    <h3>Signal 3: The knowledge lives in one person's head</h3>
+
+    <p>This one is less obvious but often the most valuable. Most small organisations have at least one process that only works reliably because a specific person knows how to do it. When that person is on holiday, or leaves, the process either stops or degrades.</p>
+
+    <p>AI is a useful tool for documenting, structuring, and scaling that kind of tacit knowledge. The process of working through how to build an AI-assisted version of it often forces the documentation that should have existed years ago.</p>
+
+    <hr />
+
+    <h2>Before you start — the questions Safe AI adds</h2>
+
+    <p>Here is where we part ways slightly from the standard AI implementation advice.</p>
+
+    <p>Once you have identified a process worth improving, there is a second set of questions worth working through before you go any further. Not because the process is wrong — but because how you automate it matters as much as whether you do.</p>
+
+    <p><strong>What data does this process involve?</strong></p>
+
+    <p>If the process touches personal data — client names, employee information, financial details, health records — you have GDPR considerations before you pick a tool. Some AI tools are appropriate for this data. Many free ones are not.</p>
+
+    <p><strong>Who is affected by the outputs?</strong></p>
+
+    <p>If the process produces decisions or recommendations that affect people — hiring, pricing, access to services, performance assessment — the EU AI Act classifies it differently from a process that just summarises internal documents. The higher the stakes for the person affected, the more human oversight you need to build in.</p>
+
+    <p><strong>Are you using the tool the way it was designed to be used?</strong></p>
+
+    <p>This sounds obvious but frequently gets skipped. Repurposing an AI tool for something outside its intended function is both an EU AI Act compliance issue and a practical reliability problem. If you are not certain what a tool was designed for, read the documentation before you build a process on top of it.</p>
+
+    <p>None of these questions are designed to slow you down. They are designed to stop you from having to undo something at an awkward moment.</p>
+
+    <hr />
+
+    <h2>A practical way to start this week</h2>
+
+    <p>Run what some teams call a "frustration workshop" — and it does not need to be a formal event. At your next team meeting, ask one question: "If you could eliminate one repetitive, annoying task from your week, what would it be?"</p>
+
+    <p>Write the answers down. You now have a shortlist.</p>
+
+    <p>Take the top two or three and run them through the three signals above. Pick the one that scores highest. Then run it through the three safety questions. If it clears both filters, you have your starting point.</p>
+
+    <p>Build something small. Get it working. Then expand.</p>
+
+    <p>The organisations that get the most from AI are rarely the ones that planned the biggest transformation. They are the ones that fixed one real problem, learned from it, and kept going.</p>
+
+    <hr />
+
+    <p><em>If you want a structured way to map your AI use and check it against the EU AI Act, the AI Use Inventory and AI Security Audit Self-Assessment Card are both free to download from <a href="../index.html#free-tools">safeai.ie</a>.</em></p>
+
+  </article>
+
+  <div class="post-cta">
+    <div>
+      <h3>Found this useful?</h3>
+      <p>SafeAI runs practical AI awareness workshops for Irish businesses, schools, and community organisations.</p>
+    </div>
+    <a href="../index.html#booking">Book a Call with Marcela</a>
+  </div>
+
+  <p style="text-align:center;margin-top:8px;">
+    <a href="../blog.html" style="font-size:14px;font-weight:600;color:#1B9AAA;">&#8592; All articles</a>
+  </p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2026 SafeAI &nbsp;&middot;&nbsp; General information, not legal advice.</span>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../why-train.html">Why Train?</a>
+      <a href="mailto:marcela@safeai.ie">marcela@safeai.ie</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

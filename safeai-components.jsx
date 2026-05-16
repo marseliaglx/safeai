@@ -199,7 +199,7 @@ function Navbar({ tweaks }) {
     { label: 'Check your risk', href: '#quiz' },
     { label: 'Services', href: '#services' },
     { label: 'Free Tools', href: '#free-tools' },
-    { label: 'Blog', href: '#blog' },
+    { label: 'Knowledge Base', href: 'blog.html' },
     { label: 'About', href: '#about' },
   ];
 
@@ -771,12 +771,11 @@ function BlogSection() {
   ];
 
   return (
-    <section id="blog" style={{ background: T.cream, padding: '80px 24px' }}>
+    <section id="knowledge-base" style={{ background: T.cream, padding: '80px 24px' }}>
       <div style={{ maxWidth: 1020, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <p className="sa-eyebrow">From the Blog</p>
-          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: T.charcoal, marginBottom: 10 }}>Practical AI insights for Irish organisations</h2>
-          <p style={{ fontSize: 15, color: T.muted, maxWidth: 560, margin: '0 auto' }}>Plain-English articles from Marcela on AI risks, EU AI Act obligations, and how to use AI safely at work.</p>
+          <p className="sa-eyebrow">Knowledge Base</p>
+          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 700, color: T.charcoal, marginBottom: 0 }}>Practical AI guides for Irish organisations</h2>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: 20, marginBottom: 40 }}>
@@ -805,7 +804,7 @@ function BlogSection() {
           onMouseOver={e => e.currentTarget.style.opacity = '0.85'}
           onMouseOut={e => e.currentTarget.style.opacity = '1'}
           >
-            Read all articles <Icon.Arrow size={14} color={T.white} />
+            Browse all guides <Icon.Arrow size={14} color={T.white} />
           </a>
         </div>
       </div>
@@ -935,8 +934,7 @@ function Footer() {
     { label: 'Services', href: '#services' },
     { label: 'Free Tools', href: '#free-tools' },
     { label: 'Guides', href: '#guides' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Blog', href: 'blog.html' },
+    { label: 'Knowledge Base', href: 'blog.html' },
     { label: 'About', href: '#about' },
     { label: 'FAQ', href: 'faq.html' },
     { label: 'Why Train?', href: 'why-train.html' },
